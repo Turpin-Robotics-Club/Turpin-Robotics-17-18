@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "C:\\Users\\Patrick\\Documents\\GitHub\\ftc_app-master\\TeamCode\\build\\intermediates\\res\\merged\\debug\\menu\\menu_server.xml",
+        "source": "C:\\Users\\Patrick\\.android\\build-cache\\46f3f8545b1654a4877f3dcdfb59901dd52c2c9c\\output\\res\\menu\\menu_server.xml"
+    },
+    {
+        "merged": "C:\\Users\\Patrick\\Documents\\GitHub\\ftc_app-master\\TeamCode\\build\\intermediates\\res\\merged\\debug\\menu\\ftc_robot_controller.xml",
+        "source": "C:\\Users\\Patrick\\Documents\\GitHub\\ftc_app-master\\FtcRobotController\\build\\intermediates\\bundles\\default\\res\\menu\\ftc_robot_controller.xml"
+    },
+    {
+        "merged": "C:\\Users\\Patrick\\Documents\\GitHub\\ftc_app-master\\TeamCode\\build\\intermediates\\res\\merged\\debug\\menu\\main_menu.xml",
+        "source": "C:\\Users\\Patrick\\.android\\build-cache\\18e6034952d281df53c17455ec6a8fb924dea898\\output\\res\\menu\\main_menu.xml"
+    }
+]
