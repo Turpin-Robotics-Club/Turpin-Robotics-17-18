@@ -18,5 +18,7 @@ public class tester extends LinearOpMode {
         Sensors.gyroDriftRead();
 
         drive.left(20, 1);
+        drive.forward(30,1.5);
+        sleep(10000);
     }
 }
