@@ -14,7 +14,7 @@ import org.firstinspires.ftc.teamcode.utils.Sensors;
 
 @TeleOp(name = "New Mecanum Drive", group = "TeleOp")
 //@Disabled
-public class NewMecanumDrive extends OpMode {
+public class mecanumDrive extends OpMode {
 
 
 
