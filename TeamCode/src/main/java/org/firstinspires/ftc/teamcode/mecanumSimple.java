@@ -15,7 +15,7 @@ import org.firstinspires.ftc.teamcode.utils.Sensors;
  */
 
 @TeleOp(name="New Simple Drive")
-public class NewMecanumSimple extends OpMode{
+public class mecanumSimple extends OpMode{
 
     DcMotor frontleft;
     DcMotor frontright;
