@@ -22,16 +22,9 @@ public class bitBoiTeleOp extends OpMode{
     }
 
     public void loop() {
-        int x =1;
-        int y = 1;
-        if(gamepad1.left_stick_y<0){
-            x=-1;
-        }
-        if(gamepad1.right_stick_y<0){
-            y=-1;
-        }
-        motor1.setPower(Math.pow(y*gamepad1.left_stick_y,2));
-        motor2.setPower(Math.pow(x*gamepad1.right_stick_y,2));
+
+        motor1.setPower((gamepad1.right_stick_y/3)-(2*gamepad1.right_stick_x/3));
+        motor2.setPower((gamepad1.right_stick_y/3)+(2*gamepad1.right_stick_x/3));
 
     }
 }
