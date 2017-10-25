@@ -11,26 +11,35 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
 @TeleOp(name = "TeleOp Mode", group = "Bit Boi")
 //@Disabled
 public class bitBoiTeleOp extends OpMode{
-    DcMotor motor1;
-    DcMotor motor2;
+    DcMotor motorL;
+    DcMotor motorR;
 
     public void init() {
-        motor1=hardwareMap.dcMotor.get("motor_1");
-        motor2=hardwareMap.dcMotor.get("motor_2");
+        motorL=hardwareMap.dcMotor.get("motor_1");
+        motorR=hardwareMap.dcMotor.get("motor_2");
 
-        motor2.setDirection(DcMotorSimple.Direction.REVERSE);
+        motorR.setDirection(DcMotorSimple.Direction.REVERSE);
     }
 
     public void loop() {
 
-        if(gamepad1.right_stick_x<0){
-            motor1.setPower(gamepad1.right_stick_y);
-            motor2.setPower((gamepad1.right_stick_y/3)+(2*gamepad1.right_stick_x/3));
-        }else{
-            motor1.setPower((gamepad1.right_stick_y/3)+(-2*gamepad1.right_stick_x/3));
-            motor2.setPower(gamepad1.right_stick_y);
-        }
-
+        //if(gamepad1.right_stick_y>0) {
+            if (gamepad1.right_stick_x < 0) {
+                motorL.setPower(gamepad1.right_stick_y );
+                motorR.setPower((gamepad1.right_stick_y ) + (  gamepad1.right_stick_x ));
+            } else {
+                motorL.setPower((gamepad1.right_stick_y ) + (-1 * gamepad1.right_stick_x ));
+                motorR.setPower(gamepad1.right_stick_y );
+            }
+        /*}else{
+            if (gamepad1.right_stick_x > 0) {
+                motorL.setPower(gamepad1.right_stick_y );
+                motorR.setPower((gamepad1.right_stick_y ) + (  gamepad1.right_stick_x ));
+            } else {
+                motorL.setPower((gamepad1.right_stick_y ) + (-1 * gamepad1.right_stick_x ));
+                motorR.setPower(gamepad1.right_stick_y );
+            }*/
+        //}
 
 
 
