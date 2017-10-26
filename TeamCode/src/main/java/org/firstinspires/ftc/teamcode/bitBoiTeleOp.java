@@ -23,23 +23,26 @@ public class bitBoiTeleOp extends OpMode{
 
     public void loop() {
 
-        //if(gamepad1.right_stick_y>0) {
-            if (gamepad1.right_stick_x < 0) {
-                motorL.setPower(gamepad1.right_stick_y );
-                motorR.setPower((gamepad1.right_stick_y ) + (  gamepad1.right_stick_x ));
-            } else {
-                motorL.setPower((gamepad1.right_stick_y ) + (-1 * gamepad1.right_stick_x ));
-                motorR.setPower(gamepad1.right_stick_y );
-            }
-        /*}else{
+        if(gamepad1.right_stick_y<0) {
             if (gamepad1.right_stick_x > 0) {
-                motorL.setPower(gamepad1.right_stick_y );
-                motorR.setPower((gamepad1.right_stick_y ) + (  gamepad1.right_stick_x ));
+                motorL.setPower(gamepad1.right_stick_y/2 - gamepad1.right_stick_x );
+                motorR.setPower(gamepad1.right_stick_y/2 );
             } else {
-                motorL.setPower((gamepad1.right_stick_y ) + (-1 * gamepad1.right_stick_x ));
-                motorR.setPower(gamepad1.right_stick_y );
-            }*/
-        //}
+                motorL.setPower(gamepad1.right_stick_y/2 );
+                motorR.setPower(gamepad1.right_stick_y/2 + gamepad1.right_stick_x);
+            }
+
+        }else{
+            if (gamepad1.right_stick_x > 0) {
+                motorL.setPower(gamepad1.right_stick_y /2 + gamepad1.right_stick_x );
+                motorR.setPower(gamepad1.right_stick_y /2 );
+            } else {
+                motorR.setPower((gamepad1.right_stick_y/2 ) + (-1 * gamepad1.right_stick_x ));
+                motorL.setPower(gamepad1.right_stick_y/2 );
+            }
+        }
+        telemetry.addData("y stick value", gamepad1.right_stick_y);
+        telemetry.addData("x stick value", gamepad1.right_stick_x);
 
 
 
