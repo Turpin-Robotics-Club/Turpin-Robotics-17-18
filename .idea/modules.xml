@@ -3,8 +3,11 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/FtcRobotController/FtcRobotController.iml" filepath="$PROJECT_DIR$/FtcRobotController/FtcRobotController.iml" />
+      <module fileurl="file://C:\Users\Cole\Desktop\Robotics\Turpin-Robotics-17-18\FtcRobotController\FtcRobotController.iml" filepath="C:\Users\Cole\Desktop\Robotics\Turpin-Robotics-17-18\FtcRobotController\FtcRobotController.iml" />
       <module fileurl="file://$PROJECT_DIR$/TeamCode/TeamCode.iml" filepath="$PROJECT_DIR$/TeamCode/TeamCode.iml" />
+      <module fileurl="file://C:\Users\Cole\Desktop\Robotics\Turpin-Robotics-17-18\TeamCode\TeamCode.iml" filepath="C:\Users\Cole\Desktop\Robotics\Turpin-Robotics-17-18\TeamCode\TeamCode.iml" />
       <module fileurl="file://$PROJECT_DIR$/Turpin-Robotics-17-18.iml" filepath="$PROJECT_DIR$/Turpin-Robotics-17-18.iml" />
+      <module fileurl="file://C:\Users\Cole\Desktop\Robotics\Turpin-Robotics-17-18\Turpin-Robotics-17-18.iml" filepath="C:\Users\Cole\Desktop\Robotics\Turpin-Robotics-17-18\Turpin-Robotics-17-18.iml" />
     </modules>
   </component>
 </project>
