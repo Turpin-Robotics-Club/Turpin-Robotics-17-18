@@ -9,7 +9,7 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.GyroSensor;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
-
+import com.qualcomm.robotcore.hardware.OpticalDistanceSensor;
 
 /**
  * Created by evandehlinger on 10/24/17.
@@ -19,21 +19,28 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 //@Disabled
 public class bitBoi extends LinearOpMode {
 
-    DcMotor motor1;
-    DcMotor motor2;
 
+    DcMotor motorL;
+    DcMotor motorR;
+    DcMotor motorC;
+    OpticalDistanceSensor odSensor;
     public void runOpMode() throws InterruptedException{
-        motor1=hardwareMap.dcMotor.get("motor_1");
-        motor2=hardwareMap.dcMotor.get("motor_2");
+        motorL=hardwareMap.dcMotor.get("motor_1");
+        motorR=hardwareMap.dcMotor.get("motor_2");
+        motorC=hardwareMap.dcMotor.get("motor_3");
+        odSensor = hardwareMap.opticalDistanceSensor.get("od_sensor");
 
-        motor2.setDirection(DcMotorSimple.Direction.REVERSE);
+        motorL.setDirection(DcMotorSimple.Direction.REVERSE);
 
         waitForStart();
 
-        motor1.setPower(.5);
-        motor2.setPower(.5);
-
+        motorL.setPower(.5);
+        motorR.setPower(.5);
         sleep(10000);
+        if(odSensor.getLightDetected()!=0){
+            motorR.setPower(0);
+            motorL.setPower(0);
+        }
 
 
     }
