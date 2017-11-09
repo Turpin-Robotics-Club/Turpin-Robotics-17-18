@@ -6,390 +6,11 @@
     </shared>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c29a8fb7-0017-4538-b030-6dd4281a1638" name="Default" comment="Updated to the newest version of the ftc sdk (contains errors in xml?)">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/readme.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/Blocks-release-sources.jar" afterPath="$PROJECT_DIR$/libs/Blocks-release-sources.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/Blocks-release.aar" afterPath="$PROJECT_DIR$/libs/Blocks-release.aar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/FtcCommon-release-sources.jar" afterPath="$PROJECT_DIR$/libs/FtcCommon-release-sources.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/FtcCommon-release.aar" afterPath="$PROJECT_DIR$/libs/FtcCommon-release.aar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/Hardware-release-sources.jar" afterPath="$PROJECT_DIR$/libs/Hardware-release-sources.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/Hardware-release.aar" afterPath="$PROJECT_DIR$/libs/Hardware-release.aar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/Inspection-release-sources.jar" afterPath="$PROJECT_DIR$/libs/Inspection-release-sources.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/Inspection-release.aar" afterPath="$PROJECT_DIR$/libs/Inspection-release.aar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/RobotCore-release-sources.jar" afterPath="$PROJECT_DIR$/libs/RobotCore-release-sources.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/RobotCore-release.aar" afterPath="$PROJECT_DIR$/libs/RobotCore-release.aar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.github/CONTRIBUTING.md" afterPath="$PROJECT_DIR$/.github/CONTRIBUTING.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.github/PULL_REQUEST_TEMPLATE.md" afterPath="$PROJECT_DIR$/.github/PULL_REQUEST_TEMPLATE.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+    <list default="true" id="c29a8fb7-0017-4538-b030-6dd4281a1638" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/oldMecanumSimple.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/LICENSE" afterPath="$PROJECT_DIR$/FtcRobotController/LICENSE" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/build.gradle" afterPath="$PROJECT_DIR$/FtcRobotController/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/build.release.gradle" afterPath="$PROJECT_DIR$/FtcRobotController/build.release.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/src/main/assets/FTC_2016-17.xml" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/assets/FTC_2016-17.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/src/main/assets/RelicVuMark.xml" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/assets/RelicVuMark.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/src/main/assets/StonesAndChips.xml" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/assets/StonesAndChips.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/BasicOpMode_Iterative.java" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/BasicOpMode_Iterative.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/BasicOpMode_Linear.java" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/BasicOpMode_Linear.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/ConceptCompassCalibration.java" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/ConceptCompassCalibration.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/ConceptDIMAsIndicator.java" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/ConceptDIMAsIndicator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/ConceptI2cAddressChange.java" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/ConceptI2cAddressChange.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/ConceptNullOp.java" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/ConceptNullOp.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/ConceptRampMotorSpeed.java" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/ConceptRampMotorSpeed.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/ConceptRegisterOpModes.java" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/ConceptRegisterOpModes.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/ConceptScanServo.java" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/ConceptScanServo.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/ConceptTelemetry.java" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/ConceptTelemetry.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/ConceptVuMarkIdentification.java" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/ConceptVuMarkIdentification.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/ConceptVuforiaNavigation.java" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/ConceptVuforiaNavigation.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/HardwareK9bot.java" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/HardwareK9bot.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/HardwarePushbot.java" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/HardwarePushbot.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/HardwarePushbotMatrix.java" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/HardwarePushbotMatrix.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/K9botTeleopTank_Linear.java" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/K9botTeleopTank_Linear.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/PushbotAutoDriveByEncoder_Linear.java" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/PushbotAutoDriveByEncoder_Linear.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/PushbotAutoDriveByGyro_Linear.java" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/PushbotAutoDriveByGyro_Linear.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/PushbotAutoDriveByTime_Linear.java" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/PushbotAutoDriveByTime_Linear.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/PushbotAutoDriveToLine_Linear.java" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/PushbotAutoDriveToLine_Linear.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/PushbotTeleopPOV_Linear.java" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/PushbotTeleopPOV_Linear.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/PushbotTeleopTank_Iterative.java" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/PushbotTeleopTank_Iterative.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/SensorAdafruitRGB.java" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/SensorAdafruitRGB.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/SensorBNO055IMU.java" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/SensorBNO055IMU.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/SensorBNO055IMUCalibration.java" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/SensorBNO055IMUCalibration.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/SensorColor.java" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/SensorColor.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/SensorDIO.java" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/SensorDIO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/SensorDigitalTouch.java" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/SensorDigitalTouch.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/SensorHTColor.java" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/SensorHTColor.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/SensorHTGyro.java" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/SensorHTGyro.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/SensorKLNavxMicro.java" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/SensorKLNavxMicro.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/SensorLEGOLight.java" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/SensorLEGOLight.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/SensorLEGOTouch.java" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/SensorLEGOTouch.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/SensorMRColor.java" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/SensorMRColor.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/SensorMRCompass.java" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/SensorMRCompass.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/SensorMRGyro.java" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/SensorMRGyro.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/SensorMRIrSeeker.java" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/SensorMRIrSeeker.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/SensorMROpticalDistance.java" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/SensorMROpticalDistance.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/SensorMRRangeSensor.java" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/SensorMRRangeSensor.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/SensorREVColorDistance.java" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/SensorREVColorDistance.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/readme.md" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/readme.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/sample_conventions.md" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/sample_conventions.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/internal/FtcOpModeRegister.java" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/internal/FtcOpModeRegister.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/internal/FtcRobotControllerActivity.java" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/internal/FtcRobotControllerActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/src/main/res/layout/activity_ftc_controller.xml" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/res/layout/activity_ftc_controller.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/src/main/res/menu/ftc_robot_controller.xml" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/res/menu/ftc_robot_controller.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/src/main/res/values-sw600dp/dimens.xml" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/res/values-sw600dp/dimens.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/src/main/res/values-sw720dp-land/dimens.xml" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/res/values-sw720dp-land/dimens.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/src/main/res/values-w820dp/dimens.xml" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/res/values-w820dp/dimens.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/src/main/res/values/dimens.xml" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/res/values/dimens.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/res/values/strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/src/main/res/values/styles.xml" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/res/values/styles.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/src/main/res/xml/app_settings.xml" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/res/xml/app_settings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/src/main/res/xml/device_filter.xml" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/res/xml/device_filter.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TeamCode/build.gradle" afterPath="$PROJECT_DIR$/TeamCode/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TeamCode/build.release.gradle" afterPath="$PROJECT_DIR$/TeamCode/build.release.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TeamCode/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/TeamCode/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TeamCode/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/TeamCode/src/main/res/values/strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.common.gradle" afterPath="$PROJECT_DIR$/build.common.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.gradle" afterPath="$PROJECT_DIR$/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/allclasses-frame.html" afterPath="$PROJECT_DIR$/doc/javadoc/allclasses-frame.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/allclasses-noframe.html" afterPath="$PROJECT_DIR$/doc/javadoc/allclasses-noframe.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/AboutActivity.Item.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/AboutActivity.Item.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/AboutActivity.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/AboutActivity.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/ClassManagerFactory.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/ClassManagerFactory.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/CommandList.LynxAddressChangeRequest.AddressChange.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/CommandList.LynxAddressChangeRequest.AddressChange.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/CommandList.LynxAddressChangeRequest.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/CommandList.LynxAddressChangeRequest.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/CommandList.LynxFirmwareImagesResp.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/CommandList.LynxFirmwareImagesResp.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/CommandList.LynxFirmwareUpdate.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/CommandList.LynxFirmwareUpdate.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/CommandList.LynxFirmwareUpdateResp.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/CommandList.LynxFirmwareUpdateResp.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/CommandList.USBAccessibleLynxModulesRequest.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/CommandList.USBAccessibleLynxModulesRequest.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/CommandList.USBAccessibleLynxModulesResp.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/CommandList.USBAccessibleLynxModulesResp.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/CommandList.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/CommandList.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/ConfigWifiDirectActivity.Flag.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/ConfigWifiDirectActivity.Flag.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/ConfigWifiDirectActivity.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/ConfigWifiDirectActivity.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/FtcAdvancedRCSettingsActivity.SettingsFragment.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/FtcAdvancedRCSettingsActivity.SettingsFragment.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/FtcAdvancedRCSettingsActivity.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/FtcAdvancedRCSettingsActivity.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/FtcEventLoop.DefaultUsbModuleAttachmentHandler.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/FtcEventLoop.DefaultUsbModuleAttachmentHandler.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/FtcEventLoop.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/FtcEventLoop.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/FtcEventLoopBase.LynxUsbDeviceContainer.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/FtcEventLoopBase.LynxUsbDeviceContainer.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/FtcEventLoopBase.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/FtcEventLoopBase.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/FtcEventLoopHandler.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/FtcEventLoopHandler.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/FtcEventLoopIdle.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/FtcEventLoopIdle.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/FtcLynxFirmwareUpdateActivity.ReceiveLoopCallback.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/FtcLynxFirmwareUpdateActivity.ReceiveLoopCallback.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/FtcLynxFirmwareUpdateActivity.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/FtcLynxFirmwareUpdateActivity.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/FtcLynxModuleAddressUpdateActivity.AddressAndDisplayName.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/FtcLynxModuleAddressUpdateActivity.AddressAndDisplayName.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/FtcLynxModuleAddressUpdateActivity.AddressConfiguration.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/FtcLynxModuleAddressUpdateActivity.AddressConfiguration.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/FtcLynxModuleAddressUpdateActivity.DisplayedModule.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/FtcLynxModuleAddressUpdateActivity.DisplayedModule.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/FtcLynxModuleAddressUpdateActivity.DisplayedModuleList.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/FtcLynxModuleAddressUpdateActivity.DisplayedModuleList.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/FtcLynxModuleAddressUpdateActivity.ReceiveLoopCallback.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/FtcLynxModuleAddressUpdateActivity.ReceiveLoopCallback.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/FtcLynxModuleAddressUpdateActivity.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/FtcLynxModuleAddressUpdateActivity.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/FtcRobotControllerService.FtcRobotControllerBinder.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/FtcRobotControllerService.FtcRobotControllerBinder.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/FtcRobotControllerService.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/FtcRobotControllerService.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/FtcRobotControllerSettingsActivity.SettingsFragment.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/FtcRobotControllerSettingsActivity.SettingsFragment.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/FtcRobotControllerSettingsActivity.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/FtcRobotControllerSettingsActivity.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/FtcWifiDirectChannelSelectorActivity.WifiChannelItemAdapter.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/FtcWifiDirectChannelSelectorActivity.WifiChannelItemAdapter.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/FtcWifiDirectChannelSelectorActivity.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/FtcWifiDirectChannelSelectorActivity.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/FtcWifiDirectRememberedGroupsActivity.RecvLoopCallback.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/FtcWifiDirectRememberedGroupsActivity.RecvLoopCallback.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/FtcWifiDirectRememberedGroupsActivity.WifiP2pGroupItemAdapter.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/FtcWifiDirectRememberedGroupsActivity.WifiP2pGroupItemAdapter.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/FtcWifiDirectRememberedGroupsActivity.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/FtcWifiDirectRememberedGroupsActivity.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/LaunchActivityConstantsList.RequestCode.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/LaunchActivityConstantsList.RequestCode.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/LaunchActivityConstantsList.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/LaunchActivityConstantsList.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/ProgrammingModeController.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/ProgrammingModeController.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/Restarter.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/Restarter.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/SoundPlayer.LoadedSoundCache.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/SoundPlayer.LoadedSoundCache.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/SoundPlayer.SoundInfo.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/SoundPlayer.SoundInfo.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/SoundPlayer.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/SoundPlayer.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/USBAccessibleLynxModule.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/USBAccessibleLynxModule.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/UpdateUI.Callback.DeviceNameManagerCallback.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/UpdateUI.Callback.DeviceNameManagerCallback.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/UpdateUI.Callback.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/UpdateUI.Callback.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/UpdateUI.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/UpdateUI.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/UsbModuleAttachmentHandler.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/UsbModuleAttachmentHandler.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/ViewLogsActivity.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/ViewLogsActivity.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/package-frame.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/package-frame.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/package-summary.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/package-summary.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/package-tree.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/ftccommon/package-tree.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/eventloop/EventLoop.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/eventloop/EventLoop.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/eventloop/EventLoopManager.EventLoopMonitor.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/eventloop/EventLoopManager.EventLoopMonitor.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/eventloop/EventLoopManager.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/eventloop/EventLoopManager.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/eventloop/SyncdDevice.ShutdownReason.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/eventloop/SyncdDevice.ShutdownReason.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/eventloop/SyncdDevice.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/eventloop/SyncdDevice.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/eventloop/opmode/AnnotatedOpModeManager.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/eventloop/opmode/AnnotatedOpModeManager.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/eventloop/opmode/AnnotatedOpModeRegistrar.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/eventloop/opmode/AnnotatedOpModeRegistrar.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/eventloop/opmode/Autonomous.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/eventloop/opmode/Autonomous.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/eventloop/opmode/Disabled.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/eventloop/opmode/Disabled.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/eventloop/opmode/EventLoopManagerClient.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/eventloop/opmode/EventLoopManagerClient.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/eventloop/opmode/FtcRobotControllerServiceState.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/eventloop/opmode/FtcRobotControllerServiceState.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/eventloop/opmode/LinearOpMode.LinearOpModeHelper.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/eventloop/opmode/LinearOpMode.LinearOpModeHelper.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/eventloop/opmode/LinearOpMode.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/eventloop/opmode/LinearOpMode.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/eventloop/opmode/OpMode.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/eventloop/opmode/OpMode.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/eventloop/opmode/OpModeManager.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/eventloop/opmode/OpModeManager.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/eventloop/opmode/OpModeManagerNotifier.Notifications.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/eventloop/opmode/OpModeManagerNotifier.Notifications.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/eventloop/opmode/OpModeManagerNotifier.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/eventloop/opmode/OpModeManagerNotifier.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/eventloop/opmode/OpModeRegister.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/eventloop/opmode/OpModeRegister.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/eventloop/opmode/OpModeRegistrar.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/eventloop/opmode/OpModeRegistrar.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/eventloop/opmode/TeleOp.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/eventloop/opmode/TeleOp.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/eventloop/opmode/package-frame.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/eventloop/opmode/package-frame.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/eventloop/opmode/package-summary.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/eventloop/opmode/package-summary.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/eventloop/opmode/package-tree.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/eventloop/opmode/package-tree.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/eventloop/package-frame.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/eventloop/package-frame.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/eventloop/package-summary.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/eventloop/package-summary.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/eventloop/package-tree.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/eventloop/package-tree.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/exception/DuplicateNameException.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/exception/DuplicateNameException.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/exception/RobotCoreException.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/exception/RobotCoreException.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/exception/package-frame.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/exception/package-frame.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/exception/package-summary.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/exception/package-summary.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/exception/package-tree.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/exception/package-tree.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/AccelerationSensor.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/AccelerationSensor.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/AnalogInput.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/AnalogInput.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/AnalogInputController.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/AnalogInputController.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/AnalogOutput.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/AnalogOutput.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/AnalogOutputController.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/AnalogOutputController.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/AnalogSensor.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/AnalogSensor.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/Blinker.Step.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/Blinker.Step.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/Blinker.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/Blinker.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/CRServo.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/CRServo.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/CRServoImpl.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/CRServoImpl.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/CRServoImplEx.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/CRServoImplEx.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/ColorSensor.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/ColorSensor.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/CompassSensor.CompassMode.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/CompassSensor.CompassMode.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/CompassSensor.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/CompassSensor.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/DcMotor.RunMode.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/DcMotor.RunMode.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/DcMotor.ZeroPowerBehavior.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/DcMotor.ZeroPowerBehavior.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/DcMotor.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/DcMotor.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/DcMotorController.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/DcMotorController.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/DcMotorControllerEx.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/DcMotorControllerEx.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/DcMotorEx.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/DcMotorEx.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/DcMotorImpl.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/DcMotorImpl.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/DcMotorImplEx.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/DcMotorImplEx.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/DcMotorSimple.Direction.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/DcMotorSimple.Direction.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/DcMotorSimple.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/DcMotorSimple.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/DeviceInterfaceModule.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/DeviceInterfaceModule.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/DeviceManager.DeviceType.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/DeviceManager.DeviceType.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/DeviceManager.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/DeviceManager.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/DigitalChannel.Mode.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/DigitalChannel.Mode.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/DigitalChannel.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/DigitalChannel.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/DigitalChannelController.Mode.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/DigitalChannelController.Mode.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/DigitalChannelController.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/DigitalChannelController.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/DigitalChannelImpl.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/DigitalChannelImpl.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/DistanceSensor.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/DistanceSensor.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/Engagable.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/Engagable.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/Gamepad.GamepadCallback.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/Gamepad.GamepadCallback.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/Gamepad.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/Gamepad.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/GyroSensor.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/GyroSensor.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/Gyroscope.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/Gyroscope.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/HardwareDevice.Manufacturer.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/HardwareDevice.Manufacturer.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/HardwareDevice.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/HardwareDevice.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/HardwareDeviceCloseOnTearDown.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/HardwareDeviceCloseOnTearDown.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/HardwareDeviceHealth.HealthStatus.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/HardwareDeviceHealth.HealthStatus.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/HardwareDeviceHealth.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/HardwareDeviceHealth.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/HardwareDeviceHealthImpl.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/HardwareDeviceHealthImpl.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/HardwareMap.DeviceMapping.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/HardwareMap.DeviceMapping.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/HardwareMap.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/HardwareMap.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/I2cAddr.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/I2cAddr.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/I2cAddrConfig.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/I2cAddrConfig.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/I2cAddressableDevice.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/I2cAddressableDevice.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/I2cController.I2cPortReadyBeginEndNotifications.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/I2cController.I2cPortReadyBeginEndNotifications.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/I2cController.I2cPortReadyCallback.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/I2cController.I2cPortReadyCallback.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/I2cController.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/I2cController.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/I2cControllerPortDevice.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/I2cControllerPortDevice.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/I2cControllerPortDeviceImpl.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/I2cControllerPortDeviceImpl.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/I2cDevice.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/I2cDevice.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/I2cDeviceImpl.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/I2cDeviceImpl.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/I2cDeviceReader.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/I2cDeviceReader.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/I2cDeviceSynch.HeartbeatAction.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/I2cDeviceSynch.HeartbeatAction.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/I2cDeviceSynch.ReadMode.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/I2cDeviceSynch.ReadMode.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/I2cDeviceSynch.ReadWindow.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/I2cDeviceSynch.ReadWindow.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/I2cDeviceSynch.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/I2cDeviceSynch.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/I2cDeviceSynchDevice.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/I2cDeviceSynchDevice.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/I2cDeviceSynchDeviceWithParameters.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/I2cDeviceSynchDeviceWithParameters.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/I2cDeviceSynchImpl.CONTROLLER_PORT_MODE.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/I2cDeviceSynchImpl.CONTROLLER_PORT_MODE.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/I2cDeviceSynchImpl.Callback.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/I2cDeviceSynchImpl.Callback.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/I2cDeviceSynchImpl.READ_CACHE_STATUS.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/I2cDeviceSynchImpl.READ_CACHE_STATUS.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/I2cDeviceSynchImpl.WRITE_CACHE_STATUS.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/I2cDeviceSynchImpl.WRITE_CACHE_STATUS.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/I2cDeviceSynchImpl.WriteCacheStatus.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/I2cDeviceSynchImpl.WriteCacheStatus.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/I2cDeviceSynchImpl.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/I2cDeviceSynchImpl.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/I2cDeviceSynchImplOnSimple.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/I2cDeviceSynchImplOnSimple.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/I2cDeviceSynchReadHistory.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/I2cDeviceSynchReadHistory.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/I2cDeviceSynchReadHistoryImpl.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/I2cDeviceSynchReadHistoryImpl.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/I2cDeviceSynchSimple.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/I2cDeviceSynchSimple.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/I2cWaitControl.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/I2cWaitControl.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/IntegratingGyroscope.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/IntegratingGyroscope.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/IrSeekerSensor.IrSeekerIndividualSensor.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/IrSeekerSensor.IrSeekerIndividualSensor.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/IrSeekerSensor.Mode.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/IrSeekerSensor.Mode.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/IrSeekerSensor.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/IrSeekerSensor.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/LED.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/LED.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/LegacyModule.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/LegacyModule.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/LegacyModulePortDevice.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/LegacyModulePortDevice.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/LegacyModulePortDeviceImpl.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/LegacyModulePortDeviceImpl.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/Light.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/Light.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/LightBlinker.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/LightBlinker.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/LightMultiplexor.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/LightMultiplexor.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/LightSensor.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/LightSensor.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/LynxModuleMeta.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/LynxModuleMeta.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/LynxModuleMetaList.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/LynxModuleMetaList.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/NormalizedColorSensor.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/NormalizedColorSensor.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/NormalizedRGBA.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/NormalizedRGBA.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/OpticalDistanceSensor.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/OpticalDistanceSensor.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/OrientationSensor.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/OrientationSensor.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/PIDCoefficients.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/PIDCoefficients.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/PWMOutput.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/PWMOutput.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/PWMOutputController.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/PWMOutputController.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/PWMOutputControllerEx.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/PWMOutputControllerEx.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/PWMOutputEx.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/PWMOutputEx.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/PWMOutputImpl.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/PWMOutputImpl.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/PWMOutputImplEx.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/PWMOutputImplEx.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/PwmControl.PwmRange.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/PwmControl.PwmRange.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/PwmControl.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/PwmControl.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/RobotConfigNameable.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/RobotConfigNameable.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/RobotCoreLynxModule.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/RobotCoreLynxModule.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/RobotCoreLynxUsbDevice.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/RobotCoreLynxUsbDevice.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/Servo.Direction.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/Servo.Direction.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/Servo.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/Servo.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/ServoController.PwmStatus.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/ServoController.PwmStatus.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/ServoController.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/ServoController.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/ServoControllerEx.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/ServoControllerEx.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/ServoImpl.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/ServoImpl.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/ServoImplEx.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/ServoImplEx.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/SwitchableLight.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/SwitchableLight.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/TimestampedData.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/TimestampedData.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/TimestampedI2cData.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/TimestampedI2cData.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/TouchSensor.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/TouchSensor.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/TouchSensorMultiplexer.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/TouchSensorMultiplexer.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/UltrasonicSensor.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/UltrasonicSensor.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/VoltageSensor.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/VoltageSensor.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/package-frame.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/package-frame.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/package-summary.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/package-summary.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/package-tree.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/hardware/package-tree.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/util/ElapsedTime.Resolution.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/util/ElapsedTime.Resolution.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/util/ElapsedTime.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/util/ElapsedTime.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/util/Range.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/util/Range.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/util/SerialNumber.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/util/SerialNumber.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/util/TypeConversion.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/util/TypeConversion.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/util/package-frame.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/util/package-frame.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/util/package-summary.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/util/package-summary.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/util/package-tree.html" afterPath="$PROJECT_DIR$/doc/javadoc/com/qualcomm/robotcore/util/package-tree.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/constant-values.html" afterPath="$PROJECT_DIR$/doc/javadoc/constant-values.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/deprecated-list.html" afterPath="$PROJECT_DIR$/doc/javadoc/deprecated-list.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/help-doc.html" afterPath="$PROJECT_DIR$/doc/javadoc/help-doc.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/index-all.html" afterPath="$PROJECT_DIR$/doc/javadoc/index-all.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/index.html" afterPath="$PROJECT_DIR$/doc/javadoc/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/ClassFactory.html" afterPath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/ClassFactory.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/Const.html" afterPath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/Const.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/Consumer.html" afterPath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/Consumer.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/Func.html" afterPath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/Func.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/NonConst.html" afterPath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/NonConst.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/Predicate.html" afterPath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/Predicate.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/Supplier.html" afterPath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/Supplier.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/Telemetry.Item.html" afterPath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/Telemetry.Item.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/Telemetry.Line.html" afterPath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/Telemetry.Line.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/Telemetry.Log.DisplayOrder.html" afterPath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/Telemetry.Log.DisplayOrder.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/Telemetry.Log.html" afterPath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/Telemetry.Log.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/Telemetry.html" afterPath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/Telemetry.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/ThrowingCallable.html" afterPath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/ThrowingCallable.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/matrices/ColumnMajorMatrixF.html" afterPath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/matrices/ColumnMajorMatrixF.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/matrices/ColumnMatrixF.html" afterPath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/matrices/ColumnMatrixF.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/matrices/DenseMatrixF.html" afterPath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/matrices/DenseMatrixF.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/matrices/GeneralMatrixF.html" afterPath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/matrices/GeneralMatrixF.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/matrices/MatrixF.html" afterPath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/matrices/MatrixF.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/matrices/OpenGLMatrix.html" afterPath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/matrices/OpenGLMatrix.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/matrices/RowMajorMatrixF.html" afterPath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/matrices/RowMajorMatrixF.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/matrices/RowMatrixF.html" afterPath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/matrices/RowMatrixF.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/matrices/SliceMatrixF.html" afterPath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/matrices/SliceMatrixF.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/matrices/VectorF.html" afterPath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/matrices/VectorF.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/matrices/package-frame.html" afterPath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/matrices/package-frame.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/matrices/package-summary.html" afterPath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/matrices/package-summary.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/matrices/package-tree.html" afterPath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/matrices/package-tree.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/navigation/Acceleration.html" afterPath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/navigation/Acceleration.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/navigation/AngleUnit.html" afterPath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/navigation/AngleUnit.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/navigation/AngularVelocity.html" afterPath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/navigation/AngularVelocity.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/navigation/AxesOrder.html" afterPath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/navigation/AxesOrder.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/navigation/AxesReference.html" afterPath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/navigation/AxesReference.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/navigation/Axis.html" afterPath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/navigation/Axis.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/navigation/DistanceUnit.html" afterPath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/navigation/DistanceUnit.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/navigation/MagneticFlux.html" afterPath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/navigation/MagneticFlux.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/navigation/NavUtil.html" afterPath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/navigation/NavUtil.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/navigation/Orientation.AngleSet.html" afterPath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/navigation/Orientation.AngleSet.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/navigation/Orientation.html" afterPath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/navigation/Orientation.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/navigation/Position.html" afterPath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/navigation/Position.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/navigation/Quaternion.html" afterPath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/navigation/Quaternion.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/navigation/RelicRecoveryVuMark.html" afterPath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/navigation/RelicRecoveryVuMark.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/navigation/Rotation.html" afterPath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/navigation/Rotation.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/navigation/TempUnit.html" afterPath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/navigation/TempUnit.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/navigation/Temperature.html" afterPath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/navigation/Temperature.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/navigation/UnnormalizedAngleUnit.html" afterPath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/navigation/UnnormalizedAngleUnit.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/navigation/Velocity.html" afterPath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/navigation/Velocity.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/navigation/VuMarkInstanceId.Type.html" afterPath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/navigation/VuMarkInstanceId.Type.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/navigation/VuMarkInstanceId.html" afterPath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/navigation/VuMarkInstanceId.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/navigation/VuforiaLocalizer.CameraDirection.html" afterPath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/navigation/VuforiaLocalizer.CameraDirection.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/navigation/VuforiaLocalizer.CloseableFrame.html" afterPath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/navigation/VuforiaLocalizer.CloseableFrame.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/navigation/VuforiaLocalizer.Parameters.CameraMonitorFeedback.html" afterPath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/navigation/VuforiaLocalizer.Parameters.CameraMonitorFeedback.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/navigation/VuforiaLocalizer.Parameters.html" afterPath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/navigation/VuforiaLocalizer.Parameters.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/navigation/VuforiaLocalizer.html" afterPath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/navigation/VuforiaLocalizer.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/navigation/VuforiaTrackable.Listener.html" afterPath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/navigation/VuforiaTrackable.Listener.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/navigation/VuforiaTrackable.html" afterPath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/navigation/VuforiaTrackable.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/navigation/VuforiaTrackableDefaultListener.html" afterPath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/navigation/VuforiaTrackableDefaultListener.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/navigation/VuforiaTrackables.html" afterPath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/navigation/VuforiaTrackables.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/navigation/package-frame.html" afterPath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/navigation/package-frame.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/navigation/package-summary.html" afterPath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/navigation/package-summary.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/navigation/package-tree.html" afterPath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/navigation/package-tree.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/package-frame.html" afterPath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/package-frame.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/package-summary.html" afterPath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/package-summary.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/package-tree.html" afterPath="$PROJECT_DIR$/doc/javadoc/org/firstinspires/ftc/robotcore/external/package-tree.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/overview-frame.html" afterPath="$PROJECT_DIR$/doc/javadoc/overview-frame.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/overview-summary.html" afterPath="$PROJECT_DIR$/doc/javadoc/overview-summary.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/overview-tree.html" afterPath="$PROJECT_DIR$/doc/javadoc/overview-tree.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/package-list" afterPath="$PROJECT_DIR$/doc/javadoc/package-list" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/script.js" afterPath="$PROJECT_DIR$/doc/javadoc/script.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/serialized-form.html" afterPath="$PROJECT_DIR$/doc/javadoc/serialized-form.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/javadoc/stylesheet.css" afterPath="$PROJECT_DIR$/doc/javadoc/stylesheet.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/legal/AudioBlocksSounds.txt" afterPath="$PROJECT_DIR$/doc/legal/AudioBlocksSounds.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/legal/Exhibit A - LEGO Open Source License Agreement.txt" afterPath="$PROJECT_DIR$/doc/legal/Exhibit A - LEGO Open Source License Agreement.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/media/readme.md" afterPath="$PROJECT_DIR$/doc/media/readme.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/tutorial/README.txt" afterPath="$PROJECT_DIR$/doc/tutorial/README.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gradlew" afterPath="$PROJECT_DIR$/gradlew" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/README.txt" afterPath="$PROJECT_DIR$/libs/README.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/settings.gradle" afterPath="$PROJECT_DIR$/settings.gradle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/mecanumSimple.java" afterPath="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/mecanumSimple.java" />
     </list>
     <ignored path="ftc_app-master.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -421,70 +42,23 @@
     <favorites_list name="ftc_app-master" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="newMove.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/utils/newMove.java">
+    <leaf>
+      <file leaf-file-name="oldMecanumSimple.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/oldMecanumSimple.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+            <state relative-caret-position="425">
+              <caret line="61" column="15" lean-forward="false" selection-start-line="61" selection-start-column="15" selection-end-line="61" selection-end-column="15" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StonesAndChips.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/FtcRobotController/src/main/assets/StonesAndChips.xml">
+      <file leaf-file-name="mecanumSimple.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/mecanumSimple.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="25">
-              <caret line="1" column="1" lean-forward="false" selection-start-line="1" selection-start-column="1" selection-end-line="1" selection-end-column="1" />
+            <state relative-caret-position="545">
+              <caret line="43" column="8" lean-forward="false" selection-start-line="43" selection-start-column="8" selection-end-line="43" selection-end-column="8" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FTC_2016-17.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/FtcRobotController/src/main/assets/FTC_2016-17.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="25">
-              <caret line="1" column="1" lean-forward="false" selection-start-line="1" selection-start-column="1" selection-end-line="1" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="app_settings.xml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/FtcRobotController/src/main/res/xml/app_settings.xml">
-          <provider editor-type-id="android-designer2">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="151">
-              <caret line="52" column="29" lean-forward="false" selection-start-line="52" selection-start-column="29" selection-end-line="52" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="bitBoi.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/bitBoi.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="495">
-              <caret line="35" column="14" lean-forward="false" selection-start-line="35" selection-start-column="14" selection-end-line="35" selection-end-column="14" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="bitBoiTeleOp.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/bitBoiTeleOp.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -3074,6 +2648,9 @@
         <option value="$PROJECT_DIR$/TeamCode/build.gradle" />
         <option value="$PROJECT_DIR$/FtcRobotController/build.gradle" />
         <option value="$PROJECT_DIR$/build.common.gradle" />
+        <option value="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/oldMecanumSimple.java" />
+        <option value="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/newMecanumSimple.java" />
+        <option value="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/mecanumSimple.java" />
       </list>
     </option>
   </component>
@@ -3101,21 +2678,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
-      <pane id="ProjectPane" />
       <pane id="AndroidView">
         <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Turpin-Robotics-17-18" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Gradle Scripts" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidBuildScriptsGroupNode" />
-            </PATH_ELEMENT>
-          </PATH>
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="Turpin-Robotics-17-18" />
@@ -3146,16 +2710,22 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="ProjectPane" />
       <pane id="Scratches" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$USER_HOME$/AppData/Local/GitHubDesktop/app-1.0.6/resources/app/git/cmd/git.exe" />
-    <property name="device.picker.selection" value="3a2003e" />
+    <property name="device.picker.selection" value="2a2d5b9" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="org.firstinspires.ftc.teamcode" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="org.firstinspires.ftc.teamcode" />
     </key>
   </component>
@@ -3242,7 +2812,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1509822976513" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1510230259903" />
       </method>
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
@@ -3290,7 +2860,7 @@
       </Profilers>
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1509822976514" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1510230259904" />
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -3324,6 +2894,27 @@
       </ExternalSystemSettings>
       <method />
     </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
     <configuration default="true" type="JarApplication" factoryName="JAR Application">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <envs />
@@ -3342,6 +2933,31 @@
       <option name="ENV_VARIABLES" />
       <option name="PASS_PARENT_ENVS" value="true" />
       <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType" factoryName="Kotlin">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="Turpin-Robotics-17-18" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType" factoryName="Kotlin script">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="filePath" />
+      <option name="vmParameters" />
+      <option name="alternativeJrePath" />
+      <option name="programParameters" />
+      <option name="passParentEnvs" value="true" />
+      <option name="workingDirectory" />
+      <option name="isAlternativeJrePathEnabled" value="false" />
       <envs />
       <method />
     </configuration>
@@ -3427,7 +3043,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1509822976517" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1510230259909" />
       </method>
     </configuration>
     <list size="1">
@@ -3554,36 +3170,43 @@
       <option name="project" value="LOCAL" />
       <updated>1508940777925</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Updated to the newest version of the ftc sdk (contains unimportant errors in xml)">
+      <created>1509824307474</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1509824307474</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="1942" height="1042" extended-state="6" />
+    <editor active="true" />
     <layout>
+      <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32936978" sideWeight="0.4962162" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936978" sideWeight="0.4962162" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32936978" sideWeight="0.50378376" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972974" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936978" sideWeight="0.50378376" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32818073" sideWeight="0.49675676" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936978" sideWeight="0.49783784" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26324326" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Device File Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Device File Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -3592,6 +3215,7 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972974" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -3617,7 +3241,8 @@
     <MESSAGE value="Fixed VuForia" />
     <MESSAGE value="Bit boi changes" />
     <MESSAGE value="Updated to the newest version of the ftc sdk" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated to the newest version of the ftc sdk" />
+    <MESSAGE value="Updated to the newest version of the ftc sdk (contains unimportant errors in xml)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated to the newest version of the ftc sdk (contains unimportant errors in xml)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -3628,7 +3253,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
           <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3636,9 +3260,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
           <caret line="17" column="48" lean-forward="false" selection-start-line="17" selection-start-column="48" selection-end-line="17" selection-end-column="48" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3646,10 +3267,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1750">
           <caret line="70" column="13" lean-forward="false" selection-start-line="70" selection-start-column="13" selection-end-line="70" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#9933#0" expanded="false" />
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3657,9 +3274,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1025">
           <caret line="44" column="67" lean-forward="false" selection-start-line="44" selection-start-column="67" selection-end-line="44" selection-end-column="67" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3667,7 +3281,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3675,9 +3288,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="15" selection-end-column="11" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3685,9 +3295,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="17" column="48" lean-forward="false" selection-start-line="17" selection-start-column="48" selection-end-line="17" selection-end-column="48" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3695,9 +3302,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3705,7 +3309,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3713,9 +3316,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="15" selection-end-column="11" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3723,9 +3323,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="17" column="48" lean-forward="false" selection-start-line="17" selection-start-column="48" selection-end-line="17" selection-end-column="48" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3733,9 +3330,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
           <caret line="31" column="9" lean-forward="false" selection-start-line="31" selection-start-column="9" selection-end-line="31" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3743,7 +3337,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
           <caret line="27" column="16" lean-forward="false" selection-start-line="27" selection-start-column="16" selection-end-line="27" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3751,7 +3344,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3759,9 +3351,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3769,7 +3358,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="405">
           <caret line="27" column="16" lean-forward="false" selection-start-line="27" selection-start-column="16" selection-end-line="27" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3777,10 +3365,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#9933#0" expanded="false" />
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3788,7 +3372,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3803,7 +3386,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
           <caret line="27" column="16" lean-forward="false" selection-start-line="27" selection-start-column="16" selection-end-line="27" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3811,9 +3393,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="850">
           <caret line="50" column="0" lean-forward="false" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3835,7 +3414,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
           <caret line="27" column="16" lean-forward="false" selection-start-line="27" selection-start-column="16" selection-end-line="27" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3843,9 +3421,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3853,7 +3428,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
           <caret line="27" column="16" lean-forward="false" selection-start-line="27" selection-start-column="16" selection-end-line="27" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3861,14 +3435,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md" />
-    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/readme.md" />
     <entry file="file://$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/sample_conventions.md">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -3894,7 +3464,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="11" column="11" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="11" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3902,9 +3471,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="15" selection-end-column="11" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3913,10 +3479,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="650">
           <caret line="70" column="13" lean-forward="false" selection-start-line="70" selection-start-column="13" selection-end-line="70" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#9933#0" expanded="false" />
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3924,7 +3486,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="130">
           <caret line="3577" column="25" lean-forward="false" selection-start-line="3577" selection-start-column="25" selection-end-line="3577" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3932,9 +3493,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#128#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3942,17 +3500,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="325">
           <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/bitBoi.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="35" column="14" lean-forward="false" selection-start-line="35" selection-start-column="14" selection-end-line="35" selection-end-column="14" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3960,9 +3507,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="143">
           <caret line="24" column="29" lean-forward="false" selection-start-line="24" selection-start-column="29" selection-end-line="24" selection-end-column="29" />
-          <folding>
-            <element signature="e#0#656#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3970,25 +3514,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="325">
           <caret line="13" column="29" lean-forward="false" selection-start-line="13" selection-start-column="29" selection-end-line="13" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/bitBoiTeleOp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/utils/newMove.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3996,15 +3521,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="25">
           <caret line="1" column="1" lean-forward="false" selection-start-line="1" selection-start-column="1" selection-end-line="1" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FtcRobotController/src/main/assets/FTC_2016-17.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="1" column="1" lean-forward="false" selection-start-line="1" selection-start-column="1" selection-end-line="1" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -4015,6 +3531,68 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="151">
           <caret line="52" column="29" lean-forward="false" selection-start-line="52" selection-start-column="29" selection-end-line="52" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FtcRobotController/src/main/assets/FTC_2016-17.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="25">
+          <caret line="1" column="1" lean-forward="false" selection-start-line="1" selection-start-column="1" selection-end-line="1" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/utils/newMove.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="720">
+          <caret line="167" column="13" lean-forward="true" selection-start-line="167" selection-start-column="13" selection-end-line="167" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/bitBoi.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="35" column="14" lean-forward="false" selection-start-line="35" selection-start-column="14" selection-end-line="35" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/bitBoiTeleOp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/readme.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="0">
+            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor>
+            <js_state />
+          </second_editor>
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/oldMecanumSimple.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="61" column="15" lean-forward="false" selection-start-line="61" selection-start-column="15" selection-end-line="61" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/mecanumSimple.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="545">
+          <caret line="43" column="8" lean-forward="false" selection-start-line="43" selection-start-column="8" selection-end-line="43" selection-end-column="8" />
           <folding />
         </state>
       </provider>
