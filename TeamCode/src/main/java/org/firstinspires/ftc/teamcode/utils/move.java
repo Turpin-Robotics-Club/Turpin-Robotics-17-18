@@ -58,7 +58,7 @@ public class move {
         }
         frmotor.setDirection(DcMotorSimple.Direction.REVERSE);
         brmotor.setDirection(DcMotorSimple.Direction.REVERSE);
-        Sensors.initialize(opMode, red);
+        oldSensors.initialize(opMode, red);
         resetEncoders();
     }
 
@@ -72,19 +72,19 @@ public class move {
     }
     public void holdDirection()
     {
-        if (Sensors.gyro.rawZ() > initGyroPos) {
-            flmotor.setPower(flmotor.getPower() + (Math.abs((Sensors.gyro.rawZ() - initGyroPos)) * stabilityMultiplier));
-            blmotor.setPower(blmotor.getPower() + (Math.abs((Sensors.gyro.rawZ() - initGyroPos)) * stabilityMultiplier));
-            frmotor.setPower(frmotor.getPower() - (Math.abs((Sensors.gyro.rawZ() - initGyroPos)) * stabilityMultiplier));
-            brmotor.setPower(brmotor.getPower() - (Math.abs((Sensors.gyro.rawZ() - initGyroPos)) * stabilityMultiplier));
+        if (oldSensors.gyro.rawZ() > initGyroPos) {
+            flmotor.setPower(flmotor.getPower() + (Math.abs((oldSensors.gyro.rawZ() - initGyroPos)) * stabilityMultiplier));
+            blmotor.setPower(blmotor.getPower() + (Math.abs((oldSensors.gyro.rawZ() - initGyroPos)) * stabilityMultiplier));
+            frmotor.setPower(frmotor.getPower() - (Math.abs((oldSensors.gyro.rawZ() - initGyroPos)) * stabilityMultiplier));
+            brmotor.setPower(brmotor.getPower() - (Math.abs((oldSensors.gyro.rawZ() - initGyroPos)) * stabilityMultiplier));
         }
-        if (Sensors.gyro.rawZ() < initGyroPos) {
-            flmotor.setPower(flmotor.getPower() - (Math.abs((Sensors.gyro.rawZ() - initGyroPos)) * stabilityMultiplier));
-            blmotor.setPower(blmotor.getPower() - (Math.abs((Sensors.gyro.rawZ() - initGyroPos)) * stabilityMultiplier));
-            frmotor.setPower(frmotor.getPower() + (Math.abs((Sensors.gyro.rawZ() - initGyroPos)) * stabilityMultiplier));
-            brmotor.setPower(brmotor.getPower() + (Math.abs((Sensors.gyro.rawZ() - initGyroPos)) * stabilityMultiplier));
+        if (oldSensors.gyro.rawZ() < initGyroPos) {
+            flmotor.setPower(flmotor.getPower() - (Math.abs((oldSensors.gyro.rawZ() - initGyroPos)) * stabilityMultiplier));
+            blmotor.setPower(blmotor.getPower() - (Math.abs((oldSensors.gyro.rawZ() - initGyroPos)) * stabilityMultiplier));
+            frmotor.setPower(frmotor.getPower() + (Math.abs((oldSensors.gyro.rawZ() - initGyroPos)) * stabilityMultiplier));
+            brmotor.setPower(brmotor.getPower() + (Math.abs((oldSensors.gyro.rawZ() - initGyroPos)) * stabilityMultiplier));
         }
-        telemetry.addData("Gyro Z", Sensors.gyro.rawZ());
+        telemetry.addData("Gyro Z", oldSensors.gyro.rawZ());
         telemetry.update();
     }
 
@@ -163,7 +163,7 @@ public class move {
      */
     public void forward2(double distance, double minPower, double maxPower, double increment)
     {
-        initGyroPos = Sensors.gyro.rawZ();
+        initGyroPos = oldSensors.gyro.rawZ();
 
 
         double CIRCUMFERENCE = Math.PI * WHEEL_DIAMETER;
@@ -242,7 +242,7 @@ public class move {
      * @throws InterruptedException
      */
     public void left(double distance, double power){
-        initGyroPos = Sensors.gyro.getHeading();
+        initGyroPos = oldSensors.gyro.getHeading();
 
         resetEncoders();
         double CIRCUMFERENCE = Math.PI * WHEEL_DIAMETER;
@@ -268,33 +268,33 @@ public class move {
 
             while (opMode.opModeIsActive() && flmotor.getCurrentPosition() > -COUNTS) {
 
-                if (Sensors.gyro.getHeading() - initGyroPos < 0) {
-                    flmotor.setPower(flmotor.getPower() + (Math.pow((Sensors.gyro.getHeading() - initGyroPos) * 2, 2) * stabilityMultiplier));
-                    blmotor.setPower(blmotor.getPower() + (Math.pow((Sensors.gyro.getHeading() - initGyroPos) * 2, 2) * stabilityMultiplier));
-                    frmotor.setPower(frmotor.getPower() - (Math.pow((Sensors.gyro.getHeading() - initGyroPos) * 2, 2) * stabilityMultiplier));
-                    brmotor.setPower(brmotor.getPower() - (Math.pow((Sensors.gyro.getHeading() - initGyroPos) * 2, 2) * stabilityMultiplier));
+                if (oldSensors.gyro.getHeading() - initGyroPos < 0) {
+                    flmotor.setPower(flmotor.getPower() + (Math.pow((oldSensors.gyro.getHeading() - initGyroPos) * 2, 2) * stabilityMultiplier));
+                    blmotor.setPower(blmotor.getPower() + (Math.pow((oldSensors.gyro.getHeading() - initGyroPos) * 2, 2) * stabilityMultiplier));
+                    frmotor.setPower(frmotor.getPower() - (Math.pow((oldSensors.gyro.getHeading() - initGyroPos) * 2, 2) * stabilityMultiplier));
+                    brmotor.setPower(brmotor.getPower() - (Math.pow((oldSensors.gyro.getHeading() - initGyroPos) * 2, 2) * stabilityMultiplier));
                 }
-                if (Sensors.gyro.getHeading() - initGyroPos > 0) {
-                    flmotor.setPower(flmotor.getPower() - (Math.pow((Sensors.gyro.getHeading() - initGyroPos) * 2, 2) * stabilityMultiplier));
-                    blmotor.setPower(blmotor.getPower() - (Math.pow((Sensors.gyro.getHeading() - initGyroPos) * 2, 2) * stabilityMultiplier));
-                    frmotor.setPower(frmotor.getPower() + (Math.pow((Sensors.gyro.getHeading() - initGyroPos) * 2, 2) * stabilityMultiplier));
-                    brmotor.setPower(brmotor.getPower() + (Math.pow((Sensors.gyro.getHeading() - initGyroPos) * 2, 2) * stabilityMultiplier));
+                if (oldSensors.gyro.getHeading() - initGyroPos > 0) {
+                    flmotor.setPower(flmotor.getPower() - (Math.pow((oldSensors.gyro.getHeading() - initGyroPos) * 2, 2) * stabilityMultiplier));
+                    blmotor.setPower(blmotor.getPower() - (Math.pow((oldSensors.gyro.getHeading() - initGyroPos) * 2, 2) * stabilityMultiplier));
+                    frmotor.setPower(frmotor.getPower() + (Math.pow((oldSensors.gyro.getHeading() - initGyroPos) * 2, 2) * stabilityMultiplier));
+                    brmotor.setPower(brmotor.getPower() + (Math.pow((oldSensors.gyro.getHeading() - initGyroPos) * 2, 2) * stabilityMultiplier));
                 }
             }
         } else {
             while (opMode.opModeIsActive() && flmotor.getCurrentPosition() < -COUNTS) {
 
-                if (Sensors.gyro.getHeading() - initGyroPos < 0) {
-                    flmotor.setPower(flmotor.getPower() + (Math.pow((Sensors.gyro.getHeading() - initGyroPos) * 2, 2) * stabilityMultiplier));
-                    blmotor.setPower(blmotor.getPower() + (Math.pow((Sensors.gyro.getHeading() - initGyroPos) * 2, 2) * stabilityMultiplier));
-                    frmotor.setPower(frmotor.getPower() - (Math.pow((Sensors.gyro.getHeading() - initGyroPos) * 2, 2) * stabilityMultiplier));
-                    brmotor.setPower(brmotor.getPower() - (Math.pow((Sensors.gyro.getHeading() - initGyroPos) * 2, 2) * stabilityMultiplier));
+                if (oldSensors.gyro.getHeading() - initGyroPos < 0) {
+                    flmotor.setPower(flmotor.getPower() + (Math.pow((oldSensors.gyro.getHeading() - initGyroPos) * 2, 2) * stabilityMultiplier));
+                    blmotor.setPower(blmotor.getPower() + (Math.pow((oldSensors.gyro.getHeading() - initGyroPos) * 2, 2) * stabilityMultiplier));
+                    frmotor.setPower(frmotor.getPower() - (Math.pow((oldSensors.gyro.getHeading() - initGyroPos) * 2, 2) * stabilityMultiplier));
+                    brmotor.setPower(brmotor.getPower() - (Math.pow((oldSensors.gyro.getHeading() - initGyroPos) * 2, 2) * stabilityMultiplier));
                 }
-                if (Sensors.gyro.getHeading() - initGyroPos > 0) {
-                    flmotor.setPower(flmotor.getPower() - (Math.pow((Sensors.gyro.getHeading() - initGyroPos) * 2, 2) * stabilityMultiplier));
-                    blmotor.setPower(blmotor.getPower() - (Math.pow((Sensors.gyro.getHeading() - initGyroPos) * 2, 2) * stabilityMultiplier));
-                    frmotor.setPower(frmotor.getPower() + (Math.pow((Sensors.gyro.getHeading() - initGyroPos) * 2, 2) * stabilityMultiplier));
-                    brmotor.setPower(brmotor.getPower() + (Math.pow((Sensors.gyro.getHeading() - initGyroPos) * 2, 2) * stabilityMultiplier));
+                if (oldSensors.gyro.getHeading() - initGyroPos > 0) {
+                    flmotor.setPower(flmotor.getPower() - (Math.pow((oldSensors.gyro.getHeading() - initGyroPos) * 2, 2) * stabilityMultiplier));
+                    blmotor.setPower(blmotor.getPower() - (Math.pow((oldSensors.gyro.getHeading() - initGyroPos) * 2, 2) * stabilityMultiplier));
+                    frmotor.setPower(frmotor.getPower() + (Math.pow((oldSensors.gyro.getHeading() - initGyroPos) * 2, 2) * stabilityMultiplier));
+                    brmotor.setPower(brmotor.getPower() + (Math.pow((oldSensors.gyro.getHeading() - initGyroPos) * 2, 2) * stabilityMultiplier));
                 }
             }
         }
@@ -323,7 +323,7 @@ public class move {
         blmotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         brmotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
-        initGyroPos = Sensors.gyro.getHeading();
+        initGyroPos = oldSensors.gyro.getHeading();
         int target = initGyroPos - degrees;
 
         if (target < 0) {
@@ -332,16 +332,16 @@ public class move {
         if (target > 360) {
             target = target - 360;
         }
-        while (opMode.opModeIsActive() && Sensors.gyro.getHeading() != target) {
+        while (opMode.opModeIsActive() && oldSensors.gyro.getHeading() != target) {
             telemetry.addData("Target:", target);
-            telemetry.addData("Current:", Sensors.gyro.getHeading());
-            telemetry.addData("Delta:", target - Sensors.gyro.getHeading());
+            telemetry.addData("Current:", oldSensors.gyro.getHeading());
+            telemetry.addData("Delta:", target - oldSensors.gyro.getHeading());
             telemetry.update();
 
-            flmotor.setPower(-(Math.pow(target - (Sensors.gyro.getHeading() * 0.5), 2) * spinRate));
-            blmotor.setPower(-(Math.pow(target - (Sensors.gyro.getHeading() * 0.5), 2) * spinRate));
-            frmotor.setPower((Math.pow(target - (Sensors.gyro.getHeading() * 0.5), 2) * spinRate));
-            brmotor.setPower((Math.pow(target - (Sensors.gyro.getHeading() * 0.5), 2) * spinRate));
+            flmotor.setPower(-(Math.pow(target - (oldSensors.gyro.getHeading() * 0.5), 2) * spinRate));
+            blmotor.setPower(-(Math.pow(target - (oldSensors.gyro.getHeading() * 0.5), 2) * spinRate));
+            frmotor.setPower((Math.pow(target - (oldSensors.gyro.getHeading() * 0.5), 2) * spinRate));
+            brmotor.setPower((Math.pow(target - (oldSensors.gyro.getHeading() * 0.5), 2) * spinRate));
         }
         /**
         degrees = initGyroPos - degrees;
@@ -351,15 +351,15 @@ public class move {
         if (degrees > 360) {
             degrees = degrees - 360;
         }
-        while (opMode.opModeIsActive() && Sensors.gyro.getHeading() != degrees) {
+        while (opMode.opModeIsActive() && oldSensors.gyro.getHeading() != degrees) {
             telemetry.addData("Heading:", degrees);
             telemetry.addData("Current: ", degrees);
-            if ((degrees < Sensors.gyro.getHeading() + 180 && degrees > Sensors.gyro.getHeading()) || degrees < (Sensors.gyro.getHeading() + 180) - 360) {
+            if ((degrees < oldSensors.gyro.getHeading() + 180 && degrees > oldSensors.gyro.getHeading()) || degrees < (oldSensors.gyro.getHeading() + 180) - 360) {
                 telemetry.addData("IF: ", 1);
-                flmotor.setPower(-(Math.pow(degrees - (Sensors.gyro.getHeading()) * 0.5, 2) * spinRate));
-                blmotor.setPower(-(Math.pow(degrees - (Sensors.gyro.getHeading()) * 0.5, 2) * spinRate));
-                frmotor.setPower((Math.pow(degrees - (Sensors.gyro.getHeading()) * 0.5, 2) * spinRate));
-                brmotor.setPower((Math.pow(degrees - (Sensors.gyro.getHeading()) * 0.5, 2) * spinRate));
+                flmotor.setPower(-(Math.pow(degrees - (oldSensors.gyro.getHeading()) * 0.5, 2) * spinRate));
+                blmotor.setPower(-(Math.pow(degrees - (oldSensors.gyro.getHeading()) * 0.5, 2) * spinRate));
+                frmotor.setPower((Math.pow(degrees - (oldSensors.gyro.getHeading()) * 0.5, 2) * spinRate));
+                brmotor.setPower((Math.pow(degrees - (oldSensors.gyro.getHeading()) * 0.5, 2) * spinRate));
                 /*
                 flmotor.setPower(power);
                 frmotor.setPower(-power);
@@ -367,12 +367,12 @@ public class move {
                 brmotor.setPower(-power);
 
             }
-            if ((degrees > Sensors.gyro.getHeading() - 180 && degrees < Sensors.gyro.getHeading()) || degrees > 360 - (180 - Sensors.gyro.getHeading())) {
+            if ((degrees > oldSensors.gyro.getHeading() - 180 && degrees < oldSensors.gyro.getHeading()) || degrees > 360 - (180 - oldSensors.gyro.getHeading())) {
                 telemetry.addData("IF: ", 2);
-                flmotor.setPower(-(Math.pow(degrees - (Sensors.gyro.getHeading()) * 0.5, 2) * spinRate));
-                blmotor.setPower(-(Math.pow(degrees - (Sensors.gyro.getHeading()) * 0.5, 2) * spinRate));
-                frmotor.setPower((Math.pow(degrees - (Sensors.gyro.getHeading()) * 0.5, 2) * spinRate));
-                brmotor.setPower((Math.pow(degrees - (Sensors.gyro.getHeading()) * 0.5, 2) * spinRate));
+                flmotor.setPower(-(Math.pow(degrees - (oldSensors.gyro.getHeading()) * 0.5, 2) * spinRate));
+                blmotor.setPower(-(Math.pow(degrees - (oldSensors.gyro.getHeading()) * 0.5, 2) * spinRate));
+                frmotor.setPower((Math.pow(degrees - (oldSensors.gyro.getHeading()) * 0.5, 2) * spinRate));
+                brmotor.setPower((Math.pow(degrees - (oldSensors.gyro.getHeading()) * 0.5, 2) * spinRate));
                 /*
                 flmotor.setPower(-power);
                 frmotor.setPower(power);
@@ -404,13 +404,13 @@ public class move {
         blmotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         brmotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
-        while (opMode.opModeIsActive() && Sensors.leye.green() < 3)
+        while (opMode.opModeIsActive() && oldSensors.leye.green() < 3)
         {
             flmotor.setPower(power);
             frmotor.setPower(power);
             blmotor.setPower(power);
             brmotor.setPower(power);
-            telemetry.addData("green", Sensors.leye.green());
+            telemetry.addData("green", oldSensors.leye.green());
             telemetry.update();
         }
 

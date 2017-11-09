@@ -1,10 +1,9 @@
 package org.firstinspires.ftc.teamcode;
 
-import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
-import org.firstinspires.ftc.teamcode.utils.Sensors;
+import org.firstinspires.ftc.teamcode.utils.oldSensors;
 import org.firstinspires.ftc.teamcode.utils.newMove;
 
 @TeleOp(name="Color Test", group="Utilities")
@@ -16,7 +15,7 @@ public class colorTest extends LinearOpMode {
         new newMove(this);
         while (opModeIsActive())
         {
-            telemetry.addData("color", Sensors.checkColor());
+            telemetry.addData("color", oldSensors.checkColor());
             telemetry.update();
         }
     }
