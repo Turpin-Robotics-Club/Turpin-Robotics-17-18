@@ -4,12 +4,11 @@ import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
-import com.qualcomm.robotcore.hardware.GyroSensor;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.teamcode.utils.RobotConstants;
-import org.firstinspires.ftc.teamcode.utils.Sensors;
+import org.firstinspires.ftc.teamcode.utils.oldSensors;
 
 
 @TeleOp(name = "New Mecanum Drive", group = "TeleOp")
@@ -91,13 +90,13 @@ public class mecanumDrive extends OpMode {
 
         G1_Lstk_x = gamepad1.left_stick_x;
         G1_Lstk_y = gamepad1.left_stick_y;
-        currentPos = Sensors.gyroHeading();
+        currentPos = oldSensors.gyroHeading();
 
 
         telemetry.addData("Joystick value left", joyLeft);
         telemetry.addData("robot heading", currentPos);
-        telemetry.addData("Gyro Heading", Sensors.gyro.getHeading());
-        telemetry.addData("Driver Offset", Sensors.driverOffset);
+        telemetry.addData("Gyro Heading", oldSensors.gyro.getHeading());
+        telemetry.addData("Driver Offset", oldSensors.driverOffset);
         telemetry.update();
 
 
@@ -224,7 +223,7 @@ public class mecanumDrive extends OpMode {
 
         if(gamepad1.a)
         {
-            Sensors.resetGyro();
+            oldSensors.resetGyro();
         }
 /*
         telemetry.addData("flvalue", flvalue);

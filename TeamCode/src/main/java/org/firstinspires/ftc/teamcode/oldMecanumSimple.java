@@ -1,5 +1,6 @@
 package org.firstinspires.ftc.teamcode;
 
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
@@ -8,13 +9,13 @@ import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.teamcode.utils.RobotConstants;
-import org.firstinspires.ftc.teamcode.utils.Sensors;
 
 /**
  * Created by Jonathan on 12/16/2016.
  */
 
-@TeleOp(name="New Simple Drive")
+@TeleOp(name="Old Simple Drive")
+@Disabled
 public class oldMecanumSimple extends OpMode{
 
     DcMotor frontleft;

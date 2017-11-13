@@ -2,11 +2,8 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
-import com.qualcomm.robotcore.eventloop.opmode.OpMode;
-import com.qualcomm.robotcore.hardware.TouchSensor;
 
-import org.firstinspires.ftc.robotcore.external.Telemetry;
-import org.firstinspires.ftc.teamcode.utils.Sensors;
+import org.firstinspires.ftc.teamcode.utils.oldSensors;
 import org.firstinspires.ftc.teamcode.utils.newMove;
 
 @Autonomous(name="AB AB 0", group="Autonomous Finals")
@@ -19,13 +16,13 @@ public class nullAutonomous extends LinearOpMode {
 
 
         waitForStart();
-        Sensors.gyroDriftRead();
+        oldSensors.gyroDriftRead();
 
         while (opModeIsActive())
         {
-            telemetry.addData("Heading", Sensors.gyroHeading());
-            telemetry.addData("Gyro Heading", Sensors.gyro.getHeading());
-            telemetry.addData("Offset rate", Sensors.gyrochange);
+            telemetry.addData("Heading", oldSensors.gyroHeading());
+            telemetry.addData("Gyro Heading", oldSensors.gyro.getHeading());
+            telemetry.addData("Offset rate", oldSensors.gyrochange);
             telemetry.update();
         }
     }

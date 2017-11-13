@@ -4,7 +4,7 @@ import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.ColorSensor;
 
-import org.firstinspires.ftc.teamcode.utils.Sensors;
+import org.firstinspires.ftc.teamcode.utils.oldSensors;
 
 import java.util.Iterator;
 
@@ -14,17 +14,17 @@ import java.util.Iterator;
 public class colorValueTest extends OpMode {
     @Override
     public void init() {
-        Sensors.initialize(this,true);
+        oldSensors.initialize(this,true);
     }
 
 
     @Override
     public void loop() {
-        telemetry.addData("left red value" ,Sensors.leye.red());
-        telemetry.addData("left blue value", Sensors.leye.blue());
+        telemetry.addData("left red value" , oldSensors.leye.red());
+        telemetry.addData("left blue value", oldSensors.leye.blue());
 
-        telemetry.addData("right red value", Sensors.reye.red());
-        telemetry.addData("right blue value", Sensors.reye.blue());
+        telemetry.addData("right red value", oldSensors.reye.red());
+        telemetry.addData("right blue value", oldSensors.reye.blue());
 
         Iterator<ColorSensor> iter = hardwareMap.colorSensor.iterator();
         while (iter.hasNext()) {
