@@ -39,7 +39,7 @@ public class mecanumSimple extends OpMode{
         backleft = hardwareMap.dcMotor.get("back_left");
         backright = hardwareMap.dcMotor.get("back_right");
 
-        backleft.setDirection(DcMotorSimple.Direction.REVERSE);
+        frontright.setDirection(DcMotorSimple.Direction.REVERSE);
         backright.setDirection(DcMotorSimple.Direction.REVERSE);
 
 
