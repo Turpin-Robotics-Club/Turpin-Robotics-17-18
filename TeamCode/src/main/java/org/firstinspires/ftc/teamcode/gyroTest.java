@@ -11,6 +11,9 @@ import org.firstinspires.ftc.robotcore.external.navigation.AxesOrder;
 import org.firstinspires.ftc.robotcore.external.navigation.AxesReference;
 import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 
+import static android.os.SystemClock.sleep;
+
+
 @TeleOp(name = "Gyro Test", group = "Sensors")
 public class gyroTest extends OpMode {
     private BNO055IMU gyro;
@@ -30,12 +33,15 @@ public class gyroTest extends OpMode {
         gyro = hardwareMap.get(BNO055IMU.class, "imu");
         gyro.initialize(IMUparams);
         telemetry.addData("IMUparams", IMUparams);
+        sleep(500);
         angles  = gyro.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.XYZ, AngleUnit.DEGREES);
         telemetry.addData("angle", angles);
+
         initAngle = angles.thirdAngle;
     }
     public void loop()
     {
+        telemetry.addData("offset",initAngle);
         angles = gyro.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.XYZ, AngleUnit.DEGREES);
         telemetry.addData("all angles: ", angles);
         if(angles.thirdAngle-initAngle<-360)
@@ -44,6 +50,8 @@ public class gyroTest extends OpMode {
             telemetry.addData("rotation", (angles.thirdAngle+360-initAngle));
         else
             telemetry.addData("rotation", (angles.thirdAngle-initAngle));
+        telemetry.update();
+
     }
 
 }

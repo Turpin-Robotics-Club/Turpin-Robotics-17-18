@@ -72,7 +72,8 @@ public class mecanumDrive extends OpMode {
         telemetry.addData("Driver Offset", oldSensors.driverOffset);
         telemetry.update();
 
-
+        //turn direction
+        //starts at up, turns right
         if(gamepad1.right_stick_x >= 0 && gamepad1.right_stick_y < 0)
         {
             joy = Math.toDegrees(Math.atan2(Math.abs(gamepad1.right_stick_x), Math.abs(gamepad1.right_stick_y)));
@@ -132,6 +133,7 @@ public class mecanumDrive extends OpMode {
 
         if(relativeHeading >= 0 && relativeHeading < 90)
         {
+            //separate x and y                                                   set magnitude of vector                      set speed so it doesn't max
             //telemetry.addData("Quadrant", "1");
             xmove = Math.sin(Math.toRadians(relativeHeading)) * Math.pow(Math.sqrt(Math.pow(G1_Lstk_x, 2) + Math.pow(G1_Lstk_y, 2)), 2) * driveRate;
             ymove = -Math.cos(Math.toRadians(relativeHeading)) * Math.pow(Math.sqrt(Math.pow(G1_Lstk_x, 2) + Math.pow(G1_Lstk_y, 2)), 2) * driveRate;
@@ -155,10 +157,10 @@ public class mecanumDrive extends OpMode {
             ymove = -Math.sin(Math.toRadians(relativeHeading-270)) * Math.pow(Math.sqrt(Math.pow(G1_Lstk_x, 2) + Math.pow(G1_Lstk_y, 2)), 2) * driveRate;
         }
 
-        flvalue = (xmove - ymove);
-        frvalue = (xmove + ymove);
-        blvalue = (xmove + ymove);
-        brvalue = (xmove - ymove);
+        flvalue = (ymove + xmove);
+        frvalue = (ymove - xmove);
+        blvalue = (ymove - xmove);
+        brvalue = (ymove + xmove);
 
         //End of drive
         //Beginning of turn
@@ -166,28 +168,23 @@ public class mecanumDrive extends OpMode {
 
         if((joy < currentPos + 180 && joy > currentPos) || joy < (currentPos + 180) -360)
         {
-            flvalue = flvalue + Math.min(0.75, Math.pow(Math.sqrt(Math.pow(gamepad1.right_stick_x, 2) + Math.pow(gamepad1.right_stick_y, 2)) * turnRate, 2) * Math.pow((joy-currentPos), 2) * spinRate);
+            //left
+            flvalue = flvalue + -Math.min(0.75, Math.pow(Math.sqrt(Math.pow(gamepad1.right_stick_x, 2) + Math.pow(gamepad1.right_stick_y, 2)) * turnRate, 2) * Math.pow((joy-currentPos), 2) * spinRate);
             frvalue = frvalue + Math.min(0.75, Math.pow(Math.sqrt(Math.pow(gamepad1.right_stick_x, 2) + Math.pow(gamepad1.right_stick_y, 2)) * turnRate, 2) * Math.pow((joy-currentPos), 2) * spinRate);
             blvalue = blvalue + -Math.min(0.75, Math.pow(Math.sqrt(Math.pow(gamepad1.right_stick_x, 2) + Math.pow(gamepad1.right_stick_y, 2)) * turnRate, 2) * Math.pow((joy-currentPos), 2) * spinRate);
-            brvalue = brvalue + -Math.min(0.75, Math.pow(Math.sqrt(Math.pow(gamepad1.right_stick_x, 2) + Math.pow(gamepad1.right_stick_y, 2)) * turnRate, 2) * Math.pow((joy-currentPos), 2) * spinRate);
+            brvalue = brvalue + Math.min(0.75, Math.pow(Math.sqrt(Math.pow(gamepad1.right_stick_x, 2) + Math.pow(gamepad1.right_stick_y, 2)) * turnRate, 2) * Math.pow((joy-currentPos), 2) * spinRate);
         }
         if((joy > currentPos - 180 && joy < currentPos) || joy > 360 - (180 - currentPos))
         {
-            flvalue = flvalue + -Math.min(0.75, Math.pow(Math.sqrt(Math.pow(gamepad1.right_stick_x, 2) + Math.pow(gamepad1.right_stick_y, 2)) * turnRate, 2) * Math.pow((joy-currentPos), 2) * spinRate);
+            //right
+            flvalue = flvalue + Math.min(0.75, Math.pow(Math.sqrt(Math.pow(gamepad1.right_stick_x, 2) + Math.pow(gamepad1.right_stick_y, 2)) * turnRate, 2) * Math.pow((joy-currentPos), 2) * spinRate);
             frvalue = frvalue + -Math.min(0.75, Math.pow(Math.sqrt(Math.pow(gamepad1.right_stick_x, 2) + Math.pow(gamepad1.right_stick_y, 2)) * turnRate, 2) * Math.pow((joy-currentPos), 2) * spinRate);
             blvalue = blvalue + Math.min(0.75, Math.pow(Math.sqrt(Math.pow(gamepad1.right_stick_x, 2) + Math.pow(gamepad1.right_stick_y, 2)) * turnRate, 2) * Math.pow((joy-currentPos), 2) * spinRate);
-            brvalue = brvalue + Math.min(0.75, Math.pow(Math.sqrt(Math.pow(gamepad1.right_stick_x, 2) + Math.pow(gamepad1.right_stick_y, 2)) * turnRate, 2) * Math.pow((joy-currentPos), 2) * spinRate);
+            brvalue = brvalue + -Math.min(0.75, Math.pow(Math.sqrt(Math.pow(gamepad1.right_stick_x, 2) + Math.pow(gamepad1.right_stick_y, 2)) * turnRate, 2) * Math.pow((joy-currentPos), 2) * spinRate);
         }
 
 
-
-        flvalue = (flvalue/* + gamepad1.right_stick_x*/) * turnRate;
-        frvalue = (frvalue/* + gamepad1.right_stick_x*/) * turnRate;
-        blvalue = (blvalue/* - gamepad1.right_stick_x*/) * turnRate;
-        brvalue = (brvalue/* - gamepad1.right_stick_x*/) * turnRate;
-
-
-
+        //overall divide
         flvalue = (flvalue / 2);
         frvalue = (frvalue / 2);
         blvalue = (blvalue / 2);
