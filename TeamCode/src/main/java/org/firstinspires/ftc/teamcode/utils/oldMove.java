@@ -8,7 +8,7 @@ import com.qualcomm.robotcore.hardware.Servo;
 
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 
-public class move {
+public class oldMove {
 
     DcMotor flmotor;
     DcMotor frmotor;
@@ -19,8 +19,13 @@ public class move {
     DcMotor spinRight;
     Servo dump;
     LinearOpMode opMode;
+    /* UNUSED VARIABLES (for unused classes)
+    double relativeHeading = 0;
+    double xmove;
+    double ymove;
+   */
 
-    double initGyroPos = 0;
+    int initGyroPos = 0;
     double stabilityMultiplier = 0.0001;
     double spinRate = 0.002;
 
@@ -33,9 +38,9 @@ public class move {
      * @param op The instance of the calling LinearOpMode
      * @param red True if on the red Alliance, False otherwise
      */
-    public move(LinearOpMode op, boolean red) {
+    public oldMove(LinearOpMode op, boolean red) {
         opMode = op;
-        move.telemetry = op.telemetry;
+        oldMove.telemetry = op.telemetry;
         HardwareMap hardware_map = op.hardwareMap;
 
         dump = hardware_map.get(Servo.class, "servo_1");
@@ -67,14 +72,13 @@ public class move {
     }
     public void holdDirection()
     {
-        initGyroPos = Sensors.readGyro();
-        if (Sensors.readGyro() > initGyroPos) {
+        if (oldSensors.gyro.rawZ() > initGyroPos) {
             flmotor.setPower(flmotor.getPower() + (Math.abs((oldSensors.gyro.rawZ() - initGyroPos)) * stabilityMultiplier));
             blmotor.setPower(blmotor.getPower() + (Math.abs((oldSensors.gyro.rawZ() - initGyroPos)) * stabilityMultiplier));
             frmotor.setPower(frmotor.getPower() - (Math.abs((oldSensors.gyro.rawZ() - initGyroPos)) * stabilityMultiplier));
             brmotor.setPower(brmotor.getPower() - (Math.abs((oldSensors.gyro.rawZ() - initGyroPos)) * stabilityMultiplier));
         }
-        if (Sensors.readGyro() < initGyroPos) {
+        if (oldSensors.gyro.rawZ() < initGyroPos) {
             flmotor.setPower(flmotor.getPower() - (Math.abs((oldSensors.gyro.rawZ() - initGyroPos)) * stabilityMultiplier));
             blmotor.setPower(blmotor.getPower() - (Math.abs((oldSensors.gyro.rawZ() - initGyroPos)) * stabilityMultiplier));
             frmotor.setPower(frmotor.getPower() + (Math.abs((oldSensors.gyro.rawZ() - initGyroPos)) * stabilityMultiplier));
@@ -309,18 +313,18 @@ public class move {
      * Pivots the robot a certain degree around it's axis.
      *
      * @param degrees The amount (in degrees) to turn the robot. Positive for left, negative for right
-     *
+     * @throws InterruptedException
      */
     public void turnLeft(int degrees){
-        initGyroPos = Sensors.readGyro();
+
         resetEncoders();
         flmotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         frmotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         blmotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         brmotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
-
-        double target = initGyroPos - degrees;
+        initGyroPos = oldSensors.gyro.getHeading();
+        int target = initGyroPos - degrees;
 
         if (target < 0) {
             target = 360 + target;
@@ -339,6 +343,45 @@ public class move {
             frmotor.setPower((Math.pow(target - (oldSensors.gyro.getHeading() * 0.5), 2) * spinRate));
             brmotor.setPower((Math.pow(target - (oldSensors.gyro.getHeading() * 0.5), 2) * spinRate));
         }
+        /**
+        degrees = initGyroPos - degrees;
+        if (degrees < 0) {
+            degrees = 360 + degrees;
+        }
+        if (degrees > 360) {
+            degrees = degrees - 360;
+        }
+        while (opMode.opModeIsActive() && oldSensors.gyro.getHeading() != degrees) {
+            telemetry.addData("Heading:", degrees);
+            telemetry.addData("Current: ", degrees);
+            if ((degrees < oldSensors.gyro.getHeading() + 180 && degrees > oldSensors.gyro.getHeading()) || degrees < (oldSensors.gyro.getHeading() + 180) - 360) {
+                telemetry.addData("IF: ", 1);
+                flmotor.setPower(-(Math.pow(degrees - (oldSensors.gyro.getHeading()) * 0.5, 2) * spinRate));
+                blmotor.setPower(-(Math.pow(degrees - (oldSensors.gyro.getHeading()) * 0.5, 2) * spinRate));
+                frmotor.setPower((Math.pow(degrees - (oldSensors.gyro.getHeading()) * 0.5, 2) * spinRate));
+                brmotor.setPower((Math.pow(degrees - (oldSensors.gyro.getHeading()) * 0.5, 2) * spinRate));
+                /*
+                flmotor.setPower(power);
+                frmotor.setPower(-power);
+                blmotor.setPower(power);
+                brmotor.setPower(-power);
+
+            }
+            if ((degrees > oldSensors.gyro.getHeading() - 180 && degrees < oldSensors.gyro.getHeading()) || degrees > 360 - (180 - oldSensors.gyro.getHeading())) {
+                telemetry.addData("IF: ", 2);
+                flmotor.setPower(-(Math.pow(degrees - (oldSensors.gyro.getHeading()) * 0.5, 2) * spinRate));
+                blmotor.setPower(-(Math.pow(degrees - (oldSensors.gyro.getHeading()) * 0.5, 2) * spinRate));
+                frmotor.setPower((Math.pow(degrees - (oldSensors.gyro.getHeading()) * 0.5, 2) * spinRate));
+                brmotor.setPower((Math.pow(degrees - (oldSensors.gyro.getHeading()) * 0.5, 2) * spinRate));
+                /*
+                flmotor.setPower(-power);
+                frmotor.setPower(power);
+                blmotor.setPower(-power);
+                brmotor.setPower(power);
+            }
+            telemetry.update();
+        }
+        **/
 
         resetEncoders();
         flmotor.setPower(0);

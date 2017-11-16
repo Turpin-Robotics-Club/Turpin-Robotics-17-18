@@ -4,7 +4,7 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 import org.firstinspires.ftc.teamcode.utils.oldSensors;
-import org.firstinspires.ftc.teamcode.utils.newMove;
+import org.firstinspires.ftc.teamcode.utils.oldNewMove;
 
 
 @Autonomous(name="A ramp 0", group="Autonomous Finals")
@@ -17,7 +17,7 @@ public class A_ramp_0 extends LinearOpMode {
 
 
 
-        newMove drive = new newMove(this);
+        oldNewMove drive = new oldNewMove(this);
         waitForStart();
         oldSensors.gyroDriftRead();
 

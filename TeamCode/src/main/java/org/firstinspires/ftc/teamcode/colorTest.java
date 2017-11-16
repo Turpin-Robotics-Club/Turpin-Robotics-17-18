@@ -4,7 +4,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 import org.firstinspires.ftc.teamcode.utils.oldSensors;
-import org.firstinspires.ftc.teamcode.utils.newMove;
+import org.firstinspires.ftc.teamcode.utils.oldNewMove;
 
 @TeleOp(name="Color Test", group="Utilities")
 //@Disabled
@@ -12,7 +12,7 @@ public class colorTest extends LinearOpMode {
 
     @Override
     public void runOpMode() throws InterruptedException {
-        new newMove(this);
+        new oldNewMove(this);
         while (opModeIsActive())
         {
             telemetry.addData("color", oldSensors.checkColor());

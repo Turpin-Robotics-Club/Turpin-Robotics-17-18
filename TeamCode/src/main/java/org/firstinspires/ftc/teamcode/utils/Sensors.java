@@ -24,13 +24,12 @@ import static org.firstinspires.ftc.teamcode.utils.oldSensors.gyro;
 public class Sensors {
 
     public static double gyrochange;
-    private static double timeAutonomous;
     private static ElapsedTime gyrotime = new ElapsedTime();
     private static ElapsedTime runtime = new ElapsedTime();
     public static double gyroInitial;
     public static BNO055IMU gyro;
     static boolean red;
-    static  double trueHeading;
+
     public static double driverOffset = 0;
     static Orientation angles;
     private static LinearOpMode opMode;
@@ -49,9 +48,6 @@ public class Sensors {
             return;
         }
         HardwareMap hardware_map = opMode.hardwareMap;
-        //leye = hardware_map.get(ColorSensor.class, "leye");
-        //leye.setI2cAddress(I2cAddr.create8bit(0x4c));
-        //leye.enableLed(false);
         red = reds;
 
         telemetry = opMode.telemetry;
@@ -63,50 +59,29 @@ public class Sensors {
         IMUparams.loggingEnabled      = true;
         IMUparams.loggingTag          = "IMU";
         IMUparams.accelerationIntegrationAlgorithm = new JustLoggingAccelerationIntegrator();
-        //reye = hardware_map.get(ColorSensor.class, "reye");
-        //reye.setI2cAddress(I2cAddr.create8bit(0x5c));
-        //reye.enableLed(false);
 
         gyro = hardware_map.get(BNO055IMU.class, "imu");
 
         driverOffset = 0;
 
         runtime.reset();
-        /*
-        while (gyro.isCalibrating() && opMode.opModeIsActive()) {
-            //telemetry.addData("Time", runtime.seconds());
-            //telemetry.update();
-            for (int i = 0; i < 10000; i++);
-        }
-        //telemetry.addData("Done", "");
-        //telemetry.update();
-        gyroInitial = gyro.getHeading();
-        */
+
         gyro.initialize(IMUparams);
-        sleep(50);
-        telemetry.addData("IMUparams", IMUparams);
+        sleep(100);
         angles   = gyro.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.XYZ, AngleUnit.DEGREES);
         telemetry.addData("angle", angles);
         gyroInitial = angles.thirdAngle;
-
-
+        ((LinearOpMode) _opMode).waitForStart();
+        gyroDriftRead();
     }
 
-    public static double readGyro()
-    {
-        if(gyrotime.milliseconds() >= 10)
-        {
-            gyrotime.reset();
-            angles = gyro.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.XYZ, AngleUnit.DEGREES);
-        }
-        return angles.thirdAngle;
-    }
+
 
 
     public static void gyroDriftRead() {
 
         if(angles.thirdAngle == 0) {
-            gyrochange= 0;
+            gyrochange = 0;
         } else if (angles.thirdAngle < (gyroInitial + 180) - 360) {
             gyrochange = -((360 - gyroInitial) + angles.thirdAngle) / runtime.seconds();
         } else if (angles.thirdAngle > gyroInitial + 180) {
@@ -117,45 +92,24 @@ public class Sensors {
 
     }
 
-    public static double gyroIntegratedHeading() {
-        //return (gyrochange * (runtime.seconds())) + gyro.getIntegratedZValue();
-        return 0;
-    }
-
-    public static double gyroHeading()
-    {
-        /*
-        //calculate modified heading
-        trueHeading = (gyrochange * runtime.seconds()) + gyro.getHeading();
-
-        //make sure it's in the gyro's range
-        while (0 > trueHeading || trueHeading >= 360) {
-            if (trueHeading >= 360) {
-                trueHeading = trueHeading - 360;
-            }
-            if (trueHeading < 0) {
-                trueHeading = trueHeading + 360;
-            }
+    public static double readGyro() {
+        if(gyrotime.milliseconds() >= 20)
+        {
+            gyrotime.reset();
+            angles = gyro.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.XYZ, AngleUnit.DEGREES);
         }
-        //if it is, then return
-        return trueHeading;
-        */
-        return 0;
+        if(angles.thirdAngle-gyroInitial<-360)
+            return (gyrochange * (runtime.seconds())) + angles.thirdAngle-gyroInitial+720;
+        else if (angles.thirdAngle-gyroInitial<0)
+            return (gyrochange * (runtime.seconds())) + angles.thirdAngle-gyroInitial+360;
+        else
+            return (gyrochange * (runtime.seconds())) + angles.thirdAngle-gyroInitial;
     }
 
     public static void resetGyro()
     {
-        //gyro.resetZAxisIntegrator();
-        //runtime.reset();
-    }
-
-    public static void offsetReset() {
-        /*
-        telemetry.addData(">", "gyro resetting");
-        telemetry.update();
-        gyro.calibrate();
-        gyrochange = 0;
-        */
+        gyroInitial=angles.thirdAngle;
+        runtime.reset();
     }
 
 

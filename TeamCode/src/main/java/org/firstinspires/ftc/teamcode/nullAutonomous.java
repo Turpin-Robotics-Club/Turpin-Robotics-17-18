@@ -4,7 +4,7 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 import org.firstinspires.ftc.teamcode.utils.oldSensors;
-import org.firstinspires.ftc.teamcode.utils.newMove;
+import org.firstinspires.ftc.teamcode.utils.oldNewMove;
 
 @Autonomous(name="AB AB 0", group="Autonomous Finals")
 //@Disabled
@@ -12,7 +12,7 @@ public class nullAutonomous extends LinearOpMode {
     @Override
     public void runOpMode(){
 
-        new newMove(this);
+        new oldNewMove(this);
 
 
         waitForStart();
