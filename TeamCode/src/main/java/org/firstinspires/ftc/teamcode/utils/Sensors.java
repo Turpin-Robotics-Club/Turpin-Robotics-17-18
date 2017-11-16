@@ -17,6 +17,7 @@ import org.firstinspires.ftc.robotcore.external.navigation.AxesOrder;
 import org.firstinspires.ftc.robotcore.external.navigation.AxesReference;
 import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 
+import static android.os.SystemClock.sleep;
 import static org.firstinspires.ftc.teamcode.utils.oldSensors.gyro;
 
 
@@ -26,9 +27,7 @@ public class Sensors {
     private static double timeAutonomous;
     private static ElapsedTime gyrotime = new ElapsedTime();
     private static ElapsedTime runtime = new ElapsedTime();
-    public static int gyroInitial;
-    //public static ColorSensor leye;
-    //public static ColorSensor reye;
+    public static double gyroInitial;
     public static BNO055IMU gyro;
     static boolean red;
     static  double trueHeading;
@@ -84,37 +83,38 @@ public class Sensors {
         gyroInitial = gyro.getHeading();
         */
         gyro.initialize(IMUparams);
+        sleep(50);
         telemetry.addData("IMUparams", IMUparams);
         angles   = gyro.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.XYZ, AngleUnit.DEGREES);
         telemetry.addData("angle", angles);
-
+        gyroInitial = angles.thirdAngle;
 
 
     }
 
-    public static Orientation readGyro()
+    public static double readGyro()
     {
         if(gyrotime.milliseconds() >= 10)
         {
             gyrotime.reset();
             angles = gyro.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.XYZ, AngleUnit.DEGREES);
         }
-        return angles;
+        return angles.thirdAngle;
     }
 
 
     public static void gyroDriftRead() {
-/*
-        if(gyro.getHeading() == 0) {
+
+        if(angles.thirdAngle == 0) {
             gyrochange= 0;
-        } else if (gyro.getHeading() < (gyroInitial + 180) - 360) {
-            gyrochange = -((360 - gyroInitial) + gyro.getHeading()) / runtime.seconds();
-        } else if (gyro.getHeading() > gyroInitial + 180) {
-            gyrochange = (gyroInitial + (360 - gyro.getHeading())) / runtime.seconds();
+        } else if (angles.thirdAngle < (gyroInitial + 180) - 360) {
+            gyrochange = -((360 - gyroInitial) + angles.thirdAngle) / runtime.seconds();
+        } else if (angles.thirdAngle > gyroInitial + 180) {
+            gyrochange = (gyroInitial + (360 - angles.thirdAngle)) / runtime.seconds();
         } else {
-            gyrochange = (gyroInitial - gyro.getHeading()) / runtime.seconds();
+            gyrochange = (gyroInitial - angles.thirdAngle) / runtime.seconds();
         }
-        */
+
     }
 
     public static double gyroIntegratedHeading() {

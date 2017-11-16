@@ -8,6 +8,7 @@ import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.teamcode.utils.RobotConstants;
+import org.firstinspires.ftc.teamcode.utils.Sensors;
 import org.firstinspires.ftc.teamcode.utils.oldSensors;
 
 
@@ -63,7 +64,7 @@ public class mecanumDrive extends OpMode {
 
         G1_Lstk_x = gamepad1.left_stick_x;
         G1_Lstk_y = gamepad1.left_stick_y;
-        //currentPos = oldSensors.gyroHeading();
+        currentPos = Sensors.readGyro();
 
 
         telemetry.addData("Joystick value left", joyLeft);
