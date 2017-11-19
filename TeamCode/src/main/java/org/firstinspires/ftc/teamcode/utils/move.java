@@ -155,7 +155,7 @@ public class move {
      * @param minPower the starting and ending speed
      * @param maxPower the maximum power the robot will run at
      * @param increment the speed at which the speed increases & decreases
-     * @throws InterruptedException for sleep
+     *
      */
     public void forward2(double distance, double minPower, double maxPower, double increment)
     {
@@ -389,76 +389,6 @@ public class move {
 
     }
 
-    /* INVALID STATEMENT
-    public void diagonal(double forward, double left, double power) throws InterruptedException{
 
-
-        resetEncoders();
-
-
-
-        double CIRCUMFERENCE = Math.PI * WHEEL_DIAMETER;
-        double fROTATIONS = forward / CIRCUMFERENCE;
-        double flfCOUNTS = ENCODER_CPR * fROTATIONS * GEAR_RATIO;
-        double lROTATIONS = left / CIRCUMFERENCE;
-        double fllCOUNTS = ENCODER_CPR * lROTATIONS * GEAR_RATIO;
-        flmotor.setTargetPosition((int) (flfCOUNTS - fllCOUNTS));
-        flmotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-
-        relativeHeading = (Math.toDegrees(Math.atan2(-fllCOUNTS,flfCOUNTS)));
-
-        if(relativeHeading >= 0 && relativeHeading < 90)
-        {
-            xmove = Math.sin(Math.toRadians(relativeHeading-0));
-            ymove = -Math.cos(Math.toRadians(relativeHeading-0));
-        }
-        if(relativeHeading >= 90 && relativeHeading < 180)
-        {
-            xmove = Math.cos(Math.toRadians(relativeHeading-90));
-            ymove = Math.sin(Math.toRadians(relativeHeading-90));
-        }
-        if(relativeHeading >= 180 && relativeHeading < 270)
-        {
-            xmove = -Math.sin(Math.toRadians(relativeHeading-180));
-            ymove = Math.cos(Math.toRadians(relativeHeading-180));
-        }
-        if(relativeHeading >= 270 && relativeHeading < 360)
-        {
-            xmove = -Math.cos(Math.toRadians(relativeHeading-270));
-            ymove = -Math.sin(Math.toRadians(relativeHeading-270));
-        }
-
-
-
-
-
-
-
-        flmotor.setPower(-xmove + ymove);
-        frmotor.setPower(-xmove - ymove);
-        blmotor.setPower(xmove - ymove);
-        brmotor.setPower(xmove + ymove);
-
-
-
-        while(opMode.opModeIsActive() && -fllCOUNTS + flfCOUNTS > flmotor.getCurrentPosition())
-        {
-
-        }
-        *//*
-        while(opMode.opModeIsActive() && motor1.getCurrentPosition() < COUNTS && motor2.getCurrentPosition() < COUNTS)
-        {EncCounts = motor1.getCurrentPosition();}
-        motor1.setPower(0);
-        motor2.setPower(0);
-
-        motor1.setMode(DcMotorController.RunMode.RESET_ENCODERS);
-        motor2.setMode(DcMotorController.RunMode.RESET_ENCODERS);
-        *//*
-
-
-
-        return;
-    }
-*/
 
 }

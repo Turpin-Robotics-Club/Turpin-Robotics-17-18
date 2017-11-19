@@ -12,8 +12,7 @@ import org.firstinspires.ftc.teamcode.utils.Sensors;
 import org.firstinspires.ftc.teamcode.utils.oldSensors;
 
 
-@TeleOp(name = "New Mecanum Drive", group = "TeleOp")
-//@Disabled
+@TeleOp(name = "Mecanum Drive")
 public class mecanumDrive extends OpMode {
 
 
@@ -39,7 +38,6 @@ public class mecanumDrive extends OpMode {
     private double bumperPower = 0.3;
     private double spinRate = 0.1;
 
-    private ElapsedTime runtimeStorageServo = new ElapsedTime();
     private ElapsedTime runtime_y = new ElapsedTime();
     private ElapsedTime runtime_b = new ElapsedTime();
 
@@ -51,12 +49,12 @@ public class mecanumDrive extends OpMode {
         frontleft = hardwareMap.dcMotor.get("back_right");
 
 
-        frontright.setDirection(DcMotorSimple.Direction.REVERSE);
-        backright.setDirection(DcMotorSimple.Direction.REVERSE);
+        frontleft.setDirection(DcMotorSimple.Direction.REVERSE);
+        backleft.setDirection(DcMotorSimple.Direction.REVERSE);
 
 
 
-        runtimeStorageServo.reset();
+
         runtime_y.reset();
     }
 

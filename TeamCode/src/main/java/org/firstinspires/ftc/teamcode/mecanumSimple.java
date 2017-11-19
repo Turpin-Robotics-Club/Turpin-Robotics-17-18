@@ -39,8 +39,8 @@ public class mecanumSimple extends OpMode{
         backleft = hardwareMap.dcMotor.get("back_left");
         backright = hardwareMap.dcMotor.get("back_right");
 
-        frontright.setDirection(DcMotorSimple.Direction.REVERSE);
-        backright.setDirection(DcMotorSimple.Direction.REVERSE);
+        frontleft.setDirection(DcMotorSimple.Direction.REVERSE);
+        backleft.setDirection(DcMotorSimple.Direction.REVERSE);
 
 
 
@@ -52,10 +52,10 @@ public class mecanumSimple extends OpMode{
 
 
         // Movement
-        frontLeftPower = (gamepad1.left_stick_x + (gamepad1.left_stick_y * forwardBonus));
-        frontRightPower = (-gamepad1.left_stick_x + (gamepad1.left_stick_y * forwardBonus));
-        backLeftPower = (-gamepad1.left_stick_x + (gamepad1.left_stick_y * forwardBonus));
-        backRightPower = (gamepad1.left_stick_x + (gamepad1.left_stick_y * forwardBonus));
+        frontLeftPower = (gamepad1.left_stick_x + (-gamepad1.left_stick_y * forwardBonus));
+        frontRightPower = (-gamepad1.left_stick_x + (-gamepad1.left_stick_y * forwardBonus));
+        backLeftPower = (-gamepad1.left_stick_x + (-gamepad1.left_stick_y * forwardBonus));
+        backRightPower = (gamepad1.left_stick_x + (-gamepad1.left_stick_y * forwardBonus));
 
         // Turning
         frontLeftPower += gamepad1.right_stick_x;
