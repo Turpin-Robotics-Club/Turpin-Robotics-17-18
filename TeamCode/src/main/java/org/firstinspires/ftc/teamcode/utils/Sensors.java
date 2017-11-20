@@ -2,13 +2,9 @@ package org.firstinspires.ftc.teamcode.utils;
 
 import com.qualcomm.hardware.bosch.BNO055IMU;
 import com.qualcomm.hardware.bosch.JustLoggingAccelerationIntegrator;
-import com.qualcomm.hardware.modernrobotics.ModernRoboticsI2cGyro;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
-import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
-import com.qualcomm.robotcore.hardware.I2cAddr;
-import com.qualcomm.robotcore.hardware.configuration.ExpansionHubMotorControllerVelocityParams;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.robotcore.external.Telemetry;
@@ -18,7 +14,6 @@ import org.firstinspires.ftc.robotcore.external.navigation.AxesReference;
 import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 
 import static android.os.SystemClock.sleep;
-import static org.firstinspires.ftc.teamcode.utils.oldSensors.gyro;
 
 
 public class Sensors {
@@ -52,8 +47,6 @@ public class Sensors {
 
         telemetry = opMode.telemetry;
 
-        gyroThread gThread = new gyroThread();
-        gThread.start();
 
         BNO055IMU.Parameters IMUparams = new BNO055IMU.Parameters();
         IMUparams.angleUnit           = BNO055IMU.AngleUnit.DEGREES;
@@ -73,6 +66,9 @@ public class Sensors {
         sleep(100);
         angles   = gyro.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.XYZ, AngleUnit.DEGREES);
         telemetry.addData("angle", angles);
+        gyroThread gThread = new gyroThread();
+        gThread.start();
+
         gyroInitial = angles.thirdAngle;
         ((LinearOpMode) _opMode).waitForStart();
         gyroDriftRead();
@@ -81,7 +77,7 @@ public class Sensors {
 
 
 
-    public static void gyroDriftRead() {
+    private static void gyroDriftRead() {
 
         if(angles.thirdAngle == 0) {
             gyrochange = 0;
@@ -112,5 +108,18 @@ public class Sensors {
     }
 
 
-
+    public static class gyroThread extends Thread{
+        private static ElapsedTime gyroTime = new ElapsedTime();
+        public void run()
+        {
+            while (opMode.opModeIsActive())
+            {
+                if(gyroTime.milliseconds() >= 20)
+                {
+                    gyroTime.reset();
+                    angles = gyro.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.XYZ, AngleUnit.DEGREES);
+                }
+            }
+        }
+    }
 }
