@@ -24,14 +24,14 @@ import static org.firstinspires.ftc.teamcode.utils.oldSensors.gyro;
 public class Sensors {
 
     public static double gyrochange;
-    private static ElapsedTime gyrotime = new ElapsedTime();
+
     private static ElapsedTime runtime = new ElapsedTime();
     public static double gyroInitial;
     public static BNO055IMU gyro;
     static boolean red;
 
     public static double driverOffset = 0;
-    static Orientation angles;
+    public static Orientation angles;
     private static LinearOpMode opMode;
     private static Telemetry telemetry;
 
@@ -51,6 +51,9 @@ public class Sensors {
         red = reds;
 
         telemetry = opMode.telemetry;
+
+        gyroThread gThread = new gyroThread();
+        gThread.start();
 
         BNO055IMU.Parameters IMUparams = new BNO055IMU.Parameters();
         IMUparams.angleUnit           = BNO055IMU.AngleUnit.DEGREES;
@@ -93,11 +96,7 @@ public class Sensors {
     }
 
     public static double readGyro() {
-        if(gyrotime.milliseconds() >= 20)
-        {
-            gyrotime.reset();
-            angles = gyro.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.XYZ, AngleUnit.DEGREES);
-        }
+
         if(angles.thirdAngle-gyroInitial<-360)
             return (gyrochange * (runtime.seconds())) + angles.thirdAngle-gyroInitial+720;
         else if (angles.thirdAngle-gyroInitial<0)
@@ -111,6 +110,7 @@ public class Sensors {
         gyroInitial=angles.thirdAngle;
         runtime.reset();
     }
+
 
 
 }

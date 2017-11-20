@@ -3,6 +3,8 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
+import org.firstinspires.ftc.teamcode.utils.Sensors;
+import org.firstinspires.ftc.teamcode.utils.move;
 import org.firstinspires.ftc.teamcode.utils.oldSensors;
 import org.firstinspires.ftc.teamcode.utils.oldNewMove;
 
@@ -12,17 +14,13 @@ public class nullAutonomous extends LinearOpMode {
     @Override
     public void runOpMode(){
 
-        new oldNewMove(this);
-
-
-        waitForStart();
-        oldSensors.gyroDriftRead();
+        new move(this, true);
 
         while (opModeIsActive())
         {
-            telemetry.addData("Heading", oldSensors.gyroHeading());
-            telemetry.addData("Gyro Heading", oldSensors.gyro.getHeading());
-            telemetry.addData("Offset rate", oldSensors.gyrochange);
+            telemetry.addData("Heading", Sensors.readGyro());
+            telemetry.addData("Gyro Heading", Sensors.angles.thirdAngle);
+            telemetry.addData("Offset rate", Sensors.gyrochange);
             telemetry.update();
         }
     }
