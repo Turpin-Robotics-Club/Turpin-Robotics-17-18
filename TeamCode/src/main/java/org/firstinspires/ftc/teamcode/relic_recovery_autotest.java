@@ -13,5 +13,9 @@ public class relic_recovery_autotest extends LinearOpMode{
     public void runOpMode() throws InterruptedException{
         move obj = new move(this,true);
         Sensors.gyroDriftRead();
+        waitForStart();
+        obj.left(24, .60);
+        sleep(60);
+        obj.forward(36,.75);
     }
 }
