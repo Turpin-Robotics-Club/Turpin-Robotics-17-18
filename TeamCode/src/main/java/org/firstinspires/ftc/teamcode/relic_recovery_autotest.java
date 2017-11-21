@@ -11,6 +11,7 @@ import org.firstinspires.ftc.teamcode.utils.Sensors;
 @Autonomous (name="relic_autotest", group="Autonomous Finals")
 public class relic_recovery_autotest extends LinearOpMode{
     public void runOpMode() throws InterruptedException{
+        //dont use move class-use sensors and we always do it as red
         move obj = new move(this,true);
         Sensors.readGyro();
     }

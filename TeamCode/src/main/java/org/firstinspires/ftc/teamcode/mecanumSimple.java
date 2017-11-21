@@ -3,6 +3,7 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorController;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
@@ -19,7 +20,7 @@ public class mecanumSimple extends OpMode{
     DcMotor backleft;
     DcMotor backright;
     DcMotor liftMotor;
-
+    static telemetry telemetry;
 
     double frontLeftPower;
     double frontRightPower;
@@ -42,7 +43,6 @@ public class mecanumSimple extends OpMode{
 
         frontleft.setDirection(DcMotorSimple.Direction.REVERSE);
         backleft.setDirection(DcMotorSimple.Direction.REVERSE);
-
 
 
     }
@@ -68,7 +68,12 @@ public class mecanumSimple extends OpMode{
         frontright.setPower(frontRightPower * SPEED);
         backleft.setPower(backLeftPower * SPEED);
         backright.setPower(backRightPower * SPEED);
-
+       /* Probably doesn't work- try to get lift motors mapped to right and left bumpers
+        if (gamepad1.right_bumper)
+            liftMotor.setPower(0.5);
+        if (gamepad1.left_bumper)
+            liftMotor.setPower(-0.5);
+        */
 
 
     }
