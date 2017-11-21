@@ -12,6 +12,6 @@ import org.firstinspires.ftc.teamcode.utils.Sensors;
 public class relic_recovery_autotest extends LinearOpMode{
     public void runOpMode() throws InterruptedException{
         move obj = new move(this,true);
-        Sensors.gyroDriftRead();
+        Sensors.readGyro();
     }
 }
