@@ -18,14 +18,14 @@ public class mecanumSimple extends OpMode{
     DcMotor frontright;
     DcMotor backleft;
     DcMotor backright;
-
+    DcMotor liftMotor;
 
 
     double frontLeftPower;
     double frontRightPower;
     double backLeftPower;
     double backRightPower;
-
+    double liftPower;
 
     public final double SPEED = 0.75;
     public final double forwardBonus = 1.5;
@@ -34,6 +34,7 @@ public class mecanumSimple extends OpMode{
 
     @Override
     public void init() {
+        resetEncoders();
         frontleft = hardwareMap.dcMotor.get("front_left");
         frontright = hardwareMap.dcMotor.get("front_right");
         backleft = hardwareMap.dcMotor.get("back_left");
