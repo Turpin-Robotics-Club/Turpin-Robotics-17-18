@@ -34,7 +34,7 @@ public class mecanumSimple extends OpMode{
 
     @Override
     public void init() {
-        resetEncoders();
+        liftMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         frontleft = hardwareMap.dcMotor.get("front_left");
         frontright = hardwareMap.dcMotor.get("front_right");
         backleft = hardwareMap.dcMotor.get("back_left");
