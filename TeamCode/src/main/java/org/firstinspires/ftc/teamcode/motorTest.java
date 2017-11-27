@@ -5,6 +5,9 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
+import org.firstinspires.ftc.robotcore.external.Func;
+import org.firstinspires.ftc.robotcore.external.Telemetry;
+
 
 @TeleOp(name="Motor Test", group="Test")
 //@Disabled
@@ -13,6 +16,7 @@ public class motorTest extends OpMode {
     DcMotor motor2;
     DcMotor motor3;
     DcMotor motor4;
+
     public void init()
     {
         motor1=hardwareMap.dcMotor.get("front_left");
@@ -20,8 +24,8 @@ public class motorTest extends OpMode {
         motor3=hardwareMap.dcMotor.get("back_left");
         motor4=hardwareMap.dcMotor.get("back_right");
 
-        motor1.setDirection(DcMotorSimple.Direction.REVERSE);
-        motor3.setDirection(DcMotorSimple.Direction.REVERSE);
+        //motor1.setDirection(DcMotorSimple.Direction.REVERSE);
+        //motor3.setDirection(DcMotorSimple.Direction.REVERSE);
     }
     public void loop()
     {
@@ -33,7 +37,8 @@ public class motorTest extends OpMode {
         else motor3.setPower(0);
         if(gamepad1.y) motor4.setPower(0.5);
         else motor4.setPower(0);
+        telemetry.addData("x",gamepad1.left_stick_x);
+        telemetry.addData("y",gamepad1.left_stick_y);
 
-        //DQ173A0G
     }
 }

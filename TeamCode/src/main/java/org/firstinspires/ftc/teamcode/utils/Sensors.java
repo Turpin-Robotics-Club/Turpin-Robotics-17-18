@@ -63,15 +63,18 @@ public class Sensors {
         runtime.reset();
 
         gyro.initialize(IMUparams);
-        sleep(100);
+        sleep(6000);
         angles   = gyro.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.XYZ, AngleUnit.DEGREES);
         telemetry.addData("angle", angles);
-        gyroThread gThread = new gyroThread();
-        gThread.start();
+        //gyroThread gThread = new gyroThread();
+        //gThread.start();
 
-        gyroInitial = angles.thirdAngle;
+        gyroInitial = angles.thirdAngle+180;
         ((LinearOpMode) _opMode).waitForStart();
+        //gThread.end();
+
         gyroDriftRead();
+
     }
 
 
@@ -79,26 +82,28 @@ public class Sensors {
 
     private static void gyroDriftRead() {
 
-        if(angles.thirdAngle == 0) {
-            gyrochange = 0;
-        } else if (angles.thirdAngle < (gyroInitial + 180) - 360) {
-            gyrochange = -((360 - gyroInitial) + angles.thirdAngle) / runtime.seconds();
-        } else if (angles.thirdAngle > gyroInitial + 180) {
-            gyrochange = (gyroInitial + (360 - angles.thirdAngle)) / runtime.seconds();
-        } else {
-            gyrochange = (gyroInitial - angles.thirdAngle) / runtime.seconds();
-        }
+        if (angles.thirdAngle+180 == gyroInitial)
+            gyrochange=0;
+        else if (angles.thirdAngle+180<gyroInitial && angles.thirdAngle+180>gyroInitial-180)
+            gyrochange = (angles.thirdAngle+180 - gyroInitial) / runtime.seconds();
+        else if (angles.thirdAngle+180>gyroInitial+180 && angles.thirdAngle+180<gyroInitial+360)
+            gyrochange = -(gyroInitial + (360-angles.thirdAngle+180)) / runtime.seconds();
+
+        else if (angles.thirdAngle+180>gyroInitial && angles.thirdAngle+180<gyroInitial+180)
+            gyrochange = (angles.thirdAngle+180 - gyroInitial) / runtime.seconds();
+        else if (angles.thirdAngle+180<gyroInitial+180 && angles.thirdAngle+180>gyroInitial-360)
+            gyrochange = (gyroInitial + (360-angles.thirdAngle+180)) / runtime.seconds();
 
     }
 
     public static double readGyro() {
-
-        if(angles.thirdAngle-gyroInitial<-360)
-            return (gyrochange * (runtime.seconds())) + angles.thirdAngle-gyroInitial+720;
-        else if (angles.thirdAngle-gyroInitial<0)
-            return (gyrochange * (runtime.seconds())) + angles.thirdAngle-gyroInitial+360;
+        angles   = gyro.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.XYZ, AngleUnit.DEGREES);
+        if ((gyrochange * (runtime.seconds())) + angles.thirdAngle+180-gyroInitial<0)
+            return (gyrochange * (runtime.seconds())) + angles.thirdAngle+180  -gyroInitial  +360;
+        else if ((gyrochange * (runtime.seconds())) + angles.thirdAngle+180-gyroInitial>360)
+            return (gyrochange * (runtime.seconds())) + angles.thirdAngle+180  -gyroInitial  -360;
         else
-            return (gyrochange * (runtime.seconds())) + angles.thirdAngle-gyroInitial;
+            return (gyrochange * (runtime.seconds())) + angles.thirdAngle+180-gyroInitial;
     }
 
     public static void resetGyro()
@@ -108,11 +113,12 @@ public class Sensors {
     }
 
 
-    public static class gyroThread extends Thread{
+/*    public static class gyroThread extends Thread{
         private static ElapsedTime gyroTime = new ElapsedTime();
+        boolean end = false;
         public void run()
         {
-            while (opMode.opModeIsActive())
+            while (!end)
             {
                 if(gyroTime.milliseconds() >= 20)
                 {
@@ -121,5 +127,12 @@ public class Sensors {
                 }
             }
         }
+
+        public void end( )
+        {
+            end=true;
+        }
+
     }
+*/
 }

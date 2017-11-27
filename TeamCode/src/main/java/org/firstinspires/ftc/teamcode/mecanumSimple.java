@@ -8,25 +8,26 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
+import org.firstinspires.ftc.robotcore.external.Telemetry;
 import org.firstinspires.ftc.teamcode.utils.RobotConstants;
 
 
-
+      
 @TeleOp(name="Simple Drive")
 public class mecanumSimple extends OpMode{
 
-    DcMotor frontleft;
-    DcMotor frontright;
-    DcMotor backleft;
-    DcMotor backright;
-    DcMotor liftMotor;
-    static telemetry telemetry;
+    private DcMotor frontleft;
+    private DcMotor frontright;
+    private DcMotor backleft;
+    private DcMotor backright;
+    private DcMotor liftMotor;
+    private static Telemetry telemetry;
 
-    double frontLeftPower;
-    double frontRightPower;
-    double backLeftPower;
-    double backRightPower;
-    double liftPower;
+    private double frontLeftPower;
+    private double frontRightPower;
+    private double backLeftPower;
+    private double backRightPower;
+    private double liftPower;
 
     public final double SPEED = 0.75;
     public final double forwardBonus = 1.5;
@@ -35,16 +36,19 @@ public class mecanumSimple extends OpMode{
 
     @Override
     public void init() {
-        liftMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        liftMotor = hardwareMap.dcMotor.get("lift");
+
         frontleft = hardwareMap.dcMotor.get("front_left");
         frontright = hardwareMap.dcMotor.get("front_right");
         backleft = hardwareMap.dcMotor.get("back_left");
         backright = hardwareMap.dcMotor.get("back_right");
 
+
+        liftMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         frontleft.setDirection(DcMotorSimple.Direction.REVERSE);
         backleft.setDirection(DcMotorSimple.Direction.REVERSE);
-
-
+        //liftMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        liftMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
     }
 
     @Override
@@ -68,13 +72,21 @@ public class mecanumSimple extends OpMode{
         frontright.setPower(frontRightPower * SPEED);
         backleft.setPower(backLeftPower * SPEED);
         backright.setPower(backRightPower * SPEED);
-       /* Probably doesn't work- try to get lift motors mapped to right and left bumpers
+       // Probably (should?) work- try to get lift motors mapped to right and left bumpers
         if (gamepad1.right_bumper)
-            liftMotor.setPower(0.5);
-        if (gamepad1.left_bumper)
-            liftMotor.setPower(-0.5);
-        */
-
+        {
+            liftMotor.setPower(0.75);
+        }
+        else if (gamepad1.right_trigger>0.5)
+        {
+            liftMotor.setPower(-gamepad1.right_trigger+0.5);
+        }
+        else
+        {
+            liftMotor.setPower(0);
+        }
+        //waiting for encoders
+        //telemetry.addData("Lift", liftMotor.getCurrentPosition());
 
     }
 

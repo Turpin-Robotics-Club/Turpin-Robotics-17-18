@@ -5,6 +5,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
+import com.qualcomm.robotcore.hardware.TouchSensor;
 
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 
@@ -17,7 +18,7 @@ public class move {
     static Telemetry telemetry;
     DcMotor spinLeft;
     DcMotor spinRight;
-    Servo dump;
+    TouchSensor reddish;
     LinearOpMode opMode;
 
     double initGyroPos = 0;
@@ -37,23 +38,25 @@ public class move {
         opMode = op;
         move.telemetry = op.telemetry;
         HardwareMap hardware_map = op.hardwareMap;
-
-        dump = hardware_map.get(Servo.class, "servo_1");
-        dump.setPosition(255);
+        reddish = hardware_map.touchSensor.get("touch");
+        red = !reddish.isPressed();
         if (red) {
-            flmotor = hardware_map.get(DcMotor.class, "motor_1");
-            frmotor = hardware_map.get(DcMotor.class, "motor_2");
-            blmotor = hardware_map.get(DcMotor.class, "motor_3");
-            brmotor = hardware_map.get(DcMotor.class, "motor_4");
+            flmotor = hardware_map.get(DcMotor.class, "front_left");
+            frmotor = hardware_map.get(DcMotor.class, "front_right");
+            blmotor = hardware_map.get(DcMotor.class, "back_left");
+            brmotor = hardware_map.get(DcMotor.class, "back_right");
+            frmotor.setDirection(DcMotorSimple.Direction.REVERSE);
+            brmotor.setDirection(DcMotorSimple.Direction.REVERSE);
         } else {
-            frmotor = hardware_map.get(DcMotor.class, "motor_1");
-            flmotor = hardware_map.get(DcMotor.class, "motor_2");
-            brmotor = hardware_map.get(DcMotor.class, "motor_3");
-            blmotor = hardware_map.get(DcMotor.class, "motor_4");
+            frmotor = hardware_map.get(DcMotor.class, "front_left");
+            flmotor = hardware_map.get(DcMotor.class, "front_right");
+            brmotor = hardware_map.get(DcMotor.class, "back_left");
+            blmotor = hardware_map.get(DcMotor.class, "back_right");
+            flmotor.setDirection(DcMotorSimple.Direction.REVERSE);
+            blmotor.setDirection(DcMotorSimple.Direction.REVERSE);
         }
-        frmotor.setDirection(DcMotorSimple.Direction.REVERSE);
-        brmotor.setDirection(DcMotorSimple.Direction.REVERSE);
-        oldSensors.initialize(opMode, red);
+
+        Sensors.initialize(opMode, red);
         resetEncoders();
     }
 
@@ -137,14 +140,6 @@ public class move {
         telemetry.addData("it has", "begun");
         telemetry.update();
 
-
-    }
-
-    public void dump()
-    {
-        dump.setPosition(0);
-        while(opMode.opModeIsActive() && dump.getPosition() != 0);
-        dump.setPosition(255);
 
     }
 

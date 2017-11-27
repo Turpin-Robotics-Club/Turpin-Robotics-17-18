@@ -18,7 +18,7 @@ public class mecanumDrive extends OpMode {
 
 
     private double joy;
-    private double joyLeft;
+    private double joyLeft = 0;
     private double G1_Lstk_x;
     private double G1_Lstk_y;
     private double currentPos;
@@ -33,7 +33,7 @@ public class mecanumDrive extends OpMode {
     private double relativeHeading;
     private double xmove;
     private double ymove;
-    private float turnRate = 1.0f;
+    private float turnRate = 0.75f;
     private float driveRate = 1.5f;
     private double bumperPower = 0.3;
     private double spinRate = 0.1;
@@ -52,7 +52,10 @@ public class mecanumDrive extends OpMode {
         frontleft.setDirection(DcMotorSimple.Direction.REVERSE);
         backleft.setDirection(DcMotorSimple.Direction.REVERSE);
 
-
+        backleft.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        backright.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        frontleft.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        frontright.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
 
         runtime_y.reset();
@@ -67,8 +70,8 @@ public class mecanumDrive extends OpMode {
 
         telemetry.addData("Joystick value left", joyLeft);
         telemetry.addData("robot heading", currentPos);
-        telemetry.addData("Gyro Heading", oldSensors.gyro.getHeading());
-        telemetry.addData("Driver Offset", oldSensors.driverOffset);
+        telemetry.addData("Gyro Heading", Sensors.angles.thirdAngle);
+        telemetry.addData("Driver Offset", Sensors.gyroInitial);
         telemetry.update();
 
         //turn direction
@@ -164,7 +167,7 @@ public class mecanumDrive extends OpMode {
         //End of drive
         //Beginning of turn
 
-
+        /*
         if((joy < currentPos + 180 && joy > currentPos) || joy < (currentPos + 180) -360)
         {
             //left
@@ -181,6 +184,11 @@ public class mecanumDrive extends OpMode {
             blvalue = blvalue + Math.min(0.75, Math.pow(Math.sqrt(Math.pow(gamepad1.right_stick_x, 2) + Math.pow(gamepad1.right_stick_y, 2)) * turnRate, 2) * Math.pow((joy-currentPos), 2) * spinRate);
             brvalue = brvalue + -Math.min(0.75, Math.pow(Math.sqrt(Math.pow(gamepad1.right_stick_x, 2) + Math.pow(gamepad1.right_stick_y, 2)) * turnRate, 2) * Math.pow((joy-currentPos), 2) * spinRate);
         }
+        */
+        flvalue += gamepad1.right_stick_x * turnRate;
+        frvalue -= gamepad1.right_stick_x * turnRate;
+        blvalue += gamepad1.right_stick_x * turnRate;
+        brvalue -= gamepad1.right_stick_x * turnRate;
 
 
         //overall divide
@@ -192,7 +200,7 @@ public class mecanumDrive extends OpMode {
 
         if(gamepad1.a)
         {
-            //oldSensors.resetGyro();
+            Sensors.resetGyro();
         }
 /*
         telemetry.addData("flvalue", flvalue);
