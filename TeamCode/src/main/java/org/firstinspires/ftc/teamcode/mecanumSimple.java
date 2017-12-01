@@ -7,6 +7,7 @@ import com.qualcomm.robotcore.hardware.DcMotorController;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
+import com.sun.tools.javac.util.Position;
 
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 import org.firstinspires.ftc.teamcode.utils.RobotConstants;
@@ -16,13 +17,14 @@ import org.firstinspires.ftc.teamcode.utils.RobotConstants;
 @TeleOp(name="Simple Drive")
 public class mecanumSimple extends OpMode{
 
+    private Servo clamp;
     private DcMotor frontleft;
     private DcMotor frontright;
     private DcMotor backleft;
     private DcMotor backright;
     private DcMotor liftMotor;
-    private static Telemetry telemetry;
 
+    private boolean closed = false;
     private double frontLeftPower;
     private double frontRightPower;
     private double backLeftPower;
@@ -37,7 +39,7 @@ public class mecanumSimple extends OpMode{
     @Override
     public void init() {
         liftMotor = hardwareMap.dcMotor.get("lift");
-
+        clamp = hardwareMap.servo.get("clamp");
         frontleft = hardwareMap.dcMotor.get("front_left");
         frontright = hardwareMap.dcMotor.get("front_right");
         backleft = hardwareMap.dcMotor.get("back_left");
@@ -73,13 +75,13 @@ public class mecanumSimple extends OpMode{
         backleft.setPower(backLeftPower * SPEED);
         backright.setPower(backRightPower * SPEED);
        // Probably (should?) work- try to get lift motors mapped to right and left bumpers
-        if (gamepad1.right_bumper)
+        if (gamepad2.right_bumper)
         {
             liftMotor.setPower(0.75);
         }
-        else if (gamepad1.right_trigger>0.5)
+        else if (gamepad2.right_trigger>0.5)
         {
-            liftMotor.setPower(-gamepad1.right_trigger+0.5);
+            liftMotor.setPower(-gamepad2.right_trigger+0.5);
         }
         else
         {
@@ -87,6 +89,14 @@ public class mecanumSimple extends OpMode{
         }
         //waiting for encoders
         //telemetry.addData("Lift", liftMotor.getCurrentPosition());
+
+        if(gamepad2.a)
+            clamp.setPosition(0.85); //close
+        else if(gamepad2.b)
+            clamp.setPosition(0.734); //open
+        else if(gamepad2.y)
+            clamp.setPosition(0.65); //extra open
+
 
     }
 

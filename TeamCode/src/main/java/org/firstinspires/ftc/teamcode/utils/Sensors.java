@@ -24,7 +24,7 @@ public class Sensors {
     public static double gyroInitial;
     public static BNO055IMU gyro;
     static boolean red;
-
+    private static double previousOrientation;
     public static double driverOffset = 0;
     public static Orientation angles;
     private static LinearOpMode opMode;
@@ -50,7 +50,7 @@ public class Sensors {
 
         BNO055IMU.Parameters IMUparams = new BNO055IMU.Parameters();
         IMUparams.angleUnit           = BNO055IMU.AngleUnit.DEGREES;
-        IMUparams.accelUnit           = BNO055IMU.AccelUnit.METERS_PERSEC_PERSEC;
+         IMUparams.accelUnit           = BNO055IMU.AccelUnit.METERS_PERSEC_PERSEC;
         IMUparams.calibrationDataFile = "BNO055IMUCalibration.json"; // see the calibration sample opmode
         IMUparams.loggingEnabled      = true;
         IMUparams.loggingTag          = "IMU";
@@ -69,7 +69,7 @@ public class Sensors {
         //gyroThread gThread = new gyroThread();
         //gThread.start();
 
-        gyroInitial = angles.thirdAngle+180;
+        gyroInitial = realGyro();
         ((LinearOpMode) _opMode).waitForStart();
         //gThread.end();
 
@@ -82,28 +82,26 @@ public class Sensors {
 
     private static void gyroDriftRead() {
 
-        if (angles.thirdAngle+180 == gyroInitial)
+        if (realGyro() == gyroInitial)
             gyrochange=0;
-        else if (angles.thirdAngle+180<gyroInitial && angles.thirdAngle+180>gyroInitial-180)
-            gyrochange = (angles.thirdAngle+180 - gyroInitial) / runtime.seconds();
-        else if (angles.thirdAngle+180>gyroInitial+180 && angles.thirdAngle+180<gyroInitial+360)
-            gyrochange = -(gyroInitial + (360-angles.thirdAngle+180)) / runtime.seconds();
-
-        else if (angles.thirdAngle+180>gyroInitial && angles.thirdAngle+180<gyroInitial+180)
-            gyrochange = (angles.thirdAngle+180 - gyroInitial) / runtime.seconds();
-        else if (angles.thirdAngle+180<gyroInitial+180 && angles.thirdAngle+180>gyroInitial-360)
-            gyrochange = (gyroInitial + (360-angles.thirdAngle+180)) / runtime.seconds();
-
+        else if (realGyro()<gyroInitial && realGyro()>gyroInitial-180)
+            gyrochange = (realGyro() - gyroInitial) / runtime.seconds();
+        else if (realGyro()>gyroInitial+180 && realGyro()<gyroInitial+360)
+            gyrochange = -(gyroInitial + (360-realGyro())) / runtime.seconds();
+        else if (realGyro()>gyroInitial && realGyro()<gyroInitial+180)
+            gyrochange = (realGyro() - gyroInitial) / runtime.seconds();
+        else if (realGyro()<gyroInitial+180 && realGyro()>gyroInitial-360)
+            gyrochange = (gyroInitial + (360-realGyro())) / runtime.seconds();
     }
 
     public static double readGyro() {
-        angles   = gyro.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.XYZ, AngleUnit.DEGREES);
-        if ((gyrochange * (runtime.seconds())) + angles.thirdAngle+180-gyroInitial<0)
-            return (gyrochange * (runtime.seconds())) + angles.thirdAngle+180  -gyroInitial  +360;
-        else if ((gyrochange * (runtime.seconds())) + angles.thirdAngle+180-gyroInitial>360)
-            return (gyrochange * (runtime.seconds())) + angles.thirdAngle+180  -gyroInitial  -360;
+        angles   = gyro.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES);
+        if ((gyrochange * (runtime.seconds())) + realGyro()-gyroInitial<0)
+            return (gyrochange * (runtime.seconds())) + realGyro()  -gyroInitial  +360;
+        else if ((gyrochange * (runtime.seconds())) + realGyro()-gyroInitial>360)
+            return (gyrochange * (runtime.seconds())) + realGyro()  -gyroInitial  -360;
         else
-            return (gyrochange * (runtime.seconds())) + angles.thirdAngle+180-gyroInitial;
+            return (gyrochange * (runtime.seconds())) + realGyro()-gyroInitial;
     }
 
     public static void resetGyro()
@@ -112,6 +110,12 @@ public class Sensors {
         runtime.reset();
     }
 
+    private static double realGyro()
+    {
+
+        return 180-angles.firstAngle;
+
+    }
 
 /*    public static class gyroThread extends Thread{
         private static ElapsedTime gyroTime = new ElapsedTime();

@@ -70,6 +70,7 @@ public class mecanumDrive extends OpMode {
 
         telemetry.addData("Joystick value left", joyLeft);
         telemetry.addData("robot heading", currentPos);
+        telemetry.addData("intention", relativeHeading);
         telemetry.addData("Gyro Heading", Sensors.angles.thirdAngle);
         telemetry.addData("Driver Offset", Sensors.gyroInitial);
         telemetry.update();
@@ -138,25 +139,25 @@ public class mecanumDrive extends OpMode {
             //separate x and y                                                   set magnitude of vector                      set speed so it doesn't max
             //telemetry.addData("Quadrant", "1");
             xmove = Math.sin(Math.toRadians(relativeHeading)) * Math.pow(Math.sqrt(Math.pow(G1_Lstk_x, 2) + Math.pow(G1_Lstk_y, 2)), 2) * driveRate;
-            ymove = -Math.cos(Math.toRadians(relativeHeading)) * Math.pow(Math.sqrt(Math.pow(G1_Lstk_x, 2) + Math.pow(G1_Lstk_y, 2)), 2) * driveRate;
+            ymove = Math.cos(Math.toRadians(relativeHeading)) * Math.pow(Math.sqrt(Math.pow(G1_Lstk_x, 2) + Math.pow(G1_Lstk_y, 2)), 2) * driveRate;
         }
         if(relativeHeading >= 90 && relativeHeading < 180)
         {
             //telemetry.addData("Quadrant", "4");
             xmove = Math.cos(Math.toRadians(relativeHeading-90)) * Math.pow(Math.sqrt(Math.pow(G1_Lstk_x, 2) + Math.pow(G1_Lstk_y, 2)), 2) * driveRate;
-            ymove = Math.sin(Math.toRadians(relativeHeading-90)) * Math.pow(Math.sqrt(Math.pow(G1_Lstk_x, 2) + Math.pow(G1_Lstk_y, 2)), 2) * driveRate;
+            ymove = -Math.sin(Math.toRadians(relativeHeading-90)) * Math.pow(Math.sqrt(Math.pow(G1_Lstk_x, 2) + Math.pow(G1_Lstk_y, 2)), 2) * driveRate;
         }
         if(relativeHeading >= 180 && relativeHeading < 270)
         {
             //telemetry.addData("Quadrant", "3");
             xmove = -Math.sin(Math.toRadians(relativeHeading-180)) * Math.pow(Math.sqrt(Math.pow(G1_Lstk_x, 2) + Math.pow(G1_Lstk_y, 2)), 2) * driveRate;
-            ymove = Math.cos(Math.toRadians(relativeHeading-180)) * Math.pow(Math.sqrt(Math.pow(G1_Lstk_x, 2) + Math.pow(G1_Lstk_y, 2)), 2) * driveRate;
+            ymove = -Math.cos(Math.toRadians(relativeHeading-180)) * Math.pow(Math.sqrt(Math.pow(G1_Lstk_x, 2) + Math.pow(G1_Lstk_y, 2)), 2) * driveRate;
         }
         if(relativeHeading >= 270 && relativeHeading < 360)
         {
             //telemetry.addData("Quadrant", "2");
             xmove = -Math.cos(Math.toRadians(relativeHeading-270)) * Math.pow(Math.sqrt(Math.pow(G1_Lstk_x, 2) + Math.pow(G1_Lstk_y, 2)), 2) * driveRate;
-            ymove = -Math.sin(Math.toRadians(relativeHeading-270)) * Math.pow(Math.sqrt(Math.pow(G1_Lstk_x, 2) + Math.pow(G1_Lstk_y, 2)), 2) * driveRate;
+            ymove = Math.sin(Math.toRadians(relativeHeading-270)) * Math.pow(Math.sqrt(Math.pow(G1_Lstk_x, 2) + Math.pow(G1_Lstk_y, 2)), 2) * driveRate;
         }
 
         flvalue = (ymove + xmove);

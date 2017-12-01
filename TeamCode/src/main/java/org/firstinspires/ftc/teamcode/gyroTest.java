@@ -34,7 +34,7 @@ public class gyroTest extends OpMode {
         gyro.initialize(IMUparams);
         telemetry.addData("IMUparams", IMUparams);
         sleep(500);
-        angles  = gyro.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.XYZ, AngleUnit.DEGREES);
+        angles  = gyro.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES);
         telemetry.addData("angle", angles);
 
         initAngle = angles.thirdAngle;
@@ -42,7 +42,7 @@ public class gyroTest extends OpMode {
     public void loop()
     {
         telemetry.addData("offset",initAngle);
-        angles = gyro.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.XYZ, AngleUnit.DEGREES);
+        angles = gyro.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX , AngleUnit.DEGREES);
         telemetry.addData("all angles: ", angles);
         if(angles.thirdAngle-initAngle<-360)
             telemetry.addData("rotation", (angles.thirdAngle+720-initAngle));
