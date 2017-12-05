@@ -126,7 +126,7 @@ public class mecanumDrive extends OpMode {
 
 
 
-
+        //make it robot centric
         relativeHeading = joyLeft - currentPos;
         if(relativeHeading < 0)
         {

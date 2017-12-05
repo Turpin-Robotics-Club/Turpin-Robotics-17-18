@@ -23,7 +23,7 @@ public class mecanumSimple extends OpMode{
     private DcMotor backleft;
     private DcMotor backright;
     private DcMotor liftMotor;
-
+    private DcMotor liftMotor2;
     private boolean closed = false;
     private double frontLeftPower;
     private double frontRightPower;
@@ -39,6 +39,7 @@ public class mecanumSimple extends OpMode{
     @Override
     public void init() {
         liftMotor = hardwareMap.dcMotor.get("lift");
+        liftMotor2 = hardwareMap.dcMotor.get("lift2");
         clamp = hardwareMap.servo.get("clamp");
         frontleft = hardwareMap.dcMotor.get("front_left");
         frontright = hardwareMap.dcMotor.get("front_right");
@@ -47,10 +48,13 @@ public class mecanumSimple extends OpMode{
 
 
         liftMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        liftMotor2.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         frontleft.setDirection(DcMotorSimple.Direction.REVERSE);
         backleft.setDirection(DcMotorSimple.Direction.REVERSE);
         //liftMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         liftMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        liftMotor2.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        liftMotor2.setDirection(DcMotorSimple.Direction.REVERSE);
     }
 
     @Override

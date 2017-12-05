@@ -23,9 +23,7 @@ public class Sensors {
     private static ElapsedTime runtime = new ElapsedTime();
     public static double gyroInitial;
     public static BNO055IMU gyro;
-    static boolean red;
-    private static double previousOrientation;
-    public static double driverOffset = 0;
+    public static boolean red;
     public static Orientation angles;
     private static LinearOpMode opMode;
     private static Telemetry telemetry;
@@ -58,12 +56,12 @@ public class Sensors {
 
         gyro = hardware_map.get(BNO055IMU.class, "imu");
 
-        driverOffset = 0;
+
 
         runtime.reset();
 
         gyro.initialize(IMUparams);
-        sleep(6000);
+        sleep(10000);
         angles   = gyro.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.XYZ, AngleUnit.DEGREES);
         telemetry.addData("angle", angles);
         //gyroThread gThread = new gyroThread();
