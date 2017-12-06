@@ -104,8 +104,9 @@ public class Sensors {
 
     public static void resetGyro()
     {
-        gyroInitial=angles.thirdAngle;
+        gyroInitial=realGyro();
         runtime.reset();
+        gyrochange = 0;
     }
 
     private static double realGyro()

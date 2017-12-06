@@ -82,14 +82,17 @@ public class mecanumSimple extends OpMode{
         if (gamepad2.right_bumper)
         {
             liftMotor.setPower(0.75);
+            liftMotor2.setPower(0.75);
         }
         else if (gamepad2.right_trigger>0.5)
         {
             liftMotor.setPower(-gamepad2.right_trigger+0.5);
+            liftMotor2.setPower(-gamepad2.right_trigger+0.5);
         }
         else
         {
             liftMotor.setPower(0);
+            liftMotor2.setPower(0);
         }
         //waiting for encoders
         //telemetry.addData("Lift", liftMotor.getCurrentPosition());

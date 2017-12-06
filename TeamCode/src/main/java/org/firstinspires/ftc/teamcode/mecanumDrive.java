@@ -258,6 +258,8 @@ public class mecanumDrive extends OpMode {
             backright.setPower((brvalue));
         }
 
+        if(gamepad1.a)
+            Sensors.resetGyro();
     }
 
     @Override
