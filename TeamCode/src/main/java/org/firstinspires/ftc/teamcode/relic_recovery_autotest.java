@@ -12,7 +12,21 @@ import org.firstinspires.ftc.teamcode.utils.Sensors;
 public class relic_recovery_autotest extends LinearOpMode{
     public void runOpMode() throws InterruptedException{
         //dont use move class-use sensors and we always do it as red
-        move obj = new move(this,true);
-        Sensors.readGyro();
+        move robot = new move(this,true);
+        waitForStart();
+        /*Sensors.readGyro();
+        while (opModeIsActive())
+        {
+            telemetry.addData("Heading", Sensors.readGyro());
+            telemetry.addData("Gyro Heading", Sensors.angles.thirdAngle);
+            telemetry.addData("Offset rate", Sensors.gyrochange);
+            telemetry.update();
+        }
+        */
+        robot.left(-1,.65);
+        robot.forward(1.5,.7);
+        robot.turnLeft(90);
+        robot.forward(1.25,.7);
+        sleep(100000);
     }
 }
