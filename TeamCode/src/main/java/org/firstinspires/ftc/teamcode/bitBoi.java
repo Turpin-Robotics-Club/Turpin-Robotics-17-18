@@ -20,27 +20,30 @@ import com.qualcomm.robotcore.hardware.OpticalDistanceSensor;
 public class bitBoi extends LinearOpMode {
 
 
-    DcMotor motorL;
-    DcMotor motorR;
-    DcMotor motorC;
+    DcMotor motor1;
+    DcMotor motor2;
+    DcMotor motor3;
+    DcMotor motor4;
     OpticalDistanceSensor odSensor;
     public void runOpMode() throws InterruptedException{
-        motorL=hardwareMap.dcMotor.get("motor_1");
-        motorR=hardwareMap.dcMotor.get("motor_2");
-        motorC=hardwareMap.dcMotor.get("motor_3");
+        motor1=hardwareMap.dcMotor.get("motor1");
+        motor2=hardwareMap.dcMotor.get("motor2");
+        motor3=hardwareMap.dcMotor.get("motor3");
+        motor4=hardwareMap.dcMotor.get("motor4");
         odSensor = hardwareMap.opticalDistanceSensor.get("od_sensor");
 
-        motorL.setDirection(DcMotorSimple.Direction.REVERSE);
+        motor3.setDirection(DcMotorSimple.Direction.REVERSE);
+        motor4.setDirection(DcMotorSimple.Direction.REVERSE);
+
 
         waitForStart();
 
-        motorL.setPower(.5);
-        motorR.setPower(.5);
-        sleep(10000);
-        if(odSensor.getLightDetected()!=0){
-            motorR.setPower(0);
-            motorL.setPower(0);
-        }
+        motor1.setPower(gamepad1.right_stick_y);
+        motor2.setPower(gamepad1.right_stick_y);
+        motor3.setPower(gamepad1.right_stick_y);
+        motor4.setPower(gamepad1.right_stick_y);
+
+        telemetry.addData("right stick y", gamepad1.right_stick_y);
 
 
     }
