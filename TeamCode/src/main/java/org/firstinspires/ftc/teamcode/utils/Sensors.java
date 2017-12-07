@@ -49,7 +49,7 @@ public class Sensors {
         BNO055IMU.Parameters IMUparams = new BNO055IMU.Parameters();
         IMUparams.angleUnit           = BNO055IMU.AngleUnit.DEGREES;
          IMUparams.accelUnit           = BNO055IMU.AccelUnit.METERS_PERSEC_PERSEC;
-        IMUparams.calibrationDataFile = "BNO055IMUCalibration.json"; // see the calibration sample opmode
+        IMUparams.calibrationDataFile = "Calibfile.json";
         IMUparams.loggingEnabled      = true;
         IMUparams.loggingTag          = "IMU";
         IMUparams.accelerationIntegrationAlgorithm = new JustLoggingAccelerationIntegrator();
