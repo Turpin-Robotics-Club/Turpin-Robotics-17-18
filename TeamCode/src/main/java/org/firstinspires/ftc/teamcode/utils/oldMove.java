@@ -5,11 +5,10 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
-import com.qualcomm.robotcore.hardware.TouchSensor;
 
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 
-public class move {
+public class oldMove {
 
     DcMotor flmotor;
     DcMotor frmotor;
@@ -18,10 +17,15 @@ public class move {
     static Telemetry telemetry;
     DcMotor spinLeft;
     DcMotor spinRight;
-    TouchSensor reddish;
+    Servo dump;
     LinearOpMode opMode;
+    /* UNUSED VARIABLES (for unused classes)
+    double relativeHeading = 0;
+    double xmove;
+    double ymove;
+   */
 
-    double initGyroPos = 0;
+    int initGyroPos = 0;
     double stabilityMultiplier = 0.0001;
     double spinRate = 0.002;
 
@@ -34,29 +38,27 @@ public class move {
      * @param op The instance of the calling LinearOpMode
      * @param red True if on the red Alliance, False otherwise
      */
-    public move(LinearOpMode op, boolean red) {
+    public oldMove(LinearOpMode op, boolean red) {
         opMode = op;
-        move.telemetry = op.telemetry;
+        oldMove.telemetry = op.telemetry;
         HardwareMap hardware_map = op.hardwareMap;
-        reddish = hardware_map.touchSensor.get("touch");
-        red = !reddish.isPressed();
-        if (red) {
-            flmotor = hardware_map.get(DcMotor.class, "front_left");
-            frmotor = hardware_map.get(DcMotor.class, "front_right");
-            blmotor = hardware_map.get(DcMotor.class, "back_left");
-            brmotor = hardware_map.get(DcMotor.class, "back_right");
-            frmotor.setDirection(DcMotorSimple.Direction.REVERSE);
-            brmotor.setDirection(DcMotorSimple.Direction.REVERSE);
-        } else {
-            frmotor = hardware_map.get(DcMotor.class, "front_left");
-            flmotor = hardware_map.get(DcMotor.class, "front_right");
-            brmotor = hardware_map.get(DcMotor.class, "back_left");
-            blmotor = hardware_map.get(DcMotor.class, "back_right");
-            flmotor.setDirection(DcMotorSimple.Direction.REVERSE);
-            blmotor.setDirection(DcMotorSimple.Direction.REVERSE);
-        }
 
-        Sensors.initialize(opMode, red);
+        dump = hardware_map.get(Servo.class, "servo_1");
+        dump.setPosition(255);
+        if (red) {
+            flmotor = hardware_map.get(DcMotor.class, "motor_1");
+            frmotor = hardware_map.get(DcMotor.class, "motor_2");
+            blmotor = hardware_map.get(DcMotor.class, "motor_3");
+            brmotor = hardware_map.get(DcMotor.class, "motor_4");
+        } else {
+            frmotor = hardware_map.get(DcMotor.class, "motor_1");
+            flmotor = hardware_map.get(DcMotor.class, "motor_2");
+            brmotor = hardware_map.get(DcMotor.class, "motor_3");
+            blmotor = hardware_map.get(DcMotor.class, "motor_4");
+        }
+        frmotor.setDirection(DcMotorSimple.Direction.REVERSE);
+        brmotor.setDirection(DcMotorSimple.Direction.REVERSE);
+        oldSensors.initialize(opMode, red);
         resetEncoders();
     }
 
@@ -70,14 +72,13 @@ public class move {
     }
     public void holdDirection()
     {
-        initGyroPos = Sensors.readGyro();
-        if (Sensors.readGyro() > initGyroPos) {
+        if (oldSensors.gyro.rawZ() > initGyroPos) {
             flmotor.setPower(flmotor.getPower() + (Math.abs((oldSensors.gyro.rawZ() - initGyroPos)) * stabilityMultiplier));
             blmotor.setPower(blmotor.getPower() + (Math.abs((oldSensors.gyro.rawZ() - initGyroPos)) * stabilityMultiplier));
             frmotor.setPower(frmotor.getPower() - (Math.abs((oldSensors.gyro.rawZ() - initGyroPos)) * stabilityMultiplier));
             brmotor.setPower(brmotor.getPower() - (Math.abs((oldSensors.gyro.rawZ() - initGyroPos)) * stabilityMultiplier));
         }
-        if (Sensors.readGyro() < initGyroPos) {
+        if (oldSensors.gyro.rawZ() < initGyroPos) {
             flmotor.setPower(flmotor.getPower() - (Math.abs((oldSensors.gyro.rawZ() - initGyroPos)) * stabilityMultiplier));
             blmotor.setPower(blmotor.getPower() - (Math.abs((oldSensors.gyro.rawZ() - initGyroPos)) * stabilityMultiplier));
             frmotor.setPower(frmotor.getPower() + (Math.abs((oldSensors.gyro.rawZ() - initGyroPos)) * stabilityMultiplier));
@@ -143,6 +144,14 @@ public class move {
 
     }
 
+    public void dump()
+    {
+        dump.setPosition(0);
+        while(opMode.opModeIsActive() && dump.getPosition() != 0);
+        dump.setPosition(255);
+
+    }
+
 
     /**
      *
@@ -150,7 +159,7 @@ public class move {
      * @param minPower the starting and ending speed
      * @param maxPower the maximum power the robot will run at
      * @param increment the speed at which the speed increases & decreases
-     *
+     * @throws InterruptedException for sleep
      */
     public void forward2(double distance, double minPower, double maxPower, double increment)
     {
@@ -304,18 +313,18 @@ public class move {
      * Pivots the robot a certain degree around it's axis.
      *
      * @param degrees The amount (in degrees) to turn the robot. Positive for left, negative for right
-     *
+     * @throws InterruptedException
      */
     public void turnLeft(int degrees){
-        initGyroPos = Sensors.readGyro();
+
         resetEncoders();
         flmotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         frmotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         blmotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         brmotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
-
-        double target = initGyroPos - degrees;
+        initGyroPos = oldSensors.gyro.getHeading();
+        int target = initGyroPos - degrees;
 
         if (target < 0) {
             target = 360 + target;
@@ -334,6 +343,45 @@ public class move {
             frmotor.setPower((Math.pow(target - (oldSensors.gyro.getHeading() * 0.5), 2) * spinRate));
             brmotor.setPower((Math.pow(target - (oldSensors.gyro.getHeading() * 0.5), 2) * spinRate));
         }
+        /**
+        degrees = initGyroPos - degrees;
+        if (degrees < 0) {
+            degrees = 360 + degrees;
+        }
+        if (degrees > 360) {
+            degrees = degrees - 360;
+        }
+        while (opMode.opModeIsActive() && oldSensors.gyro.getHeading() != degrees) {
+            telemetry.addData("Heading:", degrees);
+            telemetry.addData("Current: ", degrees);
+            if ((degrees < oldSensors.gyro.getHeading() + 180 && degrees > oldSensors.gyro.getHeading()) || degrees < (oldSensors.gyro.getHeading() + 180) - 360) {
+                telemetry.addData("IF: ", 1);
+                flmotor.setPower(-(Math.pow(degrees - (oldSensors.gyro.getHeading()) * 0.5, 2) * spinRate));
+                blmotor.setPower(-(Math.pow(degrees - (oldSensors.gyro.getHeading()) * 0.5, 2) * spinRate));
+                frmotor.setPower((Math.pow(degrees - (oldSensors.gyro.getHeading()) * 0.5, 2) * spinRate));
+                brmotor.setPower((Math.pow(degrees - (oldSensors.gyro.getHeading()) * 0.5, 2) * spinRate));
+                /*
+                flmotor.setPower(power);
+                frmotor.setPower(-power);
+                blmotor.setPower(power);
+                brmotor.setPower(-power);
+
+            }
+            if ((degrees > oldSensors.gyro.getHeading() - 180 && degrees < oldSensors.gyro.getHeading()) || degrees > 360 - (180 - oldSensors.gyro.getHeading())) {
+                telemetry.addData("IF: ", 2);
+                flmotor.setPower(-(Math.pow(degrees - (oldSensors.gyro.getHeading()) * 0.5, 2) * spinRate));
+                blmotor.setPower(-(Math.pow(degrees - (oldSensors.gyro.getHeading()) * 0.5, 2) * spinRate));
+                frmotor.setPower((Math.pow(degrees - (oldSensors.gyro.getHeading()) * 0.5, 2) * spinRate));
+                brmotor.setPower((Math.pow(degrees - (oldSensors.gyro.getHeading()) * 0.5, 2) * spinRate));
+                /*
+                flmotor.setPower(-power);
+                frmotor.setPower(power);
+                blmotor.setPower(-power);
+                brmotor.setPower(power);
+            }
+            telemetry.update();
+        }
+        **/
 
         resetEncoders();
         flmotor.setPower(0);
@@ -384,6 +432,76 @@ public class move {
 
     }
 
+    /* INVALID STATEMENT
+    public void diagonal(double forward, double left, double power) throws InterruptedException{
 
+
+        resetEncoders();
+
+
+
+        double CIRCUMFERENCE = Math.PI * WHEEL_DIAMETER;
+        double fROTATIONS = forward / CIRCUMFERENCE;
+        double flfCOUNTS = ENCODER_CPR * fROTATIONS * GEAR_RATIO;
+        double lROTATIONS = left / CIRCUMFERENCE;
+        double fllCOUNTS = ENCODER_CPR * lROTATIONS * GEAR_RATIO;
+        flmotor.setTargetPosition((int) (flfCOUNTS - fllCOUNTS));
+        flmotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+
+        relativeHeading = (Math.toDegrees(Math.atan2(-fllCOUNTS,flfCOUNTS)));
+
+        if(relativeHeading >= 0 && relativeHeading < 90)
+        {
+            xmove = Math.sin(Math.toRadians(relativeHeading-0));
+            ymove = -Math.cos(Math.toRadians(relativeHeading-0));
+        }
+        if(relativeHeading >= 90 && relativeHeading < 180)
+        {
+            xmove = Math.cos(Math.toRadians(relativeHeading-90));
+            ymove = Math.sin(Math.toRadians(relativeHeading-90));
+        }
+        if(relativeHeading >= 180 && relativeHeading < 270)
+        {
+            xmove = -Math.sin(Math.toRadians(relativeHeading-180));
+            ymove = Math.cos(Math.toRadians(relativeHeading-180));
+        }
+        if(relativeHeading >= 270 && relativeHeading < 360)
+        {
+            xmove = -Math.cos(Math.toRadians(relativeHeading-270));
+            ymove = -Math.sin(Math.toRadians(relativeHeading-270));
+        }
+
+
+
+
+
+
+
+        flmotor.setPower(-xmove + ymove);
+        frmotor.setPower(-xmove - ymove);
+        blmotor.setPower(xmove - ymove);
+        brmotor.setPower(xmove + ymove);
+
+
+
+        while(opMode.opModeIsActive() && -fllCOUNTS + flfCOUNTS > flmotor.getCurrentPosition())
+        {
+
+        }
+        *//*
+        while(opMode.opModeIsActive() && motor1.getCurrentPosition() < COUNTS && motor2.getCurrentPosition() < COUNTS)
+        {EncCounts = motor1.getCurrentPosition();}
+        motor1.setPower(0);
+        motor2.setPower(0);
+
+        motor1.setMode(DcMotorController.RunMode.RESET_ENCODERS);
+        motor2.setMode(DcMotorController.RunMode.RESET_ENCODERS);
+        *//*
+
+
+
+        return;
+    }
+*/
 
 }

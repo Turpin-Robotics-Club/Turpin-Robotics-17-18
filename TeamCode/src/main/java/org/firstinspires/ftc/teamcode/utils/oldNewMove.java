@@ -9,7 +9,7 @@ import com.qualcomm.robotcore.hardware.TouchSensor;
 
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 
-public class newMove {
+public class oldNewMove {
 
     public double FrontSpeed;
     public double BackSpeed;
@@ -45,7 +45,7 @@ public class newMove {
      * Initializes motor variables
      * @param op The instance of the calling LinearOpMode
      */
-    public newMove(LinearOpMode op) {
+    public oldNewMove(LinearOpMode op) {
         opMode = op;
         this.telemetry = op.telemetry;
         HardwareMap hardware_map = op.hardwareMap;
@@ -133,7 +133,7 @@ public class newMove {
      * Moves the robot forward or backward
      *
      * @param distance Distance (in inches) for the robot to go. Positive for forward, negative for backward
-     * @param power    The power level for the robot to move at. Should be an interval of [0.0, 1.0]
+     * @param power    The power level for the robot to oldMove at. Should be an interval of [0.0, 1.0]
      * @throws InterruptedException
      */
     public void forward(double distance, double power){
@@ -390,8 +390,8 @@ public class newMove {
     /**
      * Move the robot left or right
      *
-     * @param distance Distance (in inches) for the robot to move side to side. Positive for left, negative for right
-     * @param power    The power level for the robot to move at. Should be an interval of [0.0, 1.0]
+     * @param distance Distance (in inches) for the robot to oldMove side to side. Positive for left, negative for right
+     * @param power    The power level for the robot to oldMove at. Should be an interval of [0.0, 1.0]
      */
     public void left(double distance, double power){
         initGyroPos = oldSensors.gyroIntegratedHeading();

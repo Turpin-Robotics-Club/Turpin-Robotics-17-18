@@ -1,5 +1,6 @@
 package org.firstinspires.ftc.teamcode;
 
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
@@ -8,36 +9,50 @@ import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.teamcode.utils.RobotConstants;
-import org.firstinspires.ftc.teamcode.utils.Sensors;
 import org.firstinspires.ftc.teamcode.utils.oldSensors;
 
 
-@TeleOp(name = "Mecanum Drive")
-public class mecanumDrive extends OpMode {
+@TeleOp(name = "old Mecanum Drive", group = "TeleOp")
+@Disabled
+public class oldMecanumDrive extends OpMode {
 
 
 
-    private double joy;
-    private double joyLeft = 0;
-    private double G1_Lstk_x;
-    private double G1_Lstk_y;
-    private double currentPos;
-    private DcMotor frontleft;
-    private DcMotor frontright;
-    private DcMotor backleft;
-    private DcMotor backright;
-    private double flvalue;
-    private double frvalue;
-    private double blvalue;
-    private double brvalue;
-    private double relativeHeading;
-    private double xmove;
-    private double ymove;
-    private float turnRate = 0.75f;
-    private float driveRate = 1.5f;
-    private double bumperPower = 0.3;
-    private double spinRate = 0.1;
+    double joy;
+    double joyLeft;
+    double G1_Lstk_x;
+    double G1_Lstk_y;
+    double currentPos;
+    DcMotor frontleft;
+    DcMotor frontright;
+    DcMotor backleft;
+    DcMotor backright;
+    double flvalue;
+    double frvalue;
+    double blvalue;
+    double brvalue;
+    double relativeHeading;
+    double xmove;
+    double ymove;
+    float turnRate = 1.0f;
+    float driveRate = 1.5f;
+    double collectorPower = 0;
 
+    DcMotor leftShooter;
+    DcMotor rightShooter;
+
+
+    Servo storageServo;
+    Servo liftServo;
+
+    DcMotor knocker;
+    DcMotor collector;
+
+    boolean shooterRunning = false;
+
+    double bumperPower = 0.3;
+
+    private ElapsedTime runtimeStorageServo = new ElapsedTime();
     private ElapsedTime runtime_y = new ElapsedTime();
     private ElapsedTime runtime_b = new ElapsedTime();
 
@@ -49,15 +64,26 @@ public class mecanumDrive extends OpMode {
         frontleft = hardwareMap.dcMotor.get("back_right");
 
 
-        frontleft.setDirection(DcMotorSimple.Direction.REVERSE);
+        storageServo = hardwareMap.servo.get("storage_servo");
+        liftServo = hardwareMap.servo.get("lift_servo");
+
+        knocker = hardwareMap.dcMotor.get("knocker");
+        collector = hardwareMap.dcMotor.get("collector");
+
+
+        leftShooter = hardwareMap.dcMotor.get("left_shooter");
+        rightShooter = hardwareMap.dcMotor.get("right_shooter");
+
+
         backleft.setDirection(DcMotorSimple.Direction.REVERSE);
-
-        backleft.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        backright.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        frontleft.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        frontright.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        backright.setDirection(DcMotorSimple.Direction.REVERSE);
+        collector.setDirection(DcMotorSimple.Direction.REVERSE);
 
 
+        liftServo.setPosition(RobotConstants.LiftServoState.UNLIFTED.value());
+        storageServo.setPosition(RobotConstants.StorageServoState.STORE.value());
+
+        runtimeStorageServo.reset();
         runtime_y.reset();
     }
 
@@ -65,18 +91,16 @@ public class mecanumDrive extends OpMode {
 
         G1_Lstk_x = gamepad1.left_stick_x;
         G1_Lstk_y = gamepad1.left_stick_y;
-        currentPos = Sensors.readGyro();
+        currentPos = oldSensors.gyroHeading();
 
 
         telemetry.addData("Joystick value left", joyLeft);
         telemetry.addData("robot heading", currentPos);
-        telemetry.addData("intention", relativeHeading);
-        telemetry.addData("Gyro Heading", Sensors.angles.thirdAngle);
-        telemetry.addData("Driver Offset", Sensors.gyroInitial);
+        telemetry.addData("Gyro Heading", oldSensors.gyro.getHeading());
+        telemetry.addData("Driver Offset", oldSensors.driverOffset);
         telemetry.update();
 
-        //turn direction
-        //starts at up, turns right
+
         if(gamepad1.right_stick_x >= 0 && gamepad1.right_stick_y < 0)
         {
             joy = Math.toDegrees(Math.atan2(Math.abs(gamepad1.right_stick_x), Math.abs(gamepad1.right_stick_y)));
@@ -126,7 +150,7 @@ public class mecanumDrive extends OpMode {
 
 
 
-        //make it robot centric
+
         relativeHeading = joyLeft - currentPos;
         if(relativeHeading < 0)
         {
@@ -136,34 +160,33 @@ public class mecanumDrive extends OpMode {
 
         if(relativeHeading >= 0 && relativeHeading < 90)
         {
-            //separate x and y                                                   set magnitude of vector                      set speed so it doesn't max
             //telemetry.addData("Quadrant", "1");
             xmove = Math.sin(Math.toRadians(relativeHeading)) * Math.pow(Math.sqrt(Math.pow(G1_Lstk_x, 2) + Math.pow(G1_Lstk_y, 2)), 2) * driveRate;
-            ymove = Math.cos(Math.toRadians(relativeHeading)) * Math.pow(Math.sqrt(Math.pow(G1_Lstk_x, 2) + Math.pow(G1_Lstk_y, 2)), 2) * driveRate;
+            ymove = -Math.cos(Math.toRadians(relativeHeading)) * Math.pow(Math.sqrt(Math.pow(G1_Lstk_x, 2) + Math.pow(G1_Lstk_y, 2)), 2) * driveRate;
         }
         if(relativeHeading >= 90 && relativeHeading < 180)
         {
             //telemetry.addData("Quadrant", "4");
             xmove = Math.cos(Math.toRadians(relativeHeading-90)) * Math.pow(Math.sqrt(Math.pow(G1_Lstk_x, 2) + Math.pow(G1_Lstk_y, 2)), 2) * driveRate;
-            ymove = -Math.sin(Math.toRadians(relativeHeading-90)) * Math.pow(Math.sqrt(Math.pow(G1_Lstk_x, 2) + Math.pow(G1_Lstk_y, 2)), 2) * driveRate;
+            ymove = Math.sin(Math.toRadians(relativeHeading-90)) * Math.pow(Math.sqrt(Math.pow(G1_Lstk_x, 2) + Math.pow(G1_Lstk_y, 2)), 2) * driveRate;
         }
         if(relativeHeading >= 180 && relativeHeading < 270)
         {
             //telemetry.addData("Quadrant", "3");
             xmove = -Math.sin(Math.toRadians(relativeHeading-180)) * Math.pow(Math.sqrt(Math.pow(G1_Lstk_x, 2) + Math.pow(G1_Lstk_y, 2)), 2) * driveRate;
-            ymove = -Math.cos(Math.toRadians(relativeHeading-180)) * Math.pow(Math.sqrt(Math.pow(G1_Lstk_x, 2) + Math.pow(G1_Lstk_y, 2)), 2) * driveRate;
+            ymove = Math.cos(Math.toRadians(relativeHeading-180)) * Math.pow(Math.sqrt(Math.pow(G1_Lstk_x, 2) + Math.pow(G1_Lstk_y, 2)), 2) * driveRate;
         }
         if(relativeHeading >= 270 && relativeHeading < 360)
         {
             //telemetry.addData("Quadrant", "2");
             xmove = -Math.cos(Math.toRadians(relativeHeading-270)) * Math.pow(Math.sqrt(Math.pow(G1_Lstk_x, 2) + Math.pow(G1_Lstk_y, 2)), 2) * driveRate;
-            ymove = Math.sin(Math.toRadians(relativeHeading-270)) * Math.pow(Math.sqrt(Math.pow(G1_Lstk_x, 2) + Math.pow(G1_Lstk_y, 2)), 2) * driveRate;
+            ymove = -Math.sin(Math.toRadians(relativeHeading-270)) * Math.pow(Math.sqrt(Math.pow(G1_Lstk_x, 2) + Math.pow(G1_Lstk_y, 2)), 2) * driveRate;
         }
 
-        flvalue = (ymove + xmove);
-        frvalue = (ymove - xmove);
-        blvalue = (ymove - xmove);
-        brvalue = (ymove + xmove);
+        flvalue = (xmove - ymove);
+        frvalue = (xmove + ymove);
+        blvalue = (xmove + ymove);
+        brvalue = (xmove - ymove);
 
         //End of drive
         //Beginning of turn
@@ -171,28 +194,28 @@ public class mecanumDrive extends OpMode {
         /*
         if((joy < currentPos + 180 && joy > currentPos) || joy < (currentPos + 180) -360)
         {
-            //left
-            flvalue = flvalue + -Math.min(0.75, Math.pow(Math.sqrt(Math.pow(gamepad1.right_stick_x, 2) + Math.pow(gamepad1.right_stick_y, 2)) * turnRate, 2) * Math.pow((joy-currentPos), 2) * spinRate);
+            flvalue = flvalue + Math.min(0.75, Math.pow(Math.sqrt(Math.pow(gamepad1.right_stick_x, 2) + Math.pow(gamepad1.right_stick_y, 2)) * turnRate, 2) * Math.pow((joy-currentPos), 2) * spinRate);
             frvalue = frvalue + Math.min(0.75, Math.pow(Math.sqrt(Math.pow(gamepad1.right_stick_x, 2) + Math.pow(gamepad1.right_stick_y, 2)) * turnRate, 2) * Math.pow((joy-currentPos), 2) * spinRate);
             blvalue = blvalue + -Math.min(0.75, Math.pow(Math.sqrt(Math.pow(gamepad1.right_stick_x, 2) + Math.pow(gamepad1.right_stick_y, 2)) * turnRate, 2) * Math.pow((joy-currentPos), 2) * spinRate);
-            brvalue = brvalue + Math.min(0.75, Math.pow(Math.sqrt(Math.pow(gamepad1.right_stick_x, 2) + Math.pow(gamepad1.right_stick_y, 2)) * turnRate, 2) * Math.pow((joy-currentPos), 2) * spinRate);
+            brvalue = brvalue + -Math.min(0.75, Math.pow(Math.sqrt(Math.pow(gamepad1.right_stick_x, 2) + Math.pow(gamepad1.right_stick_y, 2)) * turnRate, 2) * Math.pow((joy-currentPos), 2) * spinRate);
         }
         if((joy > currentPos - 180 && joy < currentPos) || joy > 360 - (180 - currentPos))
         {
-            //right
-            flvalue = flvalue + Math.min(0.75, Math.pow(Math.sqrt(Math.pow(gamepad1.right_stick_x, 2) + Math.pow(gamepad1.right_stick_y, 2)) * turnRate, 2) * Math.pow((joy-currentPos), 2) * spinRate);
+            flvalue = flvalue + -Math.min(0.75, Math.pow(Math.sqrt(Math.pow(gamepad1.right_stick_x, 2) + Math.pow(gamepad1.right_stick_y, 2)) * turnRate, 2) * Math.pow((joy-currentPos), 2) * spinRate);
             frvalue = frvalue + -Math.min(0.75, Math.pow(Math.sqrt(Math.pow(gamepad1.right_stick_x, 2) + Math.pow(gamepad1.right_stick_y, 2)) * turnRate, 2) * Math.pow((joy-currentPos), 2) * spinRate);
             blvalue = blvalue + Math.min(0.75, Math.pow(Math.sqrt(Math.pow(gamepad1.right_stick_x, 2) + Math.pow(gamepad1.right_stick_y, 2)) * turnRate, 2) * Math.pow((joy-currentPos), 2) * spinRate);
-            brvalue = brvalue + -Math.min(0.75, Math.pow(Math.sqrt(Math.pow(gamepad1.right_stick_x, 2) + Math.pow(gamepad1.right_stick_y, 2)) * turnRate, 2) * Math.pow((joy-currentPos), 2) * spinRate);
+            brvalue = brvalue + Math.min(0.75, Math.pow(Math.sqrt(Math.pow(gamepad1.right_stick_x, 2) + Math.pow(gamepad1.right_stick_y, 2)) * turnRate, 2) * Math.pow((joy-currentPos), 2) * spinRate);
         }
         */
-        flvalue += gamepad1.right_stick_x * turnRate;
-        frvalue -= gamepad1.right_stick_x * turnRate;
-        blvalue += gamepad1.right_stick_x * turnRate;
-        brvalue -= gamepad1.right_stick_x * turnRate;
 
 
-        //overall divide
+        flvalue = (flvalue + gamepad1.right_stick_x) * turnRate;
+        frvalue = (frvalue + gamepad1.right_stick_x) * turnRate;
+        blvalue = (blvalue - gamepad1.right_stick_x) * turnRate;
+        brvalue = (brvalue - gamepad1.right_stick_x) * turnRate;
+
+
+
         flvalue = (flvalue / 2);
         frvalue = (frvalue / 2);
         blvalue = (blvalue / 2);
@@ -201,7 +224,7 @@ public class mecanumDrive extends OpMode {
 
         if(gamepad1.a)
         {
-            Sensors.resetGyro();
+            oldSensors.resetGyro();
         }
 /*
         telemetry.addData("flvalue", flvalue);
@@ -258,8 +281,75 @@ public class mecanumDrive extends OpMode {
             backright.setPower((brvalue));
         }
 
-        if(gamepad1.a)
-            Sensors.resetGyro();
+        /**OPERATOR'S SECTION**/
+
+        if (gamepad2.a){
+            liftServo.setPosition(RobotConstants.LiftServoState.LIFTED.value());
+        }
+        else{
+            liftServo.setPosition(RobotConstants.LiftServoState.UNLIFTED.value());
+        }
+
+
+
+
+        if(collector.getPower() > 0)
+        {
+            knocker.setPower(0.4);
+        }
+        else
+        {
+            knocker.setPower(0);
+        }
+
+        if(gamepad2.right_trigger > 0.5)
+        {
+            collectorPower = 0;
+            collector.setPower(0);
+        }
+        else if(gamepad2.left_bumper){
+            collectorPower = RobotConstants.COLLECT_POWER;
+            collector.setPower(0);
+        }
+        else if(gamepad2.right_bumper){
+            collectorPower = RobotConstants.RELEASE_POWER;
+            collector.setPower(0);
+        }
+        else {
+            collector.setPower(collectorPower);
+        }
+
+
+        if (runtimeStorageServo.seconds() >= 1 && (storageServo.getPosition() == 0)) {
+            storageServo.setPosition(RobotConstants.StorageServoState.STORE.value());
+        }
+        if (gamepad2.y && (runtime_y.seconds() >= RobotConstants.BUTTON_PRESS_WAIT)) {
+            storageServo.setPosition(RobotConstants.StorageServoState.RELEASE.value());
+            runtimeStorageServo.reset();
+            runtime_y.reset();
+        }
+
+
+
+
+        if (gamepad2.b && (runtime_b.seconds() >= RobotConstants.BUTTON_PRESS_WAIT)) {
+            shooterRunning = !shooterRunning;
+            runtime_b.reset();
+        }
+        if (shooterRunning) {
+            if (leftShooter.getPower() < 0.2) {
+                leftShooter.setPower(0.2);
+                rightShooter.setPower(-0.2);
+            }
+            double i = Math.min(leftShooter.getPower() + 0.05, RobotConstants.MAX_SHOOTER_POWER);
+            leftShooter.setPower(i);
+            rightShooter.setPower(-i);
+        } else {
+            double i = Math.max(leftShooter.getPower() - 0.05, 0.0);
+            leftShooter.setPower(i);
+            rightShooter.setPower(-i);
+        }
+
     }
 
     @Override
