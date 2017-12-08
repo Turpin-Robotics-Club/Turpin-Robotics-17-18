@@ -31,10 +31,10 @@ public class bitBoiTeleOp extends OpMode{
 
     public void loop() {
 
-        motorL.setPower(gamepad1.right_stick_y);
-        motorR.setPower(gamepad1.right_stick_y);
-        motorTL.setPower(gamepad1.right_stick_y/5);
-        motorTR.setPower(gamepad1.right_stick_y/5);
+        motorL.setPower(gamepad1.right_stick_y-gamepad1.right_stick_x-gamepad1.left_stick_x);
+        motorR.setPower(gamepad1.right_stick_y+gamepad1.right_stick_x+gamepad1.left_stick_x);
+        motorTL.setPower(gamepad1.right_stick_y/5+gamepad1.right_stick_x/5-gamepad1.left_stick_x/5);
+        motorTR.setPower(gamepad1.right_stick_y/5-gamepad1.right_stick_x/5+gamepad1.left_stick_x/5);
 
         telemetry.addData("right stick y", gamepad1.right_stick_y);
         telemetry.addData("right stick x", gamepad1.right_stick_x);
