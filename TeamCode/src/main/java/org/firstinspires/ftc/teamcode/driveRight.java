@@ -5,13 +5,11 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.Servo;
-import com.qualcomm.robotcore.util.ElapsedTime;
-
 import org.firstinspires.ftc.teamcode.utils.move;
 
-@Autonomous(name="A C 0", group="Autonomous Finals")
+@Autonomous(name="B D B", group="Autonomous Finals")
 //@Disabled
-public class driveForward extends LinearOpMode{
+public class driveRight extends LinearOpMode {
 
     DcMotor flmotor;
     DcMotor frmotor;
@@ -21,8 +19,7 @@ public class driveForward extends LinearOpMode{
     private DcMotor liftMotor;
     private DcMotor liftMotor2;
 
-    public void runOpMode()
-    {
+    public void runOpMode() {
 
 
         new move(this, true);
@@ -48,7 +45,6 @@ public class driveForward extends LinearOpMode{
         brmotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
 
-
         clamp.setPosition(0.85);
         sleep(100);
         liftMotor.setPower(0.5);
@@ -57,15 +53,26 @@ public class driveForward extends LinearOpMode{
         liftMotor.setPower(0);
         liftMotor2.setPower(0);
         sleep(100);
-        flmotor.setPower(0.75);
-        frmotor.setPower(0.75);
-        blmotor.setPower(0.75);
-        brmotor.setPower(0.75);
-        sleep(1000);
+        //right
+        flmotor.setPower(0.5);
+        frmotor.setPower(-0.5);
+        blmotor.setPower(-0.5);
+        brmotor.setPower(0.5);
+        sleep(2500);
         flmotor.setPower(0);
         frmotor.setPower(0);
         blmotor.setPower(0);
         brmotor.setPower(0);
-
+        sleep(200);
+        //forward
+        flmotor.setPower(0.75);
+        frmotor.setPower(0.75);
+        blmotor.setPower(0.75);
+        brmotor.setPower(0.75);
+        sleep(400);
+        flmotor.setPower(0);
+        frmotor.setPower(0);
+        blmotor.setPower(0);
+        brmotor.setPower(0);
     }
 }

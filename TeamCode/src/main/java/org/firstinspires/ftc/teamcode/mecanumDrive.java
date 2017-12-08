@@ -289,13 +289,13 @@ public class mecanumDrive extends OpMode {
 
         if (gamepad2.right_bumper)
         {
-            liftMotor.setPower(0.75);
-            liftMotor2.setPower(0.75);
+            liftMotor.setPower(0.6);
+            liftMotor2.setPower(0.6);
         }
         else if (gamepad2.right_trigger>0.5)
         {
-            liftMotor.setPower(-gamepad2.right_trigger+0.5);
-            liftMotor2.setPower(-gamepad2.right_trigger+0.5);
+            liftMotor.setPower(-(gamepad2.right_trigger/2)+0.25);
+            liftMotor2.setPower(-(gamepad2.right_trigger/2)+0.25);
         }
         else
         {
@@ -308,7 +308,7 @@ public class mecanumDrive extends OpMode {
         if(gamepad2.a)
             clamp.setPosition(0.85); //close
         else if(gamepad2.b)
-            clamp.setPosition(0.734); //open
+            clamp.setPosition(0.74); //open
         else if(gamepad2.y)
             clamp.setPosition(0.65); //extra open
 

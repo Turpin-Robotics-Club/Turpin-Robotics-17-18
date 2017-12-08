@@ -81,13 +81,13 @@ public class mecanumSimple extends OpMode{
        // Probably (should?) work- try to get lift motors mapped to right and left bumpers
         if (gamepad2.right_bumper)
         {
-            liftMotor.setPower(0.75);
-            liftMotor2.setPower(0.75);
+            liftMotor.setPower(0.6);
+            liftMotor2.setPower(0.6);
         }
         else if (gamepad2.right_trigger>0.5)
         {
-            liftMotor.setPower(-gamepad2.right_trigger+0.5);
-            liftMotor2.setPower(-gamepad2.right_trigger+0.5);
+            liftMotor.setPower(-(gamepad2.right_trigger/2)+0.25);
+            liftMotor2.setPower(-(gamepad2.right_trigger/2)+0.25);
         }
         else
         {
