@@ -12,11 +12,15 @@ import org.firstinspires.ftc.teamcode.utils.Sensors;
 import org.firstinspires.ftc.teamcode.utils.oldSensors;
 
 
+
 @TeleOp(name = "Mecanum Drive")
 public class mecanumDrive extends OpMode {
 
 
 
+    private DcMotor liftMotor;
+    private DcMotor liftMotor2;
+    private Servo clamp;
     private double joy;
     private double joyLeft = 0;
     private double G1_Lstk_x;
@@ -56,6 +60,18 @@ public class mecanumDrive extends OpMode {
         backright.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         frontleft.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         frontright.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+
+        liftMotor = hardwareMap.dcMotor.get("lift");
+        liftMotor2 = hardwareMap.dcMotor.get("lift2");
+        clamp = hardwareMap.servo.get("clamp");
+
+        liftMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        liftMotor2.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+
+        liftMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        liftMotor2.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        liftMotor2.setDirection(DcMotorSimple.Direction.REVERSE);
+
 
 
         runtime_y.reset();
@@ -260,6 +276,52 @@ public class mecanumDrive extends OpMode {
 
         if(gamepad1.a)
             Sensors.resetGyro();
+
+
+
+
+
+
+
+
+
+
+
+        if (gamepad2.right_bumper)
+        {
+            liftMotor.setPower(0.75);
+            liftMotor2.setPower(0.75);
+        }
+        else if (gamepad2.right_trigger>0.5)
+        {
+            liftMotor.setPower(-gamepad2.right_trigger+0.5);
+            liftMotor2.setPower(-gamepad2.right_trigger+0.5);
+        }
+        else
+        {
+            liftMotor.setPower(0);
+            liftMotor2.setPower(0);
+        }
+        //waiting for encoders
+        //telemetry.addData("Lift", liftMotor.getCurrentPosition());
+
+        if(gamepad2.a)
+            clamp.setPosition(0.85); //close
+        else if(gamepad2.b)
+            clamp.setPosition(0.734); //open
+        else if(gamepad2.y)
+            clamp.setPosition(0.65); //extra open
+
+
+
+
+
+
+
+
+
+
+
     }
 
     @Override
