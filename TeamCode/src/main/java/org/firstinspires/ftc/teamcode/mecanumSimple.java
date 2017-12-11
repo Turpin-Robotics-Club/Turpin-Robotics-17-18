@@ -24,6 +24,7 @@ public class mecanumSimple extends OpMode{
     private DcMotor backright;
     private DcMotor liftMotor;
     private DcMotor liftMotor2;
+    private DcMotor liftMotor3;
     private boolean closed = false;
     private double frontLeftPower;
     private double frontRightPower;
@@ -40,6 +41,7 @@ public class mecanumSimple extends OpMode{
     public void init() {
         liftMotor = hardwareMap.dcMotor.get("lift");
         liftMotor2 = hardwareMap.dcMotor.get("lift2");
+        liftMotor3 = hardwareMap.dcMotor.get("lift3");
         clamp = hardwareMap.servo.get("clamp");
         frontleft = hardwareMap.dcMotor.get("front_left");
         frontright = hardwareMap.dcMotor.get("front_right");
@@ -49,11 +51,13 @@ public class mecanumSimple extends OpMode{
 
         liftMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         liftMotor2.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        liftMotor3.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         frontleft.setDirection(DcMotorSimple.Direction.REVERSE);
         backleft.setDirection(DcMotorSimple.Direction.REVERSE);
         //liftMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         liftMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         liftMotor2.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        liftMotor3.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         liftMotor2.setDirection(DcMotorSimple.Direction.REVERSE);
     }
 
@@ -63,10 +67,23 @@ public class mecanumSimple extends OpMode{
 
 
         // Movement
-        frontLeftPower = (gamepad1.left_stick_x + (-gamepad1.left_stick_y * forwardBonus));
-        frontRightPower = (-gamepad1.left_stick_x + (-gamepad1.left_stick_y * forwardBonus));
-        backLeftPower = (-gamepad1.left_stick_x + (-gamepad1.left_stick_y * forwardBonus));
-        backRightPower = (gamepad1.left_stick_x + (-gamepad1.left_stick_y * forwardBonus));
+        if(gamepad1.right_bumper)
+        {
+            frontLeftPower = (gamepad1.left_stick_x + (-gamepad1.left_stick_y * forwardBonus))/3;
+            frontRightPower = (-gamepad1.left_stick_x + (-gamepad1.left_stick_y * forwardBonus))/3;
+            backLeftPower = (-gamepad1.left_stick_x + (-gamepad1.left_stick_y * forwardBonus))/3;
+            backRightPower = (gamepad1.left_stick_x + (-gamepad1.left_stick_y * forwardBonus))/3;
+        }
+
+
+        else {
+            frontLeftPower = (gamepad1.left_stick_x + (-gamepad1.left_stick_y * forwardBonus));
+            frontRightPower = (-gamepad1.left_stick_x + (-gamepad1.left_stick_y * forwardBonus));
+            backLeftPower = (-gamepad1.left_stick_x + (-gamepad1.left_stick_y * forwardBonus));
+            backRightPower = (gamepad1.left_stick_x + (-gamepad1.left_stick_y * forwardBonus));
+        }
+
+
 
         // Turning
         frontLeftPower += gamepad1.right_stick_x;
@@ -104,6 +121,12 @@ public class mecanumSimple extends OpMode{
         else if(gamepad2.y)
             clamp.setPosition(0.65); //extra open
 
+        if(gamepad2.dpad_up)
+            liftMotor3.setPower(0.3);
+        else if(gamepad2.dpad_down)
+            liftMotor3.setPower(-0.3);
+        else
+            liftMotor3.setPower(-liftMotor3.getCurrentPosition()/500);
 
     }
 

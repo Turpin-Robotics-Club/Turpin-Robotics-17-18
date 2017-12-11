@@ -66,6 +66,18 @@ public class driveForward extends LinearOpMode{
         frmotor.setPower(0);
         blmotor.setPower(0);
         brmotor.setPower(0);
+        clamp.setPosition(0.7);
+        sleep(100);
+        liftMotor.setPower(0.5);
+        liftMotor2.setPower(0.5);
+        sleep(300);
+        liftMotor.setPower(0);
+        liftMotor2.setPower(0);
+        flmotor.setPower(-0.5);
+        frmotor.setPower(-0.5);
+        blmotor.setPower(-0.5);
+        brmotor.setPower(-0.5);
+        sleep(100);
 
     }
 }
