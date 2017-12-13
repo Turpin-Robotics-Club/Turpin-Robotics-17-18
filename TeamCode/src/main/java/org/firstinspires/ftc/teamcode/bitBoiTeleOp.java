@@ -52,14 +52,18 @@ public class bitBoiTeleOp extends OpMode{
 
 
 
-        motorL.setPower((gamepad1.right_stick_y-gamepad1.right_stick_x-gamepad1.left_stick_x)*LTR);
-        motorR.setPower((gamepad1.right_stick_y+gamepad1.right_stick_x+gamepad1.left_stick_x)*RTL);
-        motorTL.setPower((gamepad1.right_stick_y/5+gamepad1.right_stick_x/5-gamepad1.left_stick_x/5)*RTL);
-        motorTR.setPower((gamepad1.right_stick_y/5-gamepad1.right_stick_x/5+gamepad1.left_stick_x/5)*LTR);
+        motorL.setPower((gamepad1.right_stick_y-gamepad1.right_stick_x-gamepad1.left_stick_x));
+        motorR.setPower((gamepad1.right_stick_y+gamepad1.right_stick_x+gamepad1.left_stick_x));
+        motorTL.setPower((gamepad1.right_stick_y/5+gamepad1.right_stick_x/5-gamepad1.left_stick_x/5));
+        motorTR.setPower((gamepad1.right_stick_y/5-gamepad1.right_stick_x/5+gamepad1.left_stick_x/5));
 
         telemetry.addData("right stick y", gamepad1.right_stick_y);
         telemetry.addData("right stick x", gamepad1.right_stick_x);
         telemetry.addData("gyro z:",gyro.getIntegratedZValue());
+        telemetry.addData("motorL",(gamepad1.right_stick_y-gamepad1.right_stick_x-gamepad1.left_stick_x));
+        telemetry.addData("motorR",(gamepad1.right_stick_y+gamepad1.right_stick_x+gamepad1.left_stick_x));
+        telemetry.addData("motorTL",(gamepad1.right_stick_y/5+gamepad1.right_stick_x/5-gamepad1.left_stick_x/5));
+        telemetry.addData("motorTR",(gamepad1.right_stick_y/5-gamepad1.right_stick_x/5+gamepad1.left_stick_x/5));
 
 
 
