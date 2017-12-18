@@ -25,7 +25,7 @@ public class driveForward extends LinearOpMode{
     {
 
 
-        new move(this, true);
+        new move(this);
 
 
         liftMotor = hardwareMap.dcMotor.get("lift");

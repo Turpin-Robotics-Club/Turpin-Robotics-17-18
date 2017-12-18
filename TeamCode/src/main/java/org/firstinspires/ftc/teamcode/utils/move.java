@@ -11,30 +11,28 @@ import org.firstinspires.ftc.robotcore.external.Telemetry;
 
 public class move {
 
-    DcMotor flmotor;
-    DcMotor frmotor;
-    DcMotor blmotor;
-    DcMotor brmotor;
-    static Telemetry telemetry;
-    DcMotor spinLeft;
-    DcMotor spinRight;
+    private DcMotor flmotor;
+    private DcMotor frmotor;
+    private DcMotor blmotor;
+    private DcMotor brmotor;
+    private static Telemetry telemetry;
     TouchSensor reddish;
     LinearOpMode opMode;
+    public boolean red;
+    private double initGyroPos = 0;
+    private double stabilityMultiplier = 0.0001;
+    private double spinRate = 0.002;
 
-    double initGyroPos = 0;
-    double stabilityMultiplier = 0.0001;
-    double spinRate = 0.002;
-
-    int ENCODER_CPR = 1120;
+    private int ENCODER_CPR = 1120;
     double GEAR_RATIO = 1;
     double WHEEL_DIAMETER = 5.94;
 
     /**
      * Initializes motor variables
      * @param op The instance of the calling LinearOpMode
-     * @param red True if on the red Alliance, False otherwise
+     *
      */
-    public move(LinearOpMode op, boolean red) {
+    public move(LinearOpMode op) {
         opMode = op;
         move.telemetry = op.telemetry;
         HardwareMap hardware_map = op.hardwareMap;
@@ -370,20 +368,6 @@ public class move {
 
 
     }
-
-
-    public void powerUpShooter(DcMotor spin1, DcMotor spin2)
-    {
-        spinLeft = spin1;
-        spinRight = spin2;
-        spinRight.setDirection(DcMotor.Direction.REVERSE);
-
-        spinLeft.setPower(-0.8);
-        spinRight.setPower(-0.8);
-
-
-    }
-
 
 
 }

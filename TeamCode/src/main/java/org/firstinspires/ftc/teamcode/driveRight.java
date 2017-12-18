@@ -22,7 +22,7 @@ public class driveRight extends LinearOpMode {
     public void runOpMode() {
 
 
-        new move(this, true);
+        new move(this);
 
 
         liftMotor = hardwareMap.dcMotor.get("lift");

@@ -14,7 +14,7 @@ public class nullAutonomous extends LinearOpMode {
     @Override
     public void runOpMode(){
 
-        new move(this, true);
+        new move(this);
 
         while (opModeIsActive())
         {
