@@ -39,9 +39,9 @@ public class gigaBoiTeleOp extends OpMode {
 
     public void loop()
     {
-        motorLB.setPower(gamepad1.left_stick_x);
-        motorRB.setPower(gamepad1.left_stick_y);
-        motorLF.setPower(gamepad1.right_stick_x);
+        motorLB.setPower(gamepad1.right_stick_y);
+        motorRB.setPower(gamepad1.right_stick_y);
+        motorLF.setPower(gamepad1.right_stick_y);
         motorRF.setPower(gamepad1.right_stick_y);
 
         telemetry.addData("MotorLB:",gamepad1.left_stick_x);

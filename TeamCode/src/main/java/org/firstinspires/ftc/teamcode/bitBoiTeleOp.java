@@ -15,21 +15,26 @@ import com.qualcomm.robotcore.hardware.OpticalDistanceSensor;
 @TeleOp(name = "TeleOp Mode", group = "Bit Boi")
 //@Disabled
 public class bitBoiTeleOp extends OpMode{
-    DcMotor motorL;
-    DcMotor motorTL;
-    DcMotor motorR;
-    DcMotor motorTR;
+    DcMotor motorFL;
+    DcMotor motorBL;
+    DcMotor motorFR;
+    DcMotor motorBR;
+    DcMotor liftMotor;
     ModernRoboticsI2cGyro gyro;
 
     public void init() {
-        motorTR=hardwareMap.dcMotor.get("motor1");
-        motorTL=hardwareMap.dcMotor.get("motor2");
-        motorR=hardwareMap.dcMotor.get("motor3");
-        motorL=hardwareMap.dcMotor.get("motor4");
+        motorBR=hardwareMap.dcMotor.get("motor4");
+        motorBL=hardwareMap.dcMotor.get("motor2");
+        motorFR=hardwareMap.dcMotor.get("motor3");
+        motorFL=hardwareMap.dcMotor.get("motor1");
         gyro = hardwareMap.get(ModernRoboticsI2cGyro.class, "gyro");
+        liftMotor = hardwareMap.dcMotor.get("motorL");
 
-        motorR.setDirection(DcMotorSimple.Direction.REVERSE);
-        motorTR.setDirection(DcMotorSimple.Direction.REVERSE);
+        motorFL.setDirection(DcMotorSimple.Direction.REVERSE);
+        motorBL.setDirection(DcMotorSimple.Direction.REVERSE);
+
+        liftMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+
 
         gyro.calibrate();
 
@@ -39,31 +44,24 @@ public class bitBoiTeleOp extends OpMode{
 
     public void loop() {
 
-        double LTR;
-        double RTL;
-        if(gyro.rawZ()>0)
-        {
-            LTR = -Math.asin(gyro.getIntegratedZValue());
-            RTL = Math.acos(gyro.getIntegratedZValue());
-        }else{
-            RTL = -Math.asin(gyro.getIntegratedZValue());
-            LTR = Math.acos(gyro.getIntegratedZValue());
+
+
+
+
+        motorFL.setPower((gamepad1.right_stick_y+gamepad1.right_stick_x-gamepad1.left_stick_x)*Math.asin(45+gyro.getIntegratedZValue()));
+        motorFR.setPower((gamepad1.right_stick_y-gamepad1.right_stick_x+gamepad1.left_stick_x)*Math.acos(45+gyro.getIntegratedZValue()));
+        motorBL.setPower((gamepad1.right_stick_y-gamepad1.right_stick_x-gamepad1.left_stick_x)*Math.acos(45+gyro.getIntegratedZValue()));
+        motorBR.setPower((gamepad1.right_stick_y+gamepad1.right_stick_x+gamepad1.left_stick_x)*Math.asin(45+gyro.getIntegratedZValue()));
+        if(gamepad1.a) {
+            liftMotor.setTargetPosition(liftMotor.getCurrentPosition() + liftMotor.getCurrentPosition() / 4);
+            liftMotor.setPower(.75);
         }
-
-
-
-        motorL.setPower((gamepad1.right_stick_y-gamepad1.right_stick_x-gamepad1.left_stick_x));
-        motorR.setPower((gamepad1.right_stick_y+gamepad1.right_stick_x+gamepad1.left_stick_x));
-        motorTL.setPower((gamepad1.right_stick_y/5+gamepad1.right_stick_x/5-gamepad1.left_stick_x/5));
-        motorTR.setPower((gamepad1.right_stick_y/5-gamepad1.right_stick_x/5+gamepad1.left_stick_x/5));
-
-        telemetry.addData("right stick y", gamepad1.right_stick_y);
-        telemetry.addData("right stick x", gamepad1.right_stick_x);
-        telemetry.addData("gyro z:",gyro.getIntegratedZValue());
-        telemetry.addData("motorL",(gamepad1.right_stick_y-gamepad1.right_stick_x-gamepad1.left_stick_x));
-        telemetry.addData("motorR",(gamepad1.right_stick_y+gamepad1.right_stick_x+gamepad1.left_stick_x));
-        telemetry.addData("motorTL",(gamepad1.right_stick_y/5+gamepad1.right_stick_x/5-gamepad1.left_stick_x/5));
-        telemetry.addData("motorTR",(gamepad1.right_stick_y/5-gamepad1.right_stick_x/5+gamepad1.left_stick_x/5));
+        telemetry.addData("Lift", liftMotor.getCurrentPosition());
+        //telemetry.addData("gyro z:",gyro.getIntegratedZValue());\
+        //telemetry.addData("motorL",(gamepad1.right_stick_y-gamepad1.right_stick_x-gamepad1.left_stick_x));
+        //telemetry.addData("motorR",(gamepad1.right_stick_y+gamepad1.right_stick_x+gamepad1.left_stick_x));
+        //telemetry.addData("motorTL",(gamepad1.right_stick_y/5+gamepad1.right_stick_x/5-gamepad1.left_stick_x/5));
+        //telemetry.addData("motorTR",(gamepad1.right_stick_y/5-gamepad1.right_stick_x/5+gamepad1.left_stick_x/5));
 
 
 
