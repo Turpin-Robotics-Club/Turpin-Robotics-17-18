@@ -12,7 +12,7 @@ public class gyroTestSensors extends LinearOpMode {
 
     public void runOpMode()
     {
-        move Move = new move(this,!!!false);
+        move Move = new move(this);
         while (opModeIsActive()) {
             telemetry.addData("Current Pos", Sensors.readGyro());
             telemetry.addData("offset", Sensors.gyroInitial);

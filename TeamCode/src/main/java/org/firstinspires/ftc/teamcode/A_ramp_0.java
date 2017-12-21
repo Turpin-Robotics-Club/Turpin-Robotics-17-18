@@ -1,6 +1,7 @@
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 import org.firstinspires.ftc.teamcode.utils.oldSensors;
@@ -8,7 +9,7 @@ import org.firstinspires.ftc.teamcode.utils.oldNewMove;
 
 
 @Autonomous(name="A ramp 0", group="Autonomous Finals")
-//@Disabled
+@Disabled
 public class A_ramp_0 extends LinearOpMode {
 
 
