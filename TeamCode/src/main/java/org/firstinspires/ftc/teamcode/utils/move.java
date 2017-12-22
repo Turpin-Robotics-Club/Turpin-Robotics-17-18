@@ -24,8 +24,8 @@ public class move {
     private double spinRate = 0.002;
 
     private int ENCODER_CPR = 1120;
-    double GEAR_RATIO = 1;
-    double WHEEL_DIAMETER = 5.94;
+    private double GEAR_RATIO = 1;
+    private double WHEEL_DIAMETER = 5.6 ;
 
     /**
      * Initializes motor variables
@@ -43,15 +43,15 @@ public class move {
             frmotor = hardware_map.get(DcMotor.class, "front_right");
             blmotor = hardware_map.get(DcMotor.class, "back_left");
             brmotor = hardware_map.get(DcMotor.class, "back_right");
-            frmotor.setDirection(DcMotorSimple.Direction.REVERSE);
-            brmotor.setDirection(DcMotorSimple.Direction.REVERSE);
+            flmotor.setDirection(DcMotorSimple.Direction.REVERSE);
+            blmotor.setDirection(DcMotorSimple.Direction.REVERSE);
         } else {
             frmotor = hardware_map.get(DcMotor.class, "front_left");
             flmotor = hardware_map.get(DcMotor.class, "front_right");
             brmotor = hardware_map.get(DcMotor.class, "back_left");
             blmotor = hardware_map.get(DcMotor.class, "back_right");
-            flmotor.setDirection(DcMotorSimple.Direction.REVERSE);
-            blmotor.setDirection(DcMotorSimple.Direction.REVERSE);
+            frmotor.setDirection(DcMotorSimple.Direction.REVERSE);
+            brmotor.setDirection(DcMotorSimple.Direction.REVERSE);
         }
 
         Sensors.initialize(opMode, red);
