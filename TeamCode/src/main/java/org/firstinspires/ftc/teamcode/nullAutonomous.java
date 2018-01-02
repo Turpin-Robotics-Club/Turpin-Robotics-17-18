@@ -5,8 +5,6 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 import org.firstinspires.ftc.teamcode.utils.Sensors;
 import org.firstinspires.ftc.teamcode.utils.move;
-import org.firstinspires.ftc.teamcode.utils.oldSensors;
-import org.firstinspires.ftc.teamcode.utils.oldNewMove;
 
 @Autonomous(name="AB AB 0", group="Autonomous Finals")
 //@Disabled

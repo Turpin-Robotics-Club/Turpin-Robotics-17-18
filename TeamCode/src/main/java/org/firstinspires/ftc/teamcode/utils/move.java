@@ -6,8 +6,11 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.hardware.TouchSensor;
+import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.robotcore.external.Telemetry;
+
+import static java.lang.Thread.sleep;
 
 public class move {
 
@@ -15,6 +18,7 @@ public class move {
     private DcMotor frmotor;
     private DcMotor blmotor;
     private DcMotor brmotor;
+
     private static Telemetry telemetry;
     TouchSensor reddish;
     LinearOpMode opMode;
@@ -23,9 +27,13 @@ public class move {
     private double stabilityMultiplier = 0.0001;
     private double spinRate = 0.002;
 
-    private int ENCODER_CPR = 1120;
-    private double GEAR_RATIO = 1;
-    private double WHEEL_DIAMETER = 5.6 ;
+
+    public static void pause(int milliseconds)
+    {
+        ElapsedTime tim = new ElapsedTime();
+        tim.reset();
+        while (tim.milliseconds()<milliseconds);
+    }
 
     /**
      * Initializes motor variables
@@ -66,8 +74,34 @@ public class move {
         blmotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         brmotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
     }
+    public void freeze()
+    {
+        int flpos = flmotor.getCurrentPosition();
+        int frpos = frmotor.getCurrentPosition();
+        int blpos = blmotor.getCurrentPosition();
+        int brpos = brmotor.getCurrentPosition();
+
+        flmotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        frmotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        blmotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        brmotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+
+        flmotor.setTargetPosition(flpos);
+        frmotor.setTargetPosition(frpos);
+        blmotor.setTargetPosition(blpos);
+        brmotor.setTargetPosition(brpos);
+        pause(1000);
+        while(
+                !(flpos+5 >flmotor.getCurrentPosition()&&flpos-5<flmotor.getCurrentPosition()) &&
+                !(frpos+5 >frmotor.getCurrentPosition()&&frpos-5<frmotor.getCurrentPosition()) &&
+                !(blpos+5 >blmotor.getCurrentPosition()&&blpos-5<blmotor.getCurrentPosition()) &&
+                !(brpos+5 >brmotor.getCurrentPosition()&&brpos-5<brmotor.getCurrentPosition())
+                );
+        resetEncoders();
+    }
     public void holdDirection()
     {
+        /*
         initGyroPos = Sensors.readGyro();
         if (Sensors.readGyro() > initGyroPos) {
             flmotor.setPower(flmotor.getPower() + (Math.abs((oldSensors.gyro.rawZ() - initGyroPos)) * stabilityMultiplier));
@@ -83,25 +117,26 @@ public class move {
         }
         telemetry.addData("Gyro Z", oldSensors.gyro.rawZ());
         telemetry.update();
+        */
     }
 
     /**
      * Moves the robot forward or backward
      *
      * @param distance Distance (in inches) for the robot to go. Positive for forward, negative for backward
-     * @param power    The power level for the robot to oldMove at. Should be an interval of [0.0, 1.0]
+     * @param power    The power level for the robot to move at. Should be an interval of [0.0, 1.0]
      * @throws InterruptedException
      */
     public void forward(double distance, double power){
         resetEncoders();
-        double CIRCUMFERENCE = Math.PI * WHEEL_DIAMETER;
+        double CIRCUMFERENCE = Math.PI * RobotConstants.wheelDiameter;
         double ROTATIONS = distance / CIRCUMFERENCE;
-        double COUNTS = ENCODER_CPR * ROTATIONS * GEAR_RATIO;
+        double COUNTS = RobotConstants.encoderCPR * ROTATIONS * RobotConstants.gearRatio;
 
-        flmotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        frmotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        blmotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        brmotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        flmotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        frmotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        blmotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        brmotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
         flmotor.setTargetPosition((int) COUNTS);
         frmotor.setTargetPosition((int) COUNTS);
@@ -109,10 +144,10 @@ public class move {
         brmotor.setTargetPosition((int) COUNTS);
 
 
-        flmotor.setPower(power);
-        frmotor.setPower(power);
-        blmotor.setPower(power);
-        brmotor.setPower(power);
+        flmotor.setPower(power*RobotConstants.flpower);
+        frmotor.setPower(power*RobotConstants.frpower);
+        blmotor.setPower(power*RobotConstants.blpower);
+        brmotor.setPower(power*RobotConstants.brpower);
 
         if (distance < 0) {
 
@@ -129,14 +164,10 @@ public class move {
             }
         }
 
-        flmotor.setPower(0);
-        frmotor.setPower(0);
-        blmotor.setPower(0);
-        brmotor.setPower(0);
-
         resetEncoders();
         telemetry.addData("it has", "begun");
         telemetry.update();
+        pause(1000);
 
 
     }
@@ -152,7 +183,9 @@ public class move {
      */
     public void forward2(double distance, double minPower, double maxPower, double increment)
     {
+        /*
         initGyroPos = oldSensors.gyro.rawZ();
+
 
 
         double CIRCUMFERENCE = Math.PI * WHEEL_DIAMETER;
@@ -220,18 +253,20 @@ public class move {
 
         resetEncoders();
 
-
+        */
     }
 
     /**
      * Move the robot left or right
      *
-     * @param distance Distance (in inches) for the robot to oldMove side to side. Positive for left, negative for right
-     * @param power    The power level for the robot to oldMove at. Should be an interval of [0.0, 1.0]
+     * @param distance Distance (in inches) for the robot to move side to side. Positive for left, negative for right
+     * @param power    The power level for the robot to move at. Should be an interval of [0.0, 1.0]
      * @throws InterruptedException
      */
     public void left(double distance, double power){
+        /*
         initGyroPos = oldSensors.gyro.getHeading();
+
 
         resetEncoders();
         double CIRCUMFERENCE = Math.PI * WHEEL_DIAMETER;
@@ -295,7 +330,7 @@ public class move {
 
 
         resetEncoders();
-
+        */
     }
 
     /**
@@ -305,6 +340,7 @@ public class move {
      *
      */
     public void turnLeft(int degrees){
+        /*
         initGyroPos = Sensors.readGyro();
         resetEncoders();
         flmotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
@@ -341,33 +377,10 @@ public class move {
 
 
 
-
-
-    }
-
-
-    public void driveToLine(double power)
-    {
-        resetEncoders();
-        flmotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        frmotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        blmotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        brmotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-
-        while (opMode.opModeIsActive() && oldSensors.leye.green() < 3)
-        {
-            flmotor.setPower(power);
-            frmotor.setPower(power);
-            blmotor.setPower(power);
-            brmotor.setPower(power);
-            telemetry.addData("green", oldSensors.leye.green());
-            telemetry.update();
-        }
-
-        resetEncoders();
-
+        */
 
     }
+
 
 
 }

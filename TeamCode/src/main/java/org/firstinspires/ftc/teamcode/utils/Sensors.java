@@ -21,7 +21,7 @@ public class Sensors {
     public static double gyrochange;
 
     private static ElapsedTime runtime = new ElapsedTime();
-    public static double gyroInitial;
+    public static double gyroInitial = 0;
     public static BNO055IMU gyro;
     public static boolean red;
     public static Orientation angles;
@@ -48,7 +48,7 @@ public class Sensors {
 
         BNO055IMU.Parameters IMUparams = new BNO055IMU.Parameters();
         IMUparams.angleUnit           = BNO055IMU.AngleUnit.DEGREES;
-         IMUparams.accelUnit           = BNO055IMU.AccelUnit.METERS_PERSEC_PERSEC;
+        IMUparams.accelUnit           = BNO055IMU.AccelUnit.METERS_PERSEC_PERSEC;
         IMUparams.calibrationDataFile = "Calibfile.json";
         IMUparams.loggingEnabled      = true;
         IMUparams.loggingTag          = "IMU";
@@ -62,18 +62,23 @@ public class Sensors {
 
         gyro.initialize(IMUparams);
         sleep(10000);
-        angles   = gyro.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.XYZ, AngleUnit.DEGREES);
+        move.pause(100);
+        angles   = gyro.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES);
         telemetry.addData("angle", angles);
-        //gyroThread gThread = new gyroThread();
-        //gThread.start();
 
-        gyroInitial = realGyro();
+
+        //+180 for the orientation of the rev module
+        if(realGyro()+180>360)
+            gyroInitial = realGyro() +180 -360;
+        else
+            gyroInitial = realGyro() +180;
+
+
         ((LinearOpMode) _opMode).waitForStart();
-        //gThread.end();
-
         gyroDriftRead();
-
     }
+
+
 
 
 
