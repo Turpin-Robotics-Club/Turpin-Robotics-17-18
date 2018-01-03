@@ -257,13 +257,51 @@ public class move {
     }
 
     /**
-     * Move the robot left or right
+     * Move the robot right or negative right
      *
      * @param distance Distance (in inches) for the robot to move side to side. Positive for left, negative for right
      * @param power    The power level for the robot to move at. Should be an interval of [0.0, 1.0]
-     * @throws InterruptedException
      */
-    public void left(double distance, double power){
+    public void right(double distance, double power){
+
+        resetEncoders();
+        double CIRCUMFERENCE = Math.PI * RobotConstants.wheelDiameter;
+        double ROTATIONS = distance / CIRCUMFERENCE;
+        double COUNTS = RobotConstants.encoderCPR * ROTATIONS * RobotConstants.gearRatio * RobotConstants.sidewaysModifier;
+
+        flmotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        frmotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        blmotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        brmotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+
+
+        flmotor.setPower(power*RobotConstants.flpower);
+        frmotor.setPower(-power*RobotConstants.frpower);
+        blmotor.setPower(-power*RobotConstants.blpower);
+        brmotor.setPower(power*RobotConstants.brpower);
+
+        if (distance < 0) {
+
+            while (opMode.opModeIsActive() && flmotor.getCurrentPosition() > COUNTS) {
+                telemetry.addData("front left counts", flmotor.getCurrentPosition());
+                telemetry.addData("target", COUNTS);
+                telemetry.update();
+            }
+        } else {
+            while (opMode.opModeIsActive() && flmotor.getCurrentPosition() < COUNTS) {
+                telemetry.addData("front left counts", flmotor.getCurrentPosition());
+                telemetry.addData("target", COUNTS);
+                telemetry.update();
+            }
+        }
+
+        resetEncoders();
+        telemetry.addData("it has", "begun");
+        telemetry.update();
+        pause(1000);
+
+
+
         /*
         initGyroPos = oldSensors.gyro.getHeading();
 

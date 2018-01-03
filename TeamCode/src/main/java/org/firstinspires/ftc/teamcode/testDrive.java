@@ -12,6 +12,6 @@ public class testDrive extends LinearOpMode {
     @Override
     public void runOpMode() throws InterruptedException {
         move drive = new move(this);
-        drive.forward(120, 0.75);
+        drive.right(120, 0.75);
     }
 }
