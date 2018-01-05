@@ -57,7 +57,6 @@ public class mecanumSimple extends OpMode{
         //liftMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         liftMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         liftMotor2.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        liftMotor3.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         liftMotor2.setDirection(DcMotorSimple.Direction.REVERSE);
     }
 
@@ -100,16 +99,19 @@ public class mecanumSimple extends OpMode{
         {
             liftMotor.setPower(0.6);
             liftMotor2.setPower(0.6);
+            liftMotor3.setPower(0.6*0.7);
         }
         else if (gamepad2.right_trigger>0.5)
         {
             liftMotor.setPower(-(gamepad2.right_trigger/2)+0.25);
             liftMotor2.setPower(-(gamepad2.right_trigger/2)+0.25);
+            liftMotor3.setPower(-(gamepad2.right_trigger/2)+0.25);
         }
         else
         {
             liftMotor.setPower(0);
             liftMotor2.setPower(0);
+            liftMotor3.setPower(0);
         }
         //waiting for encoders
         //telemetry.addData("Lift", liftMotor.getCurrentPosition());
@@ -121,12 +123,7 @@ public class mecanumSimple extends OpMode{
         else if(gamepad2.y)
             clamp.setPosition(0.65); //extra open
 
-        if(gamepad2.dpad_up)
-            liftMotor3.setPower(0.3);
-        else if(gamepad2.dpad_down)
-            liftMotor3.setPower(-0.3);
-        else
-            liftMotor3.setPower(-liftMotor3.getCurrentPosition()/500);
+
 
     }
 
