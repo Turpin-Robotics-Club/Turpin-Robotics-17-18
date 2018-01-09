@@ -34,6 +34,8 @@ public class relic_recovery_autotest extends LinearOpMode{
     private Servo clamp;
     private DcMotor liftMotor;
     private DcMotor liftMotor2;
+    private DcMotor liftMotor3; // motor that pushes down the lift
+    private DcMotor relic; // relic motor for lifting
     // tell us how far and what orientation robot is from target
     double tX; // X value from target
     double tZ; // Same as above but for Z
@@ -50,6 +52,8 @@ public class relic_recovery_autotest extends LinearOpMode{
 
         liftMotor = hardwareMap.dcMotor.get("lift");
         liftMotor2 = hardwareMap.dcMotor.get("lift2");
+        liftMotor3 = hardwareMap.dcMotor.get("lift3");
+        relic = hardwareMap.dcMotor.get("relic");
         clamp = hardwareMap.servo.get("clamp");
         flmotor = hardwareMap.get(DcMotor.class, "front_left");
         frmotor = hardwareMap.get(DcMotor.class, "front_right");
