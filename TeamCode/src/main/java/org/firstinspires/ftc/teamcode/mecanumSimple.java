@@ -58,6 +58,7 @@ public class mecanumSimple extends OpMode{
         liftMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         liftMotor2.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         liftMotor2.setDirection(DcMotorSimple.Direction.REVERSE);
+        liftMotor3.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
     }
 
     @Override
@@ -99,16 +100,39 @@ public class mecanumSimple extends OpMode{
         {
             liftMotor.setPower(0.6);
             liftMotor2.setPower(0.6);
-            liftMotor3.setPower(0.6*0.7);
+            liftMotor3.setPower(0.6*0.3);
         }
-        else if (gamepad2.right_trigger>0.5)
+        else if (gamepad2.right_trigger>0.6)
         {
-            liftMotor.setPower(-(gamepad2.right_trigger/2)+0.25);
-            liftMotor2.setPower(-(gamepad2.right_trigger/2)+0.25);
-            liftMotor3.setPower(-(gamepad2.right_trigger/2)+0.25);
+            liftMotor.setPower(-(gamepad2.right_trigger/2)+0.35);
+            liftMotor2.setPower(-(gamepad2.right_trigger/2)+0.35);
+            liftMotor3.setPower((-(gamepad2.right_trigger/2)+0.25)*1.2);
+        }
+        else if(gamepad2.dpad_down)
+        {
+            liftMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            liftMotor2.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            liftMotor3.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            liftMotor2.setDirection(DcMotorSimple.Direction.FORWARD);
+            liftMotor.setTargetPosition(0);
+            liftMotor2.setTargetPosition(0);
+            liftMotor3.setTargetPosition(0);
+            liftMotor.setPower(0.8);
+            liftMotor2.setPower(0.8);
+            liftMotor3.setPower(-0.8);
+            telemetry.addData("Lift", liftMotor.getCurrentPosition());
+            telemetry.addData("Lift2", liftMotor2.getCurrentPosition());
+            //while (liftMotor.getCurrentPosition() < 100 && liftMotor.getCurrentPosition() > -100 &&
+            //liftMotor2.getCurrentPosition() < 100 && liftMotor2.getCurrentPosition() > -100 &&
+            //liftMotor3.getCurrentPosition() < 100 && liftMotor3.getCurrentPosition() > -100);
+
         }
         else
         {
+            liftMotor2.setDirection(DcMotorSimple.Direction.REVERSE);
+            liftMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+            liftMotor2.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+            liftMotor3.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
             liftMotor.setPower(0);
             liftMotor2.setPower(0);
             liftMotor3.setPower(0);

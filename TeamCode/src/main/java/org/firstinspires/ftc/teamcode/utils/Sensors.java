@@ -95,7 +95,7 @@ public class Sensors {
 
     public static int vuMark()
     {
-        //RelicRecoveryVuMark vuMark = RelicRecoveryVuMark.from(relicTemplate);
+
         //if (vuMark != RelicRecoveryVuMark.UNKNOWN) {
             return 0;
         //}
