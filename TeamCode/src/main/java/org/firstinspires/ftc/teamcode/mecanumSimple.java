@@ -17,6 +17,7 @@ import org.firstinspires.ftc.teamcode.utils.RobotConstants;
 @TeleOp(name="Simple Drive")
 public class mecanumSimple extends OpMode{
 
+
     private Servo clamp;
     private DcMotor frontleft;
     private DcMotor frontright;
@@ -25,12 +26,14 @@ public class mecanumSimple extends OpMode{
     private DcMotor liftMotor;
     private DcMotor liftMotor2;
     private DcMotor liftMotor3;
+    private DcMotor relic;
     private boolean closed = false;
     private double frontLeftPower;
     private double frontRightPower;
     private double backLeftPower;
     private double backRightPower;
-    private double liftPower;
+    private Servo relicServo;
+
 
     public final double SPEED = 0.75;
     public final double forwardBonus = 1.5;
@@ -47,8 +50,11 @@ public class mecanumSimple extends OpMode{
         frontright = hardwareMap.dcMotor.get("front_right");
         backleft = hardwareMap.dcMotor.get("back_left");
         backright = hardwareMap.dcMotor.get("back_right");
+        relic = hardwareMap.dcMotor.get("relic");
 
-
+        relic.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        //relic.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        relic.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         liftMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         liftMotor2.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         liftMotor3.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
@@ -59,6 +65,8 @@ public class mecanumSimple extends OpMode{
         liftMotor2.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         liftMotor2.setDirection(DcMotorSimple.Direction.REVERSE);
         liftMotor3.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+
+
     }
 
     @Override
@@ -108,7 +116,7 @@ public class mecanumSimple extends OpMode{
             liftMotor2.setPower(-(gamepad2.right_trigger/2)+0.35);
             liftMotor3.setPower((-(gamepad2.right_trigger/2)+0.25)*1.2);
         }
-        else if(gamepad2.dpad_down)
+        else if(gamepad2.left_bumper)
         {
             liftMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
             liftMotor2.setMode(DcMotor.RunMode.RUN_TO_POSITION);
@@ -122,9 +130,7 @@ public class mecanumSimple extends OpMode{
             liftMotor3.setPower(-0.8);
             telemetry.addData("Lift", liftMotor.getCurrentPosition());
             telemetry.addData("Lift2", liftMotor2.getCurrentPosition());
-            //while (liftMotor.getCurrentPosition() < 100 && liftMotor.getCurrentPosition() > -100 &&
-            //liftMotor2.getCurrentPosition() < 100 && liftMotor2.getCurrentPosition() > -100 &&
-            //liftMotor3.getCurrentPosition() < 100 && liftMotor3.getCurrentPosition() > -100);
+
 
         }
         else
@@ -146,6 +152,18 @@ public class mecanumSimple extends OpMode{
             clamp.setPosition(0.734); //open
         else if(gamepad2.y)
             clamp.setPosition(0.65); //extra open
+
+
+
+        if(gamepad2.dpad_right) relic.setPower(1);
+        else if(gamepad2.dpad_left) relic.setPower(-1);
+        else relic.setPower(0);
+        telemetry.addData("Relic Position",relic.getCurrentPosition());
+
+        if (gamepad2.dpad_up) relicServo.setPosition(0);
+        else if(gamepad2.dpad_down) relicServo.setPosition(1);
+
+
 
 
 

@@ -9,6 +9,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.robotcore.external.ClassFactory;
 import org.firstinspires.ftc.robotcore.external.Telemetry;
+import org.firstinspires.ftc.robotcore.external.matrices.OpenGLMatrix;
 import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
 import org.firstinspires.ftc.robotcore.external.navigation.AxesOrder;
 import org.firstinspires.ftc.robotcore.external.navigation.AxesReference;
@@ -33,13 +34,15 @@ public class Sensors {
     private static LinearOpMode opMode;
     private static Telemetry telemetry;
     private static VuforiaLocalizer vuforia;
+    OpenGLMatrix lastLocation = null;
+    static VuforiaTrackable relicTemplate;
 
     /**
      *
      * @param _opMode to get FTC data
      * @param reds whether or not we are on the red team
      */
-    public static void initialize(OpMode _opMode, boolean reds) {
+    static void initialize(OpMode _opMode, boolean reds) {
         if (_opMode instanceof LinearOpMode) {
             opMode = (LinearOpMode) _opMode;
         } else {
@@ -85,20 +88,14 @@ public class Sensors {
         int cameraMonitorViewId = hardware_map.appContext.getResources().getIdentifier("cameraMonitorViewId", "id", hardware_map.appContext.getPackageName());
         VuforiaLocalizer.Parameters parameters = new VuforiaLocalizer.Parameters(cameraMonitorViewId);
         parameters.vuforiaLicenseKey = "AYt3nnz/////AAAAGeWqnGxuREQ8gPunRf7bkzYaJ6lsas+H/ryI/7UQ6Kg/QpCi1ObUnVT96byceD0lMQsIV4bqROkXYKwfjL+79oOM19r9qKF3OnRKItM47YmGatBI9Z0u2rkFRRz1rd/ESSZxvBKLsnVn5uaNvTIgkMJ/Lh0HCl0aQfAf1khSVuZR/6mlcAwf++ejAl+lXPdk716k7fXZvnvEDAkWu7GqG2esiLDoXPcsrWIKAbv9UAwSLIvxVIzHTJBgncJ5a3etLPI0bxwlk/1AZb4ZZ6iDFXLoyv7suXac2ek30Tar6UdJ1EXSxdOMlCZRfes8HdpbmBcyElEmC8+mBsJhaaMN+erUF6Es5eCgilirNZ/Rbf0S";
-        parameters.cameraDirection = VuforiaLocalizer.CameraDirection.FRONT;
-        vuforia = ClassFactory.createVuforiaLocalizer(parameters);
         VuforiaTrackables relicTrackables = vuforia.loadTrackablesFromAsset("RelicVuMark");
-        VuforiaTrackable relicTemplate = relicTrackables.get(0);
-        relicTemplate.setName("relicVuMarkTemplate"); // can help in debugging; otherwise not necessary
-        RelicRecoveryVuMark vuMark = RelicRecoveryVuMark.from(relicTemplate);
+        relicTemplate = relicTrackables.get(0);
+        relicTrackables.activate();
     }
 
-    public static int vuMark()
+    public static RelicRecoveryVuMark vuMark()
     {
-
-        //if (vuMark != RelicRecoveryVuMark.UNKNOWN) {
-            return 0;
-        //}
+        return RelicRecoveryVuMark.from(relicTemplate);
     }
 
 
