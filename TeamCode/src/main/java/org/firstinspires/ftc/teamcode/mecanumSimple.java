@@ -33,6 +33,8 @@ public class mecanumSimple extends OpMode{
     private double backLeftPower;
     private double backRightPower;
     private Servo relicServo;
+    private Servo ljewel;
+
 
 
     public final double SPEED = 0.75;
@@ -51,6 +53,10 @@ public class mecanumSimple extends OpMode{
         backleft = hardwareMap.dcMotor.get("back_left");
         backright = hardwareMap.dcMotor.get("back_right");
         relic = hardwareMap.dcMotor.get("relic");
+        relicServo = hardwareMap.servo.get("relic2");
+        ljewel = hardwareMap.servo.get("raisin");
+
+
 
         relic.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         //relic.setMode(DcMotor.RunMode.RUN_TO_POSITION);
@@ -160,10 +166,11 @@ public class mecanumSimple extends OpMode{
         else relic.setPower(0);
         telemetry.addData("Relic Position",relic.getCurrentPosition());
 
-        if (gamepad2.dpad_up) relicServo.setPosition(0);
-        else if(gamepad2.dpad_down) relicServo.setPosition(1);
+        if (gamepad2.dpad_up) relicServo.setPosition(0.085);
+        else if(gamepad2.dpad_down) relicServo.setPosition(0.025);
 
-
+        if(gamepad1.a) {ljewel.setPosition(1);}
+        if(gamepad1.b) {ljewel.setPosition(0);}
 
 
 
