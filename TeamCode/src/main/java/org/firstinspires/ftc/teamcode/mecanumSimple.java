@@ -19,6 +19,7 @@ public class mecanumSimple extends OpMode{
 
 
     private Servo clamp;
+    private Servo clamp2;
     private DcMotor frontleft;
     private DcMotor frontright;
     private DcMotor backleft;
@@ -34,6 +35,7 @@ public class mecanumSimple extends OpMode{
     private double backRightPower;
     private Servo relicServo;
     private Servo ljewel;
+    private Servo rjewel;
 
 
 
@@ -48,6 +50,7 @@ public class mecanumSimple extends OpMode{
         liftMotor2 = hardwareMap.dcMotor.get("lift2");
         liftMotor3 = hardwareMap.dcMotor.get("lift3");
         clamp = hardwareMap.servo.get("clamp");
+        clamp2 = hardwareMap.servo.get("clamp2");
         frontleft = hardwareMap.dcMotor.get("front_left");
         frontright = hardwareMap.dcMotor.get("front_right");
         backleft = hardwareMap.dcMotor.get("back_left");
@@ -55,6 +58,7 @@ public class mecanumSimple extends OpMode{
         relic = hardwareMap.dcMotor.get("relic");
         relicServo = hardwareMap.servo.get("relic2");
         ljewel = hardwareMap.servo.get("raisin");
+        rjewel = hardwareMap.servo.get("raisin2");
 
 
 
@@ -109,6 +113,9 @@ public class mecanumSimple extends OpMode{
         frontright.setPower(frontRightPower * SPEED);
         backleft.setPower(backLeftPower * SPEED);
         backright.setPower(backRightPower * SPEED);
+
+
+        telemetry.addData("Lift3", liftMotor3.getCurrentPosition());
        // Probably (should?) work- try to get lift motors mapped to right and left bumpers
         if (gamepad2.right_bumper)
         {
@@ -124,18 +131,19 @@ public class mecanumSimple extends OpMode{
         }
         else if(gamepad2.left_bumper)
         {
+            liftMotor2.setDirection(DcMotorSimple.Direction.FORWARD);
             liftMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
             liftMotor2.setMode(DcMotor.RunMode.RUN_TO_POSITION);
             liftMotor3.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-            liftMotor2.setDirection(DcMotorSimple.Direction.FORWARD);
             liftMotor.setTargetPosition(0);
             liftMotor2.setTargetPosition(0);
             liftMotor3.setTargetPosition(0);
             liftMotor.setPower(0.8);
             liftMotor2.setPower(0.8);
-            liftMotor3.setPower(-0.8);
+            liftMotor3.setPower(0.8);
             telemetry.addData("Lift", liftMotor.getCurrentPosition());
             telemetry.addData("Lift2", liftMotor2.getCurrentPosition());
+
 
 
         }
@@ -152,12 +160,15 @@ public class mecanumSimple extends OpMode{
         //waiting for encoders
         //telemetry.addData("Lift", liftMotor.getCurrentPosition());
 
-        if(gamepad2.a)
-            clamp.setPosition(0.85); //close
-        else if(gamepad2.b)
-            clamp.setPosition(0.734); //open
-        else if(gamepad2.y)
-            clamp.setPosition(0.65); //extra open
+        if(gamepad2.a){
+            clamp.setPosition(0.95);
+            clamp2.setPosition(1-0.95);} //close
+        else if(gamepad2.b){
+            clamp.setPosition(0.965);
+            clamp2.setPosition(1-0.965);}//open
+        else if(gamepad2.y) {
+            clamp.setPosition(0.99);
+            clamp2.setPosition(1-0.99);}//extra open
 
 
 
@@ -169,8 +180,8 @@ public class mecanumSimple extends OpMode{
         if (gamepad2.dpad_up) relicServo.setPosition(0.085);
         else if(gamepad2.dpad_down) relicServo.setPosition(0.025);
 
-        if(gamepad1.a) {ljewel.setPosition(1);}
-        if(gamepad1.b) {ljewel.setPosition(0);}
+        if(gamepad1.a) {ljewel.setPosition(1);rjewel.setPosition(0);}
+        if(gamepad1.b) {ljewel.setPosition(0);rjewel.setPosition(1);}
 
 
 

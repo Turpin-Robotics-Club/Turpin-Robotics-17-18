@@ -120,6 +120,53 @@ public class move {
         */
     }
 
+    public void turnRight(double degrees, double power){
+        double angleMod = 0.2;
+        resetEncoders();
+        double CIRCUMFERENCE = Math.PI * RobotConstants.wheelDiameter;
+        double ROTATIONS = angleMod * degrees / CIRCUMFERENCE;
+        double COUNTS = RobotConstants.encoderCPR * ROTATIONS * RobotConstants.gearRatio;
+
+        flmotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        frmotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        blmotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        brmotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+
+
+
+        if (degrees < 0) {
+
+            flmotor.setPower(-power*RobotConstants.flpower);
+            frmotor.setPower(power*RobotConstants.frpower);
+            blmotor.setPower(-power*RobotConstants.blpower);
+            brmotor.setPower(power*RobotConstants.brpower);
+
+            while (opMode.opModeIsActive() && flmotor.getCurrentPosition() > COUNTS) {
+                telemetry.addData("front left counts", flmotor.getCurrentPosition());
+                telemetry.addData("target", COUNTS);
+                telemetry.update();
+            }
+        } else {
+
+            flmotor.setPower(power*RobotConstants.flpower);
+            frmotor.setPower(-power*RobotConstants.frpower);
+            blmotor.setPower(power*RobotConstants.blpower);
+            brmotor.setPower(-power*RobotConstants.brpower);
+
+            while (opMode.opModeIsActive() && flmotor.getCurrentPosition() < COUNTS) {
+                telemetry.addData("front left counts", flmotor.getCurrentPosition());
+                telemetry.addData("target", COUNTS);
+                telemetry.update();
+            }
+        }
+
+        resetEncoders();
+        telemetry.addData("it has", "begun");
+        telemetry.update();
+        pause(1000);
+
+    }
+
     /**
      * Moves the robot forward or backward
      *
@@ -173,88 +220,7 @@ public class move {
     }
 
 
-    /**
-     *
-     * @param distance the distance the robot should go
-     * @param minPower the starting and ending speed
-     * @param maxPower the maximum power the robot will run at
-     * @param increment the speed at which the speed increases & decreases
-     *
-     */
-    public void forward2(double distance, double minPower, double maxPower, double increment)
-    {
-        /*
-        initGyroPos = oldSensors.gyro.rawZ();
 
-
-
-        double CIRCUMFERENCE = Math.PI * WHEEL_DIAMETER;
-        double ROTATIONS = distance / CIRCUMFERENCE;
-        double COUNTS = ENCODER_CPR * ROTATIONS * GEAR_RATIO;
-
-        resetEncoders();
-        flmotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        frmotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        blmotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        brmotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-
-        telemetry.addData("it has", "begun");
-        telemetry.update();
-
-        if(distance < 0)
-        {
-            minPower = -Math.abs(minPower);
-            while(opMode.opModeIsActive() && (flmotor.getCurrentPosition()+frmotor.getCurrentPosition()+blmotor.getCurrentPosition()+brmotor.getCurrentPosition())/4 > COUNTS/1.85)
-            {
-                minPower = minPower - increment;
-                flmotor.setPower(Math.max(minPower, maxPower));
-                frmotor.setPower(Math.max(minPower, maxPower));
-                blmotor.setPower(Math.max(minPower, maxPower));
-                brmotor.setPower(Math.max(minPower, maxPower));
-                holdDirection();
-            }
-            while(opMode.opModeIsActive() && (flmotor.getCurrentPosition()+frmotor.getCurrentPosition()+blmotor.getCurrentPosition()+brmotor.getCurrentPosition())/4 > COUNTS)
-            {
-                minPower = minPower + increment;
-                flmotor.setPower(Math.max(minPower, maxPower));
-                frmotor.setPower(Math.max(minPower, maxPower));
-                blmotor.setPower(Math.max(minPower, maxPower));
-                brmotor.setPower(Math.max(minPower, maxPower));
-                holdDirection();
-            }
-        }
-        else
-        {
-            minPower = Math.abs(minPower);
-            while(opMode.opModeIsActive() && (flmotor.getCurrentPosition()+frmotor.getCurrentPosition()+blmotor.getCurrentPosition()+brmotor.getCurrentPosition())/4 < COUNTS/1.85)
-            {
-                minPower = minPower + increment;
-                flmotor.setPower(Math.min(minPower, maxPower));
-                frmotor.setPower(Math.min(minPower, maxPower));
-                blmotor.setPower(Math.min(minPower, maxPower));
-                brmotor.setPower(Math.min(minPower, maxPower));
-                holdDirection();
-            }
-            while(opMode.opModeIsActive() && (flmotor.getCurrentPosition()+frmotor.getCurrentPosition()+blmotor.getCurrentPosition()+brmotor.getCurrentPosition())/4 < COUNTS)
-            {
-                minPower = minPower - increment;
-                flmotor.setPower(Math.min(minPower, maxPower));
-                frmotor.setPower(Math.min(minPower, maxPower));
-                blmotor.setPower(Math.min(minPower, maxPower));
-                brmotor.setPower(Math.min(minPower, maxPower));
-                holdDirection();
-            }
-        }
-
-        flmotor.setPower(0);
-        frmotor.setPower(0);
-        blmotor.setPower(0);
-        brmotor.setPower(0);
-
-        resetEncoders();
-
-        */
-    }
 
     /**
      * Move the robot right or negative right
