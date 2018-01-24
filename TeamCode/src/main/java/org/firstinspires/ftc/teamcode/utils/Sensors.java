@@ -22,6 +22,7 @@ import org.firstinspires.ftc.robotcore.external.navigation.VuforiaTrackableDefau
 import org.firstinspires.ftc.robotcore.external.navigation.VuforiaTrackables;
 
 import static android.os.SystemClock.sleep;
+import static org.firstinspires.ftc.teamcode.utils.move.pause;
 
 
 public class Sensors {
@@ -73,7 +74,7 @@ public class Sensors {
 
         gyro.initialize(IMUparams);
         sleep(10000);
-        move.pause(100);
+        pause(100);
         angles   = gyro.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES);
         telemetry.addData("angle", angles);
 
@@ -101,13 +102,19 @@ public class Sensors {
 
     }
 
-    public static RelicRecoveryVuMark vuMark()
+    public static void vuMark()
     {
-        return RelicRecoveryVuMark.from(relicTemplate);
+        while (opMode.opModeIsActive() && RelicRecoveryVuMark.from(relicTemplate) == RelicRecoveryVuMark.UNKNOWN)
+        {
+            pause(100);
+        }
+
+        RobotConstants.vuMark = RelicRecoveryVuMark.from(relicTemplate);
+
     }
     public static Orientation angle()
     {
-        RelicRecoveryVuMark mark = RelicRecoveryVuMark.from(relicTemplate);
+        RelicRecoveryVuMark mark = RobotConstants.vuMark;
         if(mark != RelicRecoveryVuMark.UNKNOWN)
         pose = ((VuforiaTrackableDefaultListener)relicTemplate.getListener()).getPose();
         if (pose != null) {

@@ -9,6 +9,7 @@ import com.qualcomm.robotcore.hardware.TouchSensor;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.robotcore.external.Telemetry;
+import org.firstinspires.ftc.robotcore.external.navigation.RelicRecoveryVuMark;
 
 import static java.lang.Thread.sleep;
 
@@ -18,6 +19,12 @@ public class move {
     private DcMotor frmotor;
     private DcMotor blmotor;
     private DcMotor brmotor;
+
+    private Servo ljewel;
+    private Servo rjewel;
+    private Servo relicServo;
+    private Servo clamp;
+    private Servo clamp2;
 
     private static Telemetry telemetry;
     TouchSensor reddish;
@@ -45,6 +52,13 @@ public class move {
         move.telemetry = op.telemetry;
         HardwareMap hardware_map = op.hardwareMap;
         reddish = hardware_map.touchSensor.get("touch");
+        clamp = hardware_map.servo.get("clamp");
+        clamp2 = hardware_map.servo.get("clamp2");
+        ljewel = hardware_map.servo.get("raisin");
+        rjewel = hardware_map.servo.get("raisin2");
+        relicServo = hardware_map.servo.get("relic2");
+
+
         red = !reddish.isPressed();
         if (red) {
             flmotor = hardware_map.get(DcMotor.class, "front_left");
@@ -62,8 +76,15 @@ public class move {
             brmotor.setDirection(DcMotorSimple.Direction.REVERSE);
         }
 
+
+
         Sensors.initialize(opMode, red);
         resetEncoders();
+        clamp.setPosition(0.95);
+        clamp2.setPosition(1-0.95); //close
+        relicServo.setPosition(0.09);
+        pause(500);
+        ljewel.setPosition(0.4);
     }
 
 
@@ -119,6 +140,8 @@ public class move {
         telemetry.update();
         */
     }
+
+
 
     public void turnRight(double degrees, double power){
         double angleMod = 0.2;
@@ -268,123 +291,62 @@ public class move {
 
 
 
-        /*
-        initGyroPos = oldSensors.gyro.getHeading();
 
 
-        resetEncoders();
-        double CIRCUMFERENCE = Math.PI * WHEEL_DIAMETER;
-        double ROTATIONS = distance / CIRCUMFERENCE;
-        double COUNTS = ENCODER_CPR * ROTATIONS * GEAR_RATIO;
-
-        flmotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        frmotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        blmotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        brmotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-
-        flmotor.setTargetPosition((int) -COUNTS);
-        frmotor.setTargetPosition((int) COUNTS);
-        blmotor.setTargetPosition((int) COUNTS);
-        brmotor.setTargetPosition((int) -COUNTS);
-
-        flmotor.setPower(power);
-        frmotor.setPower(power);
-        blmotor.setPower(power);
-        brmotor.setPower(power);
-
-        if (distance > 0) {
-
-            while (opMode.opModeIsActive() && flmotor.getCurrentPosition() > -COUNTS) {
-
-                if (oldSensors.gyro.getHeading() - initGyroPos < 0) {
-                    flmotor.setPower(flmotor.getPower() + (Math.pow((oldSensors.gyro.getHeading() - initGyroPos) * 2, 2) * stabilityMultiplier));
-                    blmotor.setPower(blmotor.getPower() + (Math.pow((oldSensors.gyro.getHeading() - initGyroPos) * 2, 2) * stabilityMultiplier));
-                    frmotor.setPower(frmotor.getPower() - (Math.pow((oldSensors.gyro.getHeading() - initGyroPos) * 2, 2) * stabilityMultiplier));
-                    brmotor.setPower(brmotor.getPower() - (Math.pow((oldSensors.gyro.getHeading() - initGyroPos) * 2, 2) * stabilityMultiplier));
-                }
-                if (oldSensors.gyro.getHeading() - initGyroPos > 0) {
-                    flmotor.setPower(flmotor.getPower() - (Math.pow((oldSensors.gyro.getHeading() - initGyroPos) * 2, 2) * stabilityMultiplier));
-                    blmotor.setPower(blmotor.getPower() - (Math.pow((oldSensors.gyro.getHeading() - initGyroPos) * 2, 2) * stabilityMultiplier));
-                    frmotor.setPower(frmotor.getPower() + (Math.pow((oldSensors.gyro.getHeading() - initGyroPos) * 2, 2) * stabilityMultiplier));
-                    brmotor.setPower(brmotor.getPower() + (Math.pow((oldSensors.gyro.getHeading() - initGyroPos) * 2, 2) * stabilityMultiplier));
-                }
-            }
-        } else {
-            while (opMode.opModeIsActive() && flmotor.getCurrentPosition() < -COUNTS) {
-
-                if (oldSensors.gyro.getHeading() - initGyroPos < 0) {
-                    flmotor.setPower(flmotor.getPower() + (Math.pow((oldSensors.gyro.getHeading() - initGyroPos) * 2, 2) * stabilityMultiplier));
-                    blmotor.setPower(blmotor.getPower() + (Math.pow((oldSensors.gyro.getHeading() - initGyroPos) * 2, 2) * stabilityMultiplier));
-                    frmotor.setPower(frmotor.getPower() - (Math.pow((oldSensors.gyro.getHeading() - initGyroPos) * 2, 2) * stabilityMultiplier));
-                    brmotor.setPower(brmotor.getPower() - (Math.pow((oldSensors.gyro.getHeading() - initGyroPos) * 2, 2) * stabilityMultiplier));
-                }
-                if (oldSensors.gyro.getHeading() - initGyroPos > 0) {
-                    flmotor.setPower(flmotor.getPower() - (Math.pow((oldSensors.gyro.getHeading() - initGyroPos) * 2, 2) * stabilityMultiplier));
-                    blmotor.setPower(blmotor.getPower() - (Math.pow((oldSensors.gyro.getHeading() - initGyroPos) * 2, 2) * stabilityMultiplier));
-                    frmotor.setPower(frmotor.getPower() + (Math.pow((oldSensors.gyro.getHeading() - initGyroPos) * 2, 2) * stabilityMultiplier));
-                    brmotor.setPower(brmotor.getPower() + (Math.pow((oldSensors.gyro.getHeading() - initGyroPos) * 2, 2) * stabilityMultiplier));
-                }
-            }
-        }
-
-        flmotor.setPower(0);
-        frmotor.setPower(0);
-        blmotor.setPower(0);
-        brmotor.setPower(0);
 
 
-        resetEncoders();
-        */
+
+
     }
 
     /**
-     * Pivots the robot a certain degree around it's axis.
-     *
-     * @param degrees The amount (in degrees) to turn the robot. Positive for left, negative for right
-     *
+     * moves the robot to a column based on the red/blue value of move.java and the VuMark value from RobotConstants
      */
-    public void turnLeft(int degrees){
-        /*
-        initGyroPos = Sensors.readGyro();
-        resetEncoders();
-        flmotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        frmotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        blmotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        brmotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-
-
-        double target = initGyroPos - degrees;
-
-        if (target < 0) {
-            target = 360 + target;
+    public void toColumn()
+    {
+        RelicRecoveryVuMark relic = RobotConstants.vuMark;
+        if(!red && relic == RelicRecoveryVuMark.LEFT) relic = RelicRecoveryVuMark.RIGHT;
+        else if(!red && relic == RelicRecoveryVuMark.RIGHT) relic = RelicRecoveryVuMark.LEFT;
+        if(relic == RelicRecoveryVuMark.CENTER);
+        if(relic == RelicRecoveryVuMark.LEFT)
+        {
+            right(-10,-0.75);
         }
-        if (target > 360) {
-            target = target - 360;
-        }
-        while (opMode.opModeIsActive() && oldSensors.gyro.getHeading() != target) {
-            telemetry.addData("Target:", target);
-            telemetry.addData("Current:", oldSensors.gyro.getHeading());
-            telemetry.addData("Delta:", target - oldSensors.gyro.getHeading());
-            telemetry.update();
-
-            flmotor.setPower(-(Math.pow(target - (oldSensors.gyro.getHeading() * 0.5), 2) * spinRate));
-            blmotor.setPower(-(Math.pow(target - (oldSensors.gyro.getHeading() * 0.5), 2) * spinRate));
-            frmotor.setPower((Math.pow(target - (oldSensors.gyro.getHeading() * 0.5), 2) * spinRate));
-            brmotor.setPower((Math.pow(target - (oldSensors.gyro.getHeading() * 0.5), 2) * spinRate));
+        if(relic == RelicRecoveryVuMark.RIGHT)
+        {
+            right(10,0.75);
         }
 
-        resetEncoders();
-        flmotor.setPower(0);
-        frmotor.setPower(0);
-        blmotor.setPower(0);
-        brmotor.setPower(0);
-
-
-
-        */
-
+        forward(12, 0.75);
     }
 
+
+    public void release()
+    {
+        clamp.setPosition(0.97);
+        clamp2.setPosition(1-0.97);
+    }
+
+    public void lowerRaisin()
+    {
+        if(red)
+        {
+            rjewel.setPosition(0);
+        }
+        else{ljewel.setPosition(1);}
+    }
+
+    public void raisein()
+    {
+        if(red)
+        {
+            rjewel.setPosition(1);
+        }
+        else
+        {
+            ljewel.setPosition(0);
+        }
+    }
 
 
 }

@@ -164,8 +164,8 @@ public class mecanumSimple extends OpMode{
             clamp.setPosition(0.95);
             clamp2.setPosition(1-0.95);} //close
         else if(gamepad2.b){
-            clamp.setPosition(0.965);
-            clamp2.setPosition(1-0.965);}//open
+            clamp.setPosition(0.967);
+            clamp2.setPosition(1-0.967);}//open
         else if(gamepad2.y) {
             clamp.setPosition(0.99);
             clamp2.setPosition(1-0.99);}//extra open
@@ -177,12 +177,13 @@ public class mecanumSimple extends OpMode{
         else relic.setPower(0);
         telemetry.addData("Relic Position",relic.getCurrentPosition());
 
-        if (gamepad2.dpad_up) relicServo.setPosition(0.085);
-        else if(gamepad2.dpad_down) relicServo.setPosition(0.025);
+        if (gamepad2.dpad_up) relicServo.setPosition(0.08); //up
+        else if(gamepad2.dpad_down) relicServo.setPosition(0.025); //down
 
-        if(gamepad1.a) {ljewel.setPosition(1);rjewel.setPosition(0);}
-        if(gamepad1.b) {ljewel.setPosition(0);rjewel.setPosition(1);}
+        if(gamepad1.x) {ljewel.setPosition(1);rjewel.setPosition(0);}
+        if(gamepad1.y) {ljewel.setPosition(0);rjewel.setPosition(1);}
 
+        if(gamepad2.right_stick_y>0.05||gamepad2.right_stick_y<-0.05) relicServo.setPosition(relicServo.getPosition()-(gamepad2.right_stick_y*0.0005));
 
 
     }
