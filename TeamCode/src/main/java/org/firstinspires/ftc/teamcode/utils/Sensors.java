@@ -4,7 +4,9 @@ import com.qualcomm.hardware.bosch.BNO055IMU;
 import com.qualcomm.hardware.bosch.JustLoggingAccelerationIntegrator;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
+import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
+import com.qualcomm.robotcore.hardware.I2cAddr;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.robotcore.external.ClassFactory;
@@ -40,7 +42,9 @@ public class Sensors {
     OpenGLMatrix lastLocation = null;
     static OpenGLMatrix pose;
     static VuforiaTrackable relicTemplate;
-
+    //left: 0x6c     right:0x5c
+    private static ColorSensor colorLeft;
+    private static ColorSensor colorRight;
     /**
      *
      * @param _opMode to get FTC data
@@ -52,7 +56,20 @@ public class Sensors {
         } else {
             return;
         }
+
+
+
         HardwareMap hardware_map = opMode.hardwareMap;
+        /**COLOR SENSOR CODE BREAKS INIT**/
+        /*
+        colorLeft = hardware_map.colorSensor.get("racism");
+        colorRight = hardware_map.colorSensor.get("racism2");
+        colorLeft.setI2cAddress(I2cAddr.create8bit(0x4c));
+        colorRight.setI2cAddress(I2cAddr.create8bit(0x5c));
+        colorLeft.enableLed(true);
+        colorRight.enableLed(true);
+        */
+
         red = reds;
 
         telemetry = opMode.telemetry;
@@ -73,17 +90,17 @@ public class Sensors {
         runtime.reset();
 
         gyro.initialize(IMUparams);
-        sleep(10000);
+        sleep(5000);
         pause(100);
         angles   = gyro.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES);
         telemetry.addData("angle", angles);
 
 
-        //+180 for the orientation of the rev module
+        //+0 for the orientation of the rev module
         if(realGyro()+180>360)
-            gyroInitial = realGyro() +180 -360;
+            gyroInitial = realGyro()+90 -360;
         else
-            gyroInitial = realGyro() +180;
+            gyroInitial = realGyro()+90;
 
 
         ((LinearOpMode) _opMode).waitForStart();
@@ -93,7 +110,7 @@ public class Sensors {
         int cameraMonitorViewId = hardware_map.appContext.getResources().getIdentifier("cameraMonitorViewId", "id", hardware_map.appContext.getPackageName());
         VuforiaLocalizer.Parameters parameters = new VuforiaLocalizer.Parameters(cameraMonitorViewId);
         parameters.vuforiaLicenseKey = "AYt3nnz/////AAAAGeWqnGxuREQ8gPunRf7bkzYaJ6lsas+H/ryI/7UQ6Kg/QpCi1ObUnVT96byceD0lMQsIV4bqROkXYKwfjL+79oOM19r9qKF3OnRKItM47YmGatBI9Z0u2rkFRRz1rd/ESSZxvBKLsnVn5uaNvTIgkMJ/Lh0HCl0aQfAf1khSVuZR/6mlcAwf++ejAl+lXPdk716k7fXZvnvEDAkWu7GqG2esiLDoXPcsrWIKAbv9UAwSLIvxVIzHTJBgncJ5a3etLPI0bxwlk/1AZb4ZZ6iDFXLoyv7suXac2ek30Tar6UdJ1EXSxdOMlCZRfes8HdpbmBcyElEmC8+mBsJhaaMN+erUF6Es5eCgilirNZ/Rbf0S";
-        parameters.cameraDirection = VuforiaLocalizer.CameraDirection.BACK;
+        parameters.cameraDirection = VuforiaLocalizer.CameraDirection.FRONT;
         vuforia = ClassFactory.createVuforiaLocalizer(parameters);
         VuforiaTrackables relicTrackables = vuforia.loadTrackablesFromAsset("RelicVuMark");
 
@@ -104,11 +121,14 @@ public class Sensors {
 
     public static void vuMark()
     {
+        /*
         while (opMode.opModeIsActive() && RelicRecoveryVuMark.from(relicTemplate) == RelicRecoveryVuMark.UNKNOWN)
         {
             pause(100);
         }
 
+        */
+        if(RelicRecoveryVuMark.from(relicTemplate)!=RelicRecoveryVuMark.UNKNOWN)
         RobotConstants.vuMark = RelicRecoveryVuMark.from(relicTemplate);
 
     }
@@ -166,7 +186,7 @@ public class Sensors {
 
     public static void resetGyro()
     {
-        gyroInitial=realGyro();
+        gyroInitial=realGyro()+180;
         runtime.reset();
         gyrochange = 0;
     }

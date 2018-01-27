@@ -39,8 +39,8 @@ public class mecanumSimple extends OpMode{
 
 
 
-    public final double SPEED = 0.75;
-    public final double forwardBonus = 1.5;
+    private final double SPEED = 0.75;
+    private final double forwardBonus = 1.5;
 
 
 
@@ -158,14 +158,14 @@ public class mecanumSimple extends OpMode{
             liftMotor3.setPower(0);
         }
         //waiting for encoders
-        //telemetry.addData("Lift", liftMotor.getCurrentPosition());
+        telemetry.addData("Lift", liftMotor.getCurrentPosition());
 
         if(gamepad2.a){
             clamp.setPosition(0.95);
             clamp2.setPosition(1-0.95);} //close
         else if(gamepad2.b){
-            clamp.setPosition(0.967);
-            clamp2.setPosition(1-0.967);}//open
+            clamp.setPosition(0.962);
+            clamp2.setPosition(1-0.962);}//open
         else if(gamepad2.y) {
             clamp.setPosition(0.99);
             clamp2.setPosition(1-0.99);}//extra open

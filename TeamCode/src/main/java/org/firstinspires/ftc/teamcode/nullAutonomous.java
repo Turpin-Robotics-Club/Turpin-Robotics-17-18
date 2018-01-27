@@ -18,7 +18,7 @@ public class nullAutonomous extends LinearOpMode {
         Sensors.vuMark();
         while (opModeIsActive())
         {
-
+            telemetry.addData("reddish",move.getReddish());
             telemetry.addData("VuMark", RobotConstants.vuMark/*== RelicRecoveryVuMark.RIGHT*/);
             telemetry.addData("Heading", Sensors.readGyro());
             telemetry.addData("Gyro Heading", Sensors.angles.thirdAngle);

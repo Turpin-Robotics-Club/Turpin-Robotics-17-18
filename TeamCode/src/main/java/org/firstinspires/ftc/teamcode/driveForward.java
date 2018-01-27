@@ -21,19 +21,22 @@ public class driveForward extends LinearOpMode{
 
 
         move drive = new move(this);
-        drive.turnRight(5, 0.2);
+        /*
+        drive.turnRight(5, 0.15);
         drive.lowerRaisin();
         sleep(1000);
         drive.raisein();
-        drive.turnRight(-5, 0.2);
-        drive.turnRight(-25,0.2);
-        sleep(200);
-        drive.turnRight(20,0.2);
-        drive.forward(13,0.75);
-        drive.right(-15, -0.75);
+        drive.turnRight(-5, 0.15);
+        drive.turnRight(-30,0.15);
+        Sensors.vuMark();
+        drive.turnRight(20,0.15);
+        */
+        drive.right(-25, -0.5);
+        drive.forward(20,0.15);
+        drive.right(10, 0.5);
         drive.toColumn();
         drive.release();
-        drive.forward(-6,-0.5);
+        drive.forward(-6,-0.3);
 
     }
 }

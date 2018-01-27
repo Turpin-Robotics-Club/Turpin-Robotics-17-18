@@ -3,6 +3,7 @@ package org.firstinspires.ftc.teamcode.utils;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
+import com.qualcomm.robotcore.hardware.DigitalChannel;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.hardware.TouchSensor;
@@ -27,8 +28,9 @@ public class move {
     private Servo clamp2;
 
     private static Telemetry telemetry;
-    TouchSensor reddish;
-    LinearOpMode opMode;
+    private static DigitalChannel reddish;
+    public static boolean getReddish(){return reddish.getState();}
+    private LinearOpMode opMode;
     public boolean red;
     private double initGyroPos = 0;
     private double stabilityMultiplier = 0.0001;
@@ -51,7 +53,7 @@ public class move {
         opMode = op;
         move.telemetry = op.telemetry;
         HardwareMap hardware_map = op.hardwareMap;
-        reddish = hardware_map.touchSensor.get("touch");
+        reddish = hardware_map.get(DigitalChannel.class,"touch");
         clamp = hardware_map.servo.get("clamp");
         clamp2 = hardware_map.servo.get("clamp2");
         ljewel = hardware_map.servo.get("raisin");
@@ -59,7 +61,7 @@ public class move {
         relicServo = hardware_map.servo.get("relic2");
 
 
-        red = !reddish.isPressed();
+        red = reddish.getState();
         if (red) {
             flmotor = hardware_map.get(DcMotor.class, "front_left");
             frmotor = hardware_map.get(DcMotor.class, "front_right");
@@ -67,6 +69,7 @@ public class move {
             brmotor = hardware_map.get(DcMotor.class, "back_right");
             flmotor.setDirection(DcMotorSimple.Direction.REVERSE);
             blmotor.setDirection(DcMotorSimple.Direction.REVERSE);
+            telemetry.addData("Red",red);
         } else {
             frmotor = hardware_map.get(DcMotor.class, "front_left");
             flmotor = hardware_map.get(DcMotor.class, "front_right");
@@ -74,7 +77,10 @@ public class move {
             blmotor = hardware_map.get(DcMotor.class, "back_right");
             frmotor.setDirection(DcMotorSimple.Direction.REVERSE);
             brmotor.setDirection(DcMotorSimple.Direction.REVERSE);
+            telemetry.addData("Red",red);
         }
+        telemetry.addData("reddish", reddish.getState());
+        telemetry.update();
 
 
 
@@ -82,9 +88,9 @@ public class move {
         resetEncoders();
         clamp.setPosition(0.95);
         clamp2.setPosition(1-0.95); //close
-        relicServo.setPosition(0.09);
-        pause(500);
-        ljewel.setPosition(0.4);
+        //relicServo.setPosition(0.11);
+        //pause(500);
+        //ljewel.setPosition(0.4);
     }
 
 
@@ -186,7 +192,7 @@ public class move {
         resetEncoders();
         telemetry.addData("it has", "begun");
         telemetry.update();
-        pause(1000);
+        //pause(200);
 
     }
 
@@ -195,7 +201,7 @@ public class move {
      *
      * @param distance Distance (in inches) for the robot to go. Positive for forward, negative for backward
      * @param power    The power level for the robot to move at. Should be an interval of [0.0, 1.0]
-     * @throws InterruptedException
+     *
      */
     public void forward(double distance, double power){
         resetEncoders();
@@ -222,12 +228,16 @@ public class move {
         if (distance < 0) {
 
             while (opMode.opModeIsActive() && flmotor.getCurrentPosition() > COUNTS) {
+                Sensors.vuMark();
+                telemetry.addData("VuMark", RobotConstants.vuMark);
                 telemetry.addData("front left counts", flmotor.getCurrentPosition());
                 telemetry.addData("target", COUNTS);
                 telemetry.update();
             }
         } else {
             while (opMode.opModeIsActive() && flmotor.getCurrentPosition() < COUNTS) {
+                Sensors.vuMark();
+                telemetry.addData("VuMark", RobotConstants.vuMark);
                 telemetry.addData("front left counts", flmotor.getCurrentPosition());
                 telemetry.addData("target", COUNTS);
                 telemetry.update();
@@ -237,7 +247,7 @@ public class move {
         resetEncoders();
         telemetry.addData("it has", "begun");
         telemetry.update();
-        pause(1000);
+        pause(200);
 
 
     }
@@ -287,7 +297,7 @@ public class move {
         resetEncoders();
         telemetry.addData("it has", "begun");
         telemetry.update();
-        pause(1000);
+        pause(200);
 
 
 
@@ -310,11 +320,11 @@ public class move {
         if(relic == RelicRecoveryVuMark.CENTER);
         if(relic == RelicRecoveryVuMark.LEFT)
         {
-            right(-10,-0.75);
+            right(-7.5,-0.5);
         }
         if(relic == RelicRecoveryVuMark.RIGHT)
         {
-            right(10,0.75);
+            right(7.5,0.5);
         }
 
         forward(12, 0.75);
@@ -336,16 +346,9 @@ public class move {
         else{ljewel.setPosition(1);}
     }
 
-    public void raisein()
-    {
-        if(red)
-        {
-            rjewel.setPosition(1);
-        }
-        else
-        {
-            ljewel.setPosition(0);
-        }
+    public void raisein() {
+        rjewel.setPosition(1);
+        ljewel.setPosition(0);
     }
 
 
