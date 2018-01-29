@@ -49,7 +49,7 @@ public class mecanumDrive extends OpMode {
     private Servo relicServo;
     private Servo ljewel;
     private Servo rjewel;
-
+    private double speedMod = 2;
 
 
 
@@ -232,10 +232,13 @@ public class mecanumDrive extends OpMode {
 
 
         //overall divide
-        flvalue = (flvalue / 2);
-        frvalue = (frvalue / 2);
-        blvalue = (blvalue / 2);
-        brvalue = (brvalue / 2);
+        if(gamepad1.right_bumper) speedMod = 5;
+        else speedMod = 2;
+
+        flvalue = (flvalue / speedMod);
+        frvalue = (frvalue / speedMod);
+        blvalue = (blvalue / speedMod);
+        brvalue = (brvalue / speedMod);
 
 
         if(gamepad1.dpad_up)
