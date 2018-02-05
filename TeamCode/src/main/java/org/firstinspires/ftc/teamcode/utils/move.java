@@ -85,6 +85,7 @@ public class move {
 
 
         Sensors.initialize(opMode, red);
+
         resetEncoders();
         clamp.setPosition(0.95);
         clamp2.setPosition(1-0.95); //close

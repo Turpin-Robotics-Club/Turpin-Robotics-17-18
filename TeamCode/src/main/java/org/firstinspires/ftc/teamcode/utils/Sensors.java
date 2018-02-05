@@ -45,6 +45,8 @@ public class Sensors {
     //left: 0x6c     right:0x5c
     private static ColorSensor colorLeft;
     private static ColorSensor colorRight;
+    private static HardwareMap hardware_map;
+
     /**
      *
      * @param _opMode to get FTC data
@@ -59,13 +61,11 @@ public class Sensors {
 
 
 
-        HardwareMap hardware_map = opMode.hardwareMap;
+        hardware_map = opMode.hardwareMap;
         /**COLOR SENSOR CODE BREAKS INIT**/
         /*
         colorLeft = hardware_map.colorSensor.get("racism");
         colorRight = hardware_map.colorSensor.get("racism2");
-        colorLeft.setI2cAddress(I2cAddr.create8bit(0x4c));
-        colorRight.setI2cAddress(I2cAddr.create8bit(0x5c));
         colorLeft.enableLed(true);
         colorRight.enableLed(true);
         */
@@ -105,44 +105,24 @@ public class Sensors {
 
         ((LinearOpMode) _opMode).waitForStart();
         gyroDriftRead();
+        initVuforia();
 
-
-        int cameraMonitorViewId = hardware_map.appContext.getResources().getIdentifier("cameraMonitorViewId", "id", hardware_map.appContext.getPackageName());
-        VuforiaLocalizer.Parameters parameters = new VuforiaLocalizer.Parameters(cameraMonitorViewId);
-        parameters.vuforiaLicenseKey = "AYt3nnz/////AAAAGeWqnGxuREQ8gPunRf7bkzYaJ6lsas+H/ryI/7UQ6Kg/QpCi1ObUnVT96byceD0lMQsIV4bqROkXYKwfjL+79oOM19r9qKF3OnRKItM47YmGatBI9Z0u2rkFRRz1rd/ESSZxvBKLsnVn5uaNvTIgkMJ/Lh0HCl0aQfAf1khSVuZR/6mlcAwf++ejAl+lXPdk716k7fXZvnvEDAkWu7GqG2esiLDoXPcsrWIKAbv9UAwSLIvxVIzHTJBgncJ5a3etLPI0bxwlk/1AZb4ZZ6iDFXLoyv7suXac2ek30Tar6UdJ1EXSxdOMlCZRfes8HdpbmBcyElEmC8+mBsJhaaMN+erUF6Es5eCgilirNZ/Rbf0S";
-        parameters.cameraDirection = VuforiaLocalizer.CameraDirection.FRONT;
-        vuforia = ClassFactory.createVuforiaLocalizer(parameters);
-        VuforiaTrackables relicTrackables = vuforia.loadTrackablesFromAsset("RelicVuMark");
-
-        relicTemplate = relicTrackables.get(0);
-        relicTrackables.activate();
 
     }
 
     public static void vuMark()
     {
-        /*
-        while (opMode.opModeIsActive() && RelicRecoveryVuMark.from(relicTemplate) == RelicRecoveryVuMark.UNKNOWN)
-        {
-            pause(100);
-        }
-
-        */
-        if(RelicRecoveryVuMark.from(relicTemplate)!=RelicRecoveryVuMark.UNKNOWN)
+        //if(RelicRecoveryVuMark.from(relicTemplate)!=RelicRecoveryVuMark.UNKNOWN)
         RobotConstants.vuMark = RelicRecoveryVuMark.from(relicTemplate);
 
     }
-    public static Orientation angle()
+    public static OpenGLMatrix angle()
     {
         RelicRecoveryVuMark mark = RobotConstants.vuMark;
         if(mark != RelicRecoveryVuMark.UNKNOWN)
         pose = ((VuforiaTrackableDefaultListener)relicTemplate.getListener()).getPose();
-        if (pose != null) {
-            VectorF trans = pose.getTranslation();
-            return Orientation.getOrientation(pose, AxesReference.EXTRINSIC, AxesOrder.XYZ, AngleUnit.DEGREES);
-
-        }
-        return null;
+        //Orientation.getOrientation(pose, AxesReference.EXTRINSIC, AxesOrder.XYZ, AngleUnit.DEGREES);
+        return pose;
     }
 
     public static VectorF position()
@@ -196,6 +176,20 @@ public class Sensors {
 
         return 180-angles.firstAngle;
 
+    }
+
+    public static void initVuforia()
+    {
+        int cameraMonitorViewId = hardware_map.appContext.getResources().getIdentifier("cameraMonitorViewId", "id", hardware_map.appContext.getPackageName());
+        VuforiaLocalizer.Parameters parameters = new VuforiaLocalizer.Parameters(cameraMonitorViewId);
+        parameters.vuforiaLicenseKey = "AYt3nnz/////AAAAGeWqnGxuREQ8gPunRf7bkzYaJ6lsas+H/ryI/7UQ6Kg/QpCi1ObUnVT96byceD0lMQsIV4bqROkXYKwfjL+79oOM19r9qKF3OnRKItM47YmGatBI9Z0u2rkFRRz1rd/ESSZxvBKLsnVn5uaNvTIgkMJ/Lh0HCl0aQfAf1khSVuZR/6mlcAwf++ejAl+lXPdk716k7fXZvnvEDAkWu7GqG2esiLDoXPcsrWIKAbv9UAwSLIvxVIzHTJBgncJ5a3etLPI0bxwlk/1AZb4ZZ6iDFXLoyv7suXac2ek30Tar6UdJ1EXSxdOMlCZRfes8HdpbmBcyElEmC8+mBsJhaaMN+erUF6Es5eCgilirNZ/Rbf0S";
+        parameters.cameraDirection = VuforiaLocalizer.CameraDirection.FRONT;
+        vuforia = ClassFactory.createVuforiaLocalizer(parameters);
+        VuforiaTrackables relicTrackables = vuforia.loadTrackablesFromAsset("RelicVuMark");
+
+        relicTemplate = relicTrackables.get(0);
+        relicTrackables.activate();
+        pose = ((VuforiaTrackableDefaultListener)relicTemplate.getListener()).getPose();
     }
 
 /*    public static class gyroThread extends Thread{

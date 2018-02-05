@@ -13,5 +13,5 @@ public class RobotConstants {
     static final int encoderCPR = 1140;
     static final double gearRatio = 1;
     static final double sidewaysModifier = 1.18;
-    public static RelicRecoveryVuMark vuMark;
+    public static RelicRecoveryVuMark vuMark = RelicRecoveryVuMark.UNKNOWN;
 }

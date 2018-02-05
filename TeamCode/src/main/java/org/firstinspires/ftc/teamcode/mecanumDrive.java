@@ -7,6 +7,12 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
+import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
+import org.firstinspires.ftc.robotcore.external.navigation.AxesOrder;
+import org.firstinspires.ftc.robotcore.external.navigation.AxesReference;
+import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
+import org.firstinspires.ftc.robotcore.external.navigation.RelicRecoveryVuMark;
+import org.firstinspires.ftc.teamcode.utils.RobotConstants;
 import org.firstinspires.ftc.teamcode.utils.Sensors;
 
 
@@ -96,7 +102,7 @@ public class mecanumDrive extends OpMode {
 
 
 
-
+        Sensors.initVuforia();
         runtime_y.reset();
     }
 
@@ -112,7 +118,7 @@ public class mecanumDrive extends OpMode {
         telemetry.addData("intention", relativeHeading);
         telemetry.addData("Gyro Heading", Sensors.angles.thirdAngle);
         telemetry.addData("Driver Offset", Sensors.gyroInitial);
-        telemetry.update();
+
 
         //turn direction
         //starts at up, turns right
@@ -225,11 +231,31 @@ public class mecanumDrive extends OpMode {
             brvalue = brvalue + -Math.min(0.75, Math.pow(Math.sqrt(Math.pow(gamepad1.right_stick_x, 2) + Math.pow(gamepad1.right_stick_y, 2)) * turnRate, 2) * Math.pow((joy-currentPos), 2) * spinRate);
         }
         */
-        flvalue += gamepad1.right_stick_x * turnRate;
-        frvalue -= gamepad1.right_stick_x * turnRate;
-        blvalue += gamepad1.right_stick_x * turnRate;
-        brvalue -= gamepad1.right_stick_x * turnRate;
+        if(gamepad1.left_bumper)
+        {
+            Sensors.vuMark();
+            if(RobotConstants.vuMark == RelicRecoveryVuMark.UNKNOWN)
+            {
+                flvalue+=1;
+                frvalue-=1;
+                blvalue+=1;
+                brvalue-=1;
+            }
+            else
+            {
+                telemetry.addData("Angles", Sensors.angle().formatAsTransform());
 
+
+            }
+        }
+
+        else
+        {
+            flvalue += gamepad1.right_stick_x * turnRate;
+            frvalue -= gamepad1.right_stick_x * turnRate;
+            blvalue += gamepad1.right_stick_x * turnRate;
+            brvalue -= gamepad1.right_stick_x * turnRate;
+        }
 
         //overall divide
         if(gamepad1.right_bumper) speedMod = 5;
