@@ -243,7 +243,7 @@ public class mecanumDrive extends OpMode {
             }
             else
             {
-                telemetry.addData("Angles", Sensors.angle().formatAsTransform());
+                telemetry.addData("Angles", Sensors.angle().toString());
 
 
             }

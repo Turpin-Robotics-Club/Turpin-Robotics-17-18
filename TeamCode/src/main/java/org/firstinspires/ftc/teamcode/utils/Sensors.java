@@ -62,13 +62,13 @@ public class Sensors {
 
 
         hardware_map = opMode.hardwareMap;
-        /**COLOR SENSOR CODE BREAKS INIT**/
-        /*
-        colorLeft = hardware_map.colorSensor.get("racism");
-        colorRight = hardware_map.colorSensor.get("racism2");
+
+
+        colorLeft = hardware_map.get(ColorSensor.class, "racism");
+        colorRight = hardware_map.get(ColorSensor.class, "racism2");
         colorLeft.enableLed(true);
         colorRight.enableLed(true);
-        */
+
 
         red = reds;
 
@@ -110,19 +110,24 @@ public class Sensors {
 
     }
 
+    public static boolean readColor()
+    {
+        return (red ? colorRight.red()>colorRight.blue() : colorLeft.blue()>colorLeft.red());
+    }
+
     public static void vuMark()
     {
         //if(RelicRecoveryVuMark.from(relicTemplate)!=RelicRecoveryVuMark.UNKNOWN)
         RobotConstants.vuMark = RelicRecoveryVuMark.from(relicTemplate);
 
     }
-    public static OpenGLMatrix angle()
+    public static Orientation angle()
     {
         RelicRecoveryVuMark mark = RobotConstants.vuMark;
         if(mark != RelicRecoveryVuMark.UNKNOWN)
         pose = ((VuforiaTrackableDefaultListener)relicTemplate.getListener()).getPose();
-        //Orientation.getOrientation(pose, AxesReference.EXTRINSIC, AxesOrder.XYZ, AngleUnit.DEGREES);
-        return pose;
+        return Orientation.getOrientation(pose, AxesReference.EXTRINSIC, AxesOrder.XYZ, AngleUnit.DEGREES);
+
     }
 
     public static VectorF position()
@@ -183,7 +188,7 @@ public class Sensors {
         int cameraMonitorViewId = hardware_map.appContext.getResources().getIdentifier("cameraMonitorViewId", "id", hardware_map.appContext.getPackageName());
         VuforiaLocalizer.Parameters parameters = new VuforiaLocalizer.Parameters(cameraMonitorViewId);
         parameters.vuforiaLicenseKey = "AYt3nnz/////AAAAGeWqnGxuREQ8gPunRf7bkzYaJ6lsas+H/ryI/7UQ6Kg/QpCi1ObUnVT96byceD0lMQsIV4bqROkXYKwfjL+79oOM19r9qKF3OnRKItM47YmGatBI9Z0u2rkFRRz1rd/ESSZxvBKLsnVn5uaNvTIgkMJ/Lh0HCl0aQfAf1khSVuZR/6mlcAwf++ejAl+lXPdk716k7fXZvnvEDAkWu7GqG2esiLDoXPcsrWIKAbv9UAwSLIvxVIzHTJBgncJ5a3etLPI0bxwlk/1AZb4ZZ6iDFXLoyv7suXac2ek30Tar6UdJ1EXSxdOMlCZRfes8HdpbmBcyElEmC8+mBsJhaaMN+erUF6Es5eCgilirNZ/Rbf0S";
-        parameters.cameraDirection = VuforiaLocalizer.CameraDirection.FRONT;
+        parameters.cameraDirection = VuforiaLocalizer.CameraDirection.BACK;
         vuforia = ClassFactory.createVuforiaLocalizer(parameters);
         VuforiaTrackables relicTrackables = vuforia.loadTrackablesFromAsset("RelicVuMark");
 
