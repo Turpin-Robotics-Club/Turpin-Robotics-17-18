@@ -7,6 +7,8 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
+import org.firstinspires.ftc.robotcore.external.navigation.RelicRecoveryVuMark;
+import org.firstinspires.ftc.teamcode.utils.RobotConstants;
 import org.firstinspires.ftc.teamcode.utils.Sensors;
 import org.firstinspires.ftc.teamcode.utils.move;
 
@@ -31,12 +33,17 @@ public class driveForward extends LinearOpMode{
         Sensors.vuMark();
         drive.turnRight(20,0.15);
         */
-        drive.right(-25, -0.5);
-        drive.forward(20,0.15);
-        drive.right(10, 0.5);
+        int count = 0;
+        while (RobotConstants.vuMark==RelicRecoveryVuMark.UNKNOWN&&opModeIsActive()&&count<20)
+        {
+            drive.forward(3,0.2);
+            count++;
+        }
+        drive.forward(20-(2*count),.2);
+        drive.right(-10, -0.5);
         drive.toColumn();
         drive.release();
-        drive.forward(-6,-0.3);
+        drive.forward(-4,-0.3);
 
     }
 }

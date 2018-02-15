@@ -36,7 +36,10 @@ public class mecanumSimple extends OpMode{
     private Servo relicServo;
     private Servo ljewel;
     private Servo rjewel;
+    private Servo relicServo2;
 
+    private boolean leftPressed = false;
+    private boolean isClosed = true;
 
 
     private final double SPEED = 0.75;
@@ -59,7 +62,7 @@ public class mecanumSimple extends OpMode{
         relicServo = hardwareMap.servo.get("relic2");
         ljewel = hardwareMap.servo.get("raisin");
         rjewel = hardwareMap.servo.get("raisin2");
-
+        relicServo2 = hardwareMap.servo.get("relic3");
 
 
         relic.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
@@ -119,15 +122,18 @@ public class mecanumSimple extends OpMode{
        // Probably (should?) work- try to get lift motors mapped to right and left bumpers
         if (gamepad2.right_bumper)
         {
-            liftMotor.setPower(0.6);
-            liftMotor2.setPower(0.6);
-            liftMotor3.setPower(0.6*0.3);
+            //liftMotor3.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            //if(liftMotor.getCurrentPosition()<1900) {
+                liftMotor.setPower(1);
+                liftMotor2.setPower(1);
+            //}
+           //liftMotor3.setTargetPosition(844);
         }
         else if (gamepad2.right_trigger>0.6)
         {
-            liftMotor.setPower(-(gamepad2.right_trigger/2)+0.35);
-            liftMotor2.setPower(-(gamepad2.right_trigger/2)+0.35);
-            liftMotor3.setPower((-(gamepad2.right_trigger/2)+0.25)*1.2);
+            liftMotor.setPower(-(gamepad2.right_trigger));
+            liftMotor2.setPower(-(gamepad2.right_trigger));
+            liftMotor3.setPower(-((gamepad2.right_trigger))*1);
         }
         else if(gamepad2.left_bumper)
         {
@@ -162,13 +168,13 @@ public class mecanumSimple extends OpMode{
 
         if(gamepad2.a){
             clamp.setPosition(0.95);
-            clamp2.setPosition(1-0.95);} //close
+            clamp2.setPosition(1-0.9);} //close
         else if(gamepad2.b){
-            clamp.setPosition(0.962);
-            clamp2.setPosition(1-0.962);}//open
+            clamp.setPosition(0.98);
+            clamp2.setPosition(1-0.95);}//open
         else if(gamepad2.y) {
             clamp.setPosition(0.99);
-            clamp2.setPosition(1-0.99);}//extra open
+            clamp2.setPosition(1-0.98);}//extra open
 
 
 
@@ -178,13 +184,31 @@ public class mecanumSimple extends OpMode{
         telemetry.addData("Relic Position",relic.getCurrentPosition());
 
         if (gamepad2.dpad_up) relicServo.setPosition(0.08); //up
-        else if(gamepad2.dpad_down) relicServo.setPosition(0.025); //down
+        else if(gamepad2.dpad_down) relicServo.setPosition(0.039); //down
 
         if(gamepad1.x) {ljewel.setPosition(1);rjewel.setPosition(0);}
         if(gamepad1.y) {ljewel.setPosition(0);rjewel.setPosition(1);}
 
         if(gamepad2.right_stick_y>0.05||gamepad2.right_stick_y<-0.05) relicServo.setPosition(relicServo.getPosition()-(gamepad2.right_stick_y*0.0005));
 
+
+
+        if(gamepad2.left_stick_button)
+        {
+            if(!leftPressed) {
+                leftPressed = true;
+                isClosed = !isClosed;
+            }
+
+        }
+        else{
+            leftPressed = false;
+        }
+        telemetry.addData("left",leftPressed);
+        telemetry.addData("closed",isClosed);
+        telemetry.addData("relic serv pos", relicServo.getPosition());
+        if(isClosed) relicServo2.setPosition(0.75);
+        else relicServo2.setPosition(0);
 
     }
 
