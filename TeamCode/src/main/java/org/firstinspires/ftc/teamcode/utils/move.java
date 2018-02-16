@@ -23,6 +23,7 @@ public class move {
     private DcMotor brmotor;
     private DcMotor liftMotor;
     private DcMotor liftMotor2;
+    private DcMotor liftMotor3;
     private Servo ljewel;
     private Servo rjewel;
     private Servo relicServo;
@@ -67,8 +68,11 @@ public class move {
         relicServo = hardware_map.servo.get("relic2");
         liftMotor = hardware_map.dcMotor.get("lift");
         liftMotor2 = hardware_map.dcMotor.get("lift2");
-
-
+        liftMotor3 = hardware_map.dcMotor.get("lift3");
+        liftMotor2.setDirection(DcMotorSimple.Direction.REVERSE);
+        liftMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        liftMotor2.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        liftMotor3.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
         red = reddish.getState();
         if (red) {
@@ -94,10 +98,12 @@ public class move {
 
 
         Sensors.initialize(opMode, red);
-
+        liftMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        liftMotor2.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        liftMotor3.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         resetEncoders();
-        clamp.setPosition(0.9);
-        clamp2.setPosition(1-0.9); //close
+        clamp.setPosition(0.945);
+        clamp2.setPosition(1-0.89); //close
 
         if(red) rjewel.setPosition(0);
         if(!red) ljewel.setPosition(1);
@@ -105,15 +111,17 @@ public class move {
         pause(1000);
         //ljewel.setPosition(0.4);
         hitJewel();
+        raisein();
         liftMotor.setPower(1);
         liftMotor2.setPower(1);
         telemetry.addData("red", Sensors.readColor());
-        pause(200);
+        pause(400);
 
 
-        pause(1000);
+        pause(0);
         liftMotor.setPower(0);
         liftMotor2.setPower(0);
+        pause(1000);
     }
 
 
@@ -125,23 +133,28 @@ public class move {
         brmotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
     }
 
-    void hitJewel(){
-        if(Sensors.readColor())
-        {
-            turnRight(-5,.3);
-            rjewel.setPosition(1);
-            ljewel.setPosition(0);
-            pause(500);
-            turnRight(5,.3);
-        }
-        else
-        {
-            turnRight(5,.3);
-            rjewel.setPosition(1);
-            ljewel.setPosition(0);
-            pause(500);
-            turnRight(-5,.3);
-        }
+    private void hitJewel(){
+
+            switch (Sensors.readColor()) {
+
+
+                case 1:
+                    forward(2, .3);
+                    rjewel.setPosition(1);
+                    ljewel.setPosition(0);
+                    pause(500);
+                    forward(-2,-.3);
+                    break;
+                case -1:
+                    turnRight(5, .3);
+                    rjewel.setPosition(1);
+                    ljewel.setPosition(0);
+                    pause(500);
+                    turnRight(-5, .3);
+                    break;
+                default: break;
+            }
+
 
     }
 
@@ -372,15 +385,17 @@ public class move {
         {
             right(7.5,0.5);
         }
-
+        release();
+        pause(400);
         forward(8, 0.75);
+
     }
 
 
     public void release()
     {
-        clamp.setPosition(0.97);
-        clamp2.setPosition(1-0.97);
+        clamp.setPosition(0.98);
+        clamp2.setPosition(1-0.94); //open
     }
 
     public void lowerRaisin()
@@ -397,5 +412,19 @@ public class move {
         ljewel.setPosition(0);
     }
 
-
+    public void liftZero()
+    {
+        liftMotor.setDirection(DcMotorSimple.Direction.FORWARD);
+        liftMotor2.setDirection(DcMotorSimple.Direction.FORWARD);
+        liftMotor3.setDirection(DcMotorSimple.Direction.FORWARD);
+        liftMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        liftMotor2.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        liftMotor3.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        liftMotor.setTargetPosition(0);
+        liftMotor2.setTargetPosition(0);
+        liftMotor3.setTargetPosition(0);
+        liftMotor.setPower(1);
+        liftMotor2.setPower(1);
+        liftMotor3.setPower(1);
+    }
 }

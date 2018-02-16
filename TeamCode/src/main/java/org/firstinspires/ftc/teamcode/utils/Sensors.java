@@ -110,9 +110,24 @@ public class Sensors {
 
     }
 
-    public static boolean readColor()
+    public static int readColor()
     {
-        return (red ? colorRight.red()>colorRight.blue() : colorLeft.blue()>colorLeft.red());
+
+        if(red)
+        {
+
+            if(colorRight.red()==colorRight.blue()) return 0;
+            if(colorRight.red()<colorRight.blue()) return -1;
+            if(colorRight.red()>colorRight.blue()) return 1;
+        }
+        else
+        {
+            if(colorRight.red()==colorRight.blue()) return 0;
+            if(colorRight.red()<colorRight.blue()) return 1;
+            if(colorRight.red()>colorRight.blue()) return -1;
+        }
+        return 0;
+        //return (red ? colorRight.red()>colorRight.blue() : colorLeft.blue()>colorLeft.red());
     }
 
     public static void vuMark()

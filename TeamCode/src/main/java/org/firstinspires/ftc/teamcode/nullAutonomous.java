@@ -14,8 +14,9 @@ public class nullAutonomous extends LinearOpMode {
     @Override
     public void runOpMode(){
 
-        new move(this);
+        move drive = new move(this);
         Sensors.vuMark();
+        drive.liftZero();
         while (opModeIsActive())
         {
             telemetry.addData("reddish",move.getReddish());
@@ -25,5 +26,6 @@ public class nullAutonomous extends LinearOpMode {
             telemetry.addData("Offset rate", Sensors.gyrochange);
             telemetry.update();
         }
+
     }
 }

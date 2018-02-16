@@ -23,27 +23,17 @@ public class driveForward extends LinearOpMode{
 
 
         move drive = new move(this);
-        /*
-        drive.turnRight(5, 0.15);
-        drive.lowerRaisin();
-        sleep(1000);
-        drive.raisein();
-        drive.turnRight(-5, 0.15);
-        drive.turnRight(-30,0.15);
-        Sensors.vuMark();
-        drive.turnRight(20,0.15);
-        */
         int count = 0;
         while (RobotConstants.vuMark==RelicRecoveryVuMark.UNKNOWN&&opModeIsActive()&&count<20)
         {
-            drive.forward(3,0.2);
+            drive.forward(3,0.23);
             count++;
         }
-        drive.forward(20-(2*count),.2);
-        drive.right(-10, -0.5);
+        drive.forward(26-(2.5*count),.2);
+        drive.right(-9, -0.5);
         drive.toColumn();
-        drive.release();
-        drive.forward(-4,-0.3);
-
+        drive.forward(-2 ,-0.3);
+        drive.liftZero();
+        while (opModeIsActive());
     }
 }
