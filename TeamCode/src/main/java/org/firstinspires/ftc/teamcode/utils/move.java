@@ -143,10 +143,10 @@ public class move {
                     rjewel.setPosition(1);
                     ljewel.setPosition(0);
                     pause(500);
-                    forward(-2,-.3);
+                    forward(-1,-.3);
                     break;
                 case -1:
-                    turnRight(5, .3);
+                    turnRight(3, .3);
                     rjewel.setPosition(1);
                     ljewel.setPosition(0);
                     pause(500);
