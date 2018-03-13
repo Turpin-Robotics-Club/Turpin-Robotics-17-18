@@ -18,10 +18,7 @@ public class liuTeleOp extends OpMode{
     private DcMotor frontLeft;
     private DcMotor lifter;
     // variables for motor power
-    private double frontLeftPower;
-    private double frontRightPower;
-    private double backLeftPower;
-    private double backRightPower;
+
     private double frontLeftPower;
     private double frontRightPower;
     private double backLeftPower;
@@ -41,6 +38,27 @@ public class liuTeleOp extends OpMode{
     }
     @Override
     public void loop(){
+        //driving power values
+        frontLeftPower = (gamepad1.left_stick_x + (-gamepad1.left_stick_y * 1.5));
+        frontRightPower = (-gamepad1.left_stick_x + (-gamepad1.left_stick_y * 1.5));
+        backLeftPower = (-gamepad1.left_stick_x + (-gamepad1.left_stick_y * 1.5));
+        backRightPower = (gamepad1.left_stick_x + (-gamepad1.left_stick_y * 1.5));
+        //turning values
+        frontLeftPower = gamepad1.right_stick_x;
+        frontRightPower = -gamepad1.right_stick_x;
+        backLeftPower = gamepad1.right_stick_x;
+        backRightPower = -gamepad1.right_stick_x;
 
+        frontLeft.setPower(frontLeftPower * 0.75);
+        frontRight.setPower(frontRightPower * 0.75);
+        backLeft.setPower(backLeftPower * 0.75);
+        backRight.setPower(backRightPower * 0.75);
+        //lifter motor power
+        if (gamepad1.a)
+            lifter.setPower(0.5);
+        if (gamepad1.b)
+            lifter.setPower(-0.5);
+        else
+            lifter.setPower(0);
     }
 }
