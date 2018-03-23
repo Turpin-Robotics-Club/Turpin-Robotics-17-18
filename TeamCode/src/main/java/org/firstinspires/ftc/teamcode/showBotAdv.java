@@ -46,7 +46,7 @@ public class showBotAdv extends OpMode {
         telemetry.addData("Right Stick X", gamepad1.right_stick_x);
 
         //set the motors to the power
-        Lmotor.setPower(Lmotorvalue);
-        Rmotor.setPower(Rmotorvalue);
+        Lmotor.setPower(Lmotorvalue*0.5);
+        Rmotor.setPower(Rmotorvalue*0.5);
     }
 }

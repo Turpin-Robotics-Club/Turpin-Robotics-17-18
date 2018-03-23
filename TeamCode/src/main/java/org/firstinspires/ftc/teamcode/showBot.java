@@ -29,7 +29,7 @@ public class showBot extends OpMode {
 
         //sets the motors to the values of the joysticks (tank steering)
         //the values are negative because up on the y is negative on the controllers
-        Lmotor.setPower(-gamepad1.left_stick_y);
-        Rmotor.setPower(-gamepad1.right_stick_y);
+        Lmotor.setPower(-gamepad1.left_stick_y*0.5);
+        Rmotor.setPower(-gamepad1.right_stick_y*0.5);
     }
 }
